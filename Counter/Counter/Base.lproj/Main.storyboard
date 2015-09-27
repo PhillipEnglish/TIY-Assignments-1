@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Swift_Counter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -17,28 +18,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT COUNT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ai-yV-Jem">
-                                <rect key="frame" x="249" y="28" width="101.5" height="23.5"/>
+                                <rect key="frame" x="249" y="28" width="102" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-EC-vOZ">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-EC-vOZ">
                                 <rect key="frame" x="14" y="223" width="572" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="INV-ji-2Uv"/>
                                 </connections>
                             </slider>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8lL-g8-MYH">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8lL-g8-MYH">
                                 <rect key="frame" x="253" y="261" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="pIe-bJ-xbx"/>
                                 </connections>
                             </stepper>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-OI-nh1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-OI-nh1">
                                 <rect key="frame" x="180" y="306" width="240" height="212"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQ1-St-r3q">
-                                <rect key="frame" x="228" y="51.5" width="144" height="164"/>
+                                <rect key="frame" x="228" y="52" width="144" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="4Q5-tU-Osv"/>
                                 </constraints>
@@ -63,12 +64,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countTextField" destination="iQ1-St-r3q" id="bwl-aZ-wpE"/>
+                        <outlet property="countTextField" destination="iQ1-St-r3q" id="j6o-kA-PjQ"/>
                         <outlet property="slider" destination="1Qi-EC-vOZ" id="I9J-g6-Naa"/>
                         <outlet property="stepper" destination="8lL-g8-MYH" id="SOw-Mq-DiY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="j75-VO-5aY">
+                    <connections>
+                        <action selector="viewTapped:" destination="vXZ-lx-hvc" id="Jgy-9p-pKd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
