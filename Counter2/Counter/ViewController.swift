@@ -50,7 +50,7 @@ class ViewController: UIViewController
         //
         // 3. Here we are setting the value property of the UISlider in the view. This causes the slider to set its handle to the
         //    appropriate position. Fill in the blank below.
-        //
+        // TODO this is not updating correctly, seems to be a decimal place issue. Multiplying currentCount * 100 does not resolve
         slider.value = Float(currentCount)
         
         //
