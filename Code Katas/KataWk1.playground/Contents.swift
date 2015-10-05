@@ -22,7 +22,7 @@ var i = 999, int1 = 999, int2 = 999, product = 0
 
 while i > 0 {
     product = int1 * int2
-    if product == reverseInt(product)
+    if String(product) == reversed(String(product))
     {
         print(product)
     }
@@ -32,4 +32,23 @@ while i > 0 {
         int2--
     }
 }
+
+var origInt = 0, reversed = 0
+
+func reversed(origStr: String) -> String {
+    
+    // map string to array
+    let strArray = origStr.characters
+    // reverse array 
+    let reverseArray = strArray.reverse()
+    // assign to new string
+    let reverseStr = String(reverseArray)
+    
+    return reverseStr
+    
+
+}
+
+
+
 
