@@ -11,17 +11,17 @@ class BodyPart
         self.healthy = argHealthy
     }
     
-    func repair()
+    func repair(latinName: String, doctor: String, technique: String)
     {
         
     }
     
-    func replace()
+    func replace(latinName: String, exists: Bool, donor: String)
     {
         
     }
     
-    func remove()
+    func remove(latinName: String, patientApproval: Bool, isEmergency: Bool)
     {
         
     }
@@ -40,17 +40,17 @@ class Head : BodyPart
         self.hasNose = argHasNose
     }
     
-    func changeHairColor()
+    func changeHairColor(currentColor: String, newColor: String)
     {
         
     }
     
-    func changeHairStyle()
+    func changeHairStyle(currentStyle: String, newStyle: String, cost: Double)
     {
         
     }
     
-    func blowNose()
+    func blowNose(hasTissue: Bool, hasNose: Bool)
     {
         
     }
@@ -69,17 +69,17 @@ class Hand : BodyPart
         self.fingerCount = argFingerCount
     }
     
-    func makeFist()
+    func makeFist(fingerCount: Int, isAngry: Bool)
     {
         
     }
     
-    func openHand()
+    func openHand(fingerCount: Int, isHoldingSomething: Bool)
     {
         
     }
     
-    func waveHand()
+    func waveHand(isGreeting: Bool)
     {
         
     }
@@ -89,13 +89,13 @@ class Foot : BodyPart
 {
     let shoeSize: Double
     let shoeWidth: String
-    let isFlat: Bool
+    let toeCount: Bool
     
     
-    init(argShoeSize: Double, argShoeWidth: String, argIsFlat: Bool){
+    init(argShoeSize: Double, argShoeWidth: String, argToeCount: Bool){
         self.shoeSize = argShoeSize
         self.shoeWidth = argShoeWidth
-        self.isFlat = argIsFlat
+        self.toeCount = argToeCount
     }
     
     func flexToes()
