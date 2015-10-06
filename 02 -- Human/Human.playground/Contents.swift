@@ -1,27 +1,27 @@
 class BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let latinName: String
+    let exists: Bool
+    let healthy: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argLatinName: String, argExists: Bool, argHealthy: Bool){
+        self.latinName = argLatinName
+        self.exists = argExists
+        self.healthy = argHealthy
     }
     
-    func a()
+    func repair()
     {
         
     }
     
-    func b()
+    func replace()
     {
         
     }
     
-    func c()
+    func remove()
     {
         
     }
@@ -29,28 +29,28 @@ class BodyPart
 
 class Head : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let hairColor: String
+    let hairStyle: String
+    let hasNose: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argHairColor: String, argHairStyle: String, argHasNose: Bool){
+        self.hairColor = argHairColor
+        self.hairStyle = argHairStyle
+        self.hasNose = argHasNose
     }
     
-    func a()
+    func changeHairColor()
     {
         
     }
     
-    func b()
+    func changeHairStyle()
     {
         
     }
     
-    func c()
+    func blowNose()
     {
         
     }
@@ -58,57 +58,28 @@ class Head : BodyPart
 
 class Hand : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let length: Double
+    let width: Double
+    let fingerCount: Int
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argLength: Double, argWidth: Double, argFingerCount: Int){
+        self.length = argLength
+        self.width = argWidth
+        self.fingerCount = argFingerCount
     }
     
-    func a()
+    func makeFist()
     {
         
     }
     
-    func b()
+    func openHand()
     {
         
     }
     
-    func c()
-    {
-        
-    }
-}
-
-class Foot : BodyPart
-{
-    let x: String
-    let y: Bool
-    let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
-    {
-        
-    }
-    
-    func b()
-    {
-        
-    }
-    
-    func c()
+    func waveHand()
     {
         
     }
@@ -116,28 +87,28 @@ class Foot : BodyPart
 
 class Foot : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let shoeSize: Double
+    let shoeWidth: String
+    let isFlat: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argShoeSize: Double, argShoeWidth: String, argIsFlat: Bool){
+        self.shoeSize = argShoeSize
+        self.shoeWidth = argShoeWidth
+        self.isFlat = argIsFlat
     }
     
-    func a()
+    func flexToes()
     {
         
     }
     
-    func b()
+    func curlToes()
     {
         
     }
     
-    func c()
+    func wiggleToes()
     {
         
     }
@@ -173,6 +144,35 @@ class Finger : BodyPart
 }
 
 class Toe : BodyPart
+{
+    let x: String
+    let y: Bool
+    let z: String
+    
+    
+    init(argX: String, argY: Bool, argZ: String){
+        self.x = argX
+        self.y = argY
+        self.z = argZ
+    }
+    
+    func a()
+    {
+        
+    }
+    
+    func b()
+    {
+        
+    }
+    
+    func c()
+    {
+        
+    }
+}
+
+class Knee : BodyPart
 {
     let x: String
     let y: Bool
