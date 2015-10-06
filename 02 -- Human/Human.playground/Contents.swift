@@ -260,15 +260,9 @@ class Arm : Limb
 
 class Organ : BodyPart
 {
-    let isOriginal: Bool
-    let availableToDonate: Bool
-    let isViable: Bool
-    
-    init(argIsOriginal: Bool, argWillDonate: Bool, argIsViable: Bool){
-        self.isOriginal = argIsOriginal
-        self.availableToDonate = argWillDonate
-        self.isViable = argIsViable
-    }
+    let isOriginal: Bool = true
+    let availableToDonate: Bool = true
+    let isViable: Bool = true
     
     func recieveDonation(isViable: Bool, latinName: String)
     {
@@ -288,28 +282,21 @@ class Organ : BodyPart
 
 class Heart : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let beatsPerMin: Int = 0
+    let hasMurmur: Bool = false
+    let hasPalpitations: Bool = false
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
+    func restart(exists: Bool, isViable: Bool, hasShockerThingie: Bool)
     {
         
     }
     
-    func b()
+    func repair(latinName: String, doctor: String, technique: String, isViable: Bool)
     {
-        
+        // overloads super method
     }
     
-    func c()
+    func breakHeart(exists: Bool, nemesis: String)
     {
         
     }
