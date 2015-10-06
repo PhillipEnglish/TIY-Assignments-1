@@ -326,28 +326,22 @@ class Liver : Organ
 
 class Kidney : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let numOfKidneys: Int = 2
+    let healthOfKid1: String = "fair"
+    let healthOfKid2: String = "excellent"
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    func donateOneKidney(whichKidney: Int, viable: Bool)
+    {
+        // isViable()
+        // remove()
     }
     
-    func a()
+    func insertDonatedKidney(patientHealth: String, doctor: String)
     {
         
     }
     
-    func b()
-    {
-        
-    }
-    
-    func c()
+    func checkSymptoms(feelsPain: Bool, discomfortLevel: Int)
     {
         
     }
@@ -355,29 +349,21 @@ class Kidney : Organ
 
 class Skin : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let hasTattoos: Bool = false
+    let skinType: String = ""
+    let isHairy: Bool = false
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        super.init(argLatinName: <#T##String#>, argExists: <#T##Bool#>, argHealthy: <#T##Bool#>)
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
+    func removeTattoos(isHairy: Bool, isHealthy: Bool)
     {
         
     }
     
-    func b()
+    func wash(skinExists: Bool, skinDirty: Bool, skinType: String)
     {
         
     }
     
-    func c()
+    func wax(isHairy: Bool, waxType: String)
     {
         
     }
@@ -385,28 +371,21 @@ class Skin : Organ
 
 class Lungs : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let numOfLungs: Int = 2
+    let lungColor: String = ""
+    let coughing: Bool = false
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
+    func testLungs(doctor: String, testType: String, isCoughing: Bool)
     {
         
     }
     
-    func b()
+    func treatForCough(isCoughing: Bool, medicine: String)
     {
         
     }
     
-    func c()
+    func aspirate(lungExists: Bool, doctor: String)
     {
         
     }
@@ -417,13 +396,6 @@ class Stomach : Organ
     let x: String
     let y: Bool
     let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
     
     func a()
     {
@@ -447,13 +419,6 @@ class Gallbladder : Organ
     let y: Bool
     let z: String
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
     func a()
     {
         
@@ -475,13 +440,6 @@ class Appendix : Organ
     let x: String
     let y: Bool
     let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
     
     func a()
     {
@@ -505,13 +463,6 @@ class Pancreas : Organ
     let y: Bool
     let z: String
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
     func a()
     {
         
@@ -533,13 +484,6 @@ class Bladder : Organ
     let x: String
     let y: Bool
     let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
     
     func a()
     {
