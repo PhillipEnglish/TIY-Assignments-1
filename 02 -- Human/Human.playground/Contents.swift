@@ -98,17 +98,17 @@ class Foot : BodyPart
         self.toeCount = argToeCount
     }
     
-    func flexToes()
+    func flexToes(footExists: Bool)
     {
         
     }
     
-    func curlToes()
+    func fixFoot(footExists: Bool, footIsHealthy: Bool)
     {
-        
+        // utilize parent method "repair" here
     }
     
-    func wiggleToes()
+    func wiggleToes(isHealthy: Bool)
     {
         
     }
@@ -116,28 +116,28 @@ class Foot : BodyPart
 
 class Finger : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let hasNail: Bool
+    let nailColor: String
+    let isDoubleJointed: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argHasNail: Bool, argNailColor: String, argIsDoubleJointed: Bool){
+        self.hasNail = argHasNail
+        self.nailColor = argNailColor
+        self.isDoubleJointed = argIsDoubleJointed
     }
     
-    func a()
+    func paintNail(nailExists: Bool, hasNail: Bool, colorSelection: String)
     {
         
     }
     
-    func b()
+    func poke(fingerExists: Bool, fingerIsHealthy: Bool, victim: String)
     {
         
     }
     
-    func c()
+    func scratch(hasNail: Bool, target: String)
     {
         
     }
@@ -145,44 +145,43 @@ class Finger : BodyPart
 
 class Toe : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let littlePiggieDestination: String
+    let isBlistered: Bool
+    let nickname: String
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argDestination: String, argIsBlistered: Bool, argNickname: String){
+        self.littlePiggieDestination = argDestination
+        self.isBlistered = argIsBlistered
+        self.nickname = argNickname
     }
     
-    func a()
+    func goHome(whichPiggy: String, whereTo: String)
     {
         
     }
     
-    func b()
+    func healToe(isBlistered: Bool, nickname: String)
     {
         
     }
     
-    func c()
+    func fitTightShooes(toeExists: Bool)
     {
-        
+        // remove toe - not a priority
     }
 }
 
-class Knee : BodyPart
+class Limb : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isJointHealthy: Bool
+    let rightOrLeft: String
+    let needsBrace: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argIsJointHealthy: Bool, argRightOrLeft: String, argNeedsBrace: Bool){
+        self.isJointHealthy = argIsJointHealthy
+        self.rightOrLeft = argRightOrLeft
+        self.needsBrace = argNeedsBrace
     }
     
     func a()
