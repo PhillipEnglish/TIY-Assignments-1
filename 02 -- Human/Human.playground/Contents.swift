@@ -266,7 +266,7 @@ class Organ : BodyPart
     
     func recieveDonation(isViable: Bool, latinName: String)
     {
-        // utilize super replace method
+        // utilize super.replace()
     }
     
     func giveDonation(availableToDonate: Bool, isViable: Bool, recipient: String, doctor: String)
@@ -304,28 +304,21 @@ class Heart : Organ
 
 class Liver : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let numOfLobes: Int = 4
+    let color: String = ""
+    let feels: String = ""
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
+    func partialDonation(latinName: String, patientApproval: Bool, isEmergency: Bool)
     {
         
     }
     
-    func b()
+    func abuse(numOfBeers: Int)
     {
         
     }
     
-    func c()
+    func rest(status: String, timeToRest: Int)
     {
         
     }
