@@ -260,28 +260,27 @@ class Arm : Limb
 
 class Organ : BodyPart
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isOriginal: Bool
+    let availableToDonate: Bool
+    let isViable: Bool
     
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argIsOriginal: Bool, argWillDonate: Bool, argIsViable: Bool){
+        self.isOriginal = argIsOriginal
+        self.availableToDonate = argWillDonate
+        self.isViable = argIsViable
     }
     
-    func a()
+    func recieveDonation(isViable: Bool, latinName: String)
     {
-        
+        // utilize super replace method
     }
     
-    func b()
+    func giveDonation(availableToDonate: Bool, isViable: Bool, recipient: String, doctor: String)
     {
-        
+        // utilize remove method
     }
     
-    func c()
+    func test(organExists: Bool, doctor: String)
     {
         
     }
