@@ -29,16 +29,9 @@ class BodyPart
 
 class Head : BodyPart
 {
-    let hairColor: String
-    let hairStyle: String
-    let hasNose: Bool
-    
-    
-    init(argHairColor: String, argHairStyle: String, argHasNose: Bool){
-        self.hairColor = argHairColor
-        self.hairStyle = argHairStyle
-        self.hasNose = argHasNose
-    }
+    let hairColor: String = ""
+    let hairStyle: String = ""
+    let hasNose: Bool = true
     
     func changeHairColor(currentColor: String, newColor: String)
     {
@@ -58,16 +51,9 @@ class Head : BodyPart
 
 class Hand : BodyPart
 {
-    let length: Double
-    let width: Double
-    let fingerCount: Int
-    
-    
-    init(argLength: Double, argWidth: Double, argFingerCount: Int){
-        self.length = argLength
-        self.width = argWidth
-        self.fingerCount = argFingerCount
-    }
+    let length: Double = 0
+    let width: Double = 0
+    let fingerCount: Int = 0
     
     func makeFist(fingerCount: Int, isAngry: Bool)
     {
@@ -87,16 +73,9 @@ class Hand : BodyPart
 
 class Foot : BodyPart
 {
-    let shoeSize: Double
-    let shoeWidth: String
-    let toeCount: Bool
-    
-    
-    init(argShoeSize: Double, argShoeWidth: String, argToeCount: Bool){
-        self.shoeSize = argShoeSize
-        self.shoeWidth = argShoeWidth
-        self.toeCount = argToeCount
-    }
+    let shoeSize: Double = 0
+    let shoeWidth: String = ""
+    let toeCount: Int = 10
     
     func flexToes(footExists: Bool)
     {
@@ -116,16 +95,9 @@ class Foot : BodyPart
 
 class Finger : BodyPart
 {
-    let hasNail: Bool
-    let nailColor: String
-    let isDoubleJointed: Bool
-    
-    
-    init(argHasNail: Bool, argNailColor: String, argIsDoubleJointed: Bool){
-        self.hasNail = argHasNail
-        self.nailColor = argNailColor
-        self.isDoubleJointed = argIsDoubleJointed
-    }
+    let hasNail: Bool = true
+    let nailColor: String = ""
+    let isDoubleJointed: Bool = false
     
     func paintNail(nailExists: Bool, hasNail: Bool, colorSelection: String)
     {
@@ -145,15 +117,9 @@ class Finger : BodyPart
 
 class Toe : BodyPart
 {
-    let littlePiggieDestination: String
-    let isBlistered: Bool
-    let nickname: String
-    
-    init(argDestination: String, argIsBlistered: Bool, argNickname: String){
-        self.littlePiggieDestination = argDestination
-        self.isBlistered = argIsBlistered
-        self.nickname = argNickname
-    }
+    let littlePiggieDestination: String = "market"
+    let isBlistered: Bool = false
+    let nickname: String = "This Little Piggie"
     
     func goHome(whichPiggy: String, whereTo: String)
     {
@@ -173,16 +139,9 @@ class Toe : BodyPart
 
 class Limb : BodyPart
 {
-    var isJointHealthy: Bool
-    var rightOrLeft: String
-    var needsBrace: Bool
-    
-    
-    init(argIsJointHealthy: Bool, argRightOrLeft: String, argNeedsBrace: Bool){
-        self.isJointHealthy = argIsJointHealthy
-        self.rightOrLeft = argRightOrLeft
-        self.needsBrace = argNeedsBrace
-    }
+    var isJointHealthy: Bool = true
+    var rightOrLeft: String = ""
+    var needsBrace: Bool = false
     
     func bend(healthyJoint: Bool)
     {
@@ -202,16 +161,9 @@ class Limb : BodyPart
 
 class Leg : Limb
 {
-    let isKneeIntact: Bool
-    let numOfSurgeries: Int
-    let isHairy: Bool
-    
-    
-    init(argKneeIntact: Bool, argNumOfSurgeries: Int, argIsHairy: Bool){
-        self.isKneeIntact = argKneeIntact
-        self.numOfSurgeries = argNumOfSurgeries
-        self.isHairy = argIsHairy
-    }
+    let isKneeIntact: Bool = true
+    let numOfSurgeries: Int = 0
+    let isHairy: Bool = true
     
     func shave(wearingBrace: Bool, isStraight: Bool, isHairy: Bool)
     {
@@ -231,16 +183,9 @@ class Leg : Limb
 
 class Arm : Limb
 {
-    let x: String
-    let y: Bool
-    let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
+    let length: Double = 0
+    let width: Double = 0
+    let jointName: String = ""
     
     func liftWeights(isStrong: Bool, isHealthy: Bool)
     {
@@ -459,21 +404,21 @@ class Appendix : Organ
 
 class Pancreas : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let condition: String = ""
+    let weight: Double = 0
+    let doingBusinessAs: String = ""
     
-    func a()
+    func rename(formalName: String, newName: String)
     {
         
     }
     
-    func b()
+    func putOnDiet(currentWeight: Double, targetWeight: Double)
     {
         
     }
     
-    func c()
+    func improveHealth(currentCondition: String, treatment: String, targetCondition: String)
     {
         
     }
@@ -481,21 +426,21 @@ class Pancreas : Organ
 
 class Bladder : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isFull: Bool = false
+    let hasUTI: Bool = false
+    let hasStones: Bool = false
     
-    func a()
+    func emptyBladder(isBladderFull: Bool)
     {
         
     }
     
-    func b()
+    func treatStones(doctor: String, treatment: String)
     {
         
     }
     
-    func c()
+    func treatUTI(doctor: String, medication: String)
     {
         
     }
