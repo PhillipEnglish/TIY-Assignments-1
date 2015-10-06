@@ -173,9 +173,9 @@ class Toe : BodyPart
 
 class Limb : BodyPart
 {
-    let isJointHealthy: Bool
-    let rightOrLeft: String
-    let needsBrace: Bool
+    var isJointHealthy: Bool
+    var rightOrLeft: String
+    var needsBrace: Bool
     
     
     init(argIsJointHealthy: Bool, argRightOrLeft: String, argNeedsBrace: Bool){
@@ -184,17 +184,17 @@ class Limb : BodyPart
         self.needsBrace = argNeedsBrace
     }
     
-    func a()
+    func bend(healthyJoint: Bool)
     {
         
     }
     
-    func b()
+    func straighten(whichSide: String)
     {
         
     }
     
-    func c()
+    func wearBrace(latinName: String, needsBrace: Bool)
     {
         
     }
@@ -202,30 +202,30 @@ class Limb : BodyPart
 
 class Leg : Limb
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isKneeIntact: Bool
+    let numOfSurgeries: Int
+    let isHairy: Bool
     
     
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
+    init(argKneeIntact: Bool, argNumOfSurgeries: Int, argIsHairy: Bool){
+        self.isKneeIntact = argKneeIntact
+        self.numOfSurgeries = argNumOfSurgeries
+        self.isHairy = argIsHairy
     }
     
-    func a()
+    func shave(wearingBrace: Bool, isStraight: Bool, isHairy: Bool)
     {
-        
+        // utilizes parent (Limb) methods: straighten(<#T##whichSide: String##String#>)
     }
     
-    func b()
+    func replace(latinName: String, healthyJoint: Bool, doctor: String)
     {
-        
+        // overides superclass func
     }
     
-    func c()
+    func bend(healthyJoint: Bool, isIntact: Bool)
     {
-        
+        // overloads Limb bend func
     }
 }
 
@@ -242,17 +242,17 @@ class Arm : Limb
         self.z = argZ
     }
     
-    func a()
+    func liftWeights(isStrong: Bool, isHealthy: Bool)
     {
         
     }
     
-    func b()
+    func showGuns(isStrong: Bool)
     {
         
     }
     
-    func c()
+    func hug(armExists: Bool)
     {
         
     }
@@ -549,35 +549,6 @@ class Pancreas : Organ
 }
 
 class Bladder : Organ
-{
-    let x: String
-    let y: Bool
-    let z: String
-    
-    
-    init(argX: String, argY: Bool, argZ: String){
-        self.x = argX
-        self.y = argY
-        self.z = argZ
-    }
-    
-    func a()
-    {
-        
-    }
-    
-    func b()
-    {
-        
-    }
-    
-    func c()
-    {
-        
-    }
-}
-
-class Eye : Organ
 {
     let x: String
     let y: Bool
