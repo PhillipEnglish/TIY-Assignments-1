@@ -105,7 +105,7 @@ class Foot : BodyPart
     
     func fixFoot(footExists: Bool, footIsHealthy: Bool)
     {
-        // utilize parent method "repair" here
+        // utilize super.repair()
     }
     
     func wiggleToes(isHealthy: Bool)
@@ -167,7 +167,7 @@ class Toe : BodyPart
     
     func fitTightShooes(toeExists: Bool)
     {
-        // remove toe - not a priority
+        // super.remove(toe)
     }
 }
 
@@ -215,7 +215,7 @@ class Leg : Limb
     
     func shave(wearingBrace: Bool, isStraight: Bool, isHairy: Bool)
     {
-        // utilizes parent (Limb) methods: straighten(<#T##whichSide: String##String#>)
+        // utilizes super.straighten(<#T##whichSide: String##String#>)
     }
     
     func replace(latinName: String, healthyJoint: Bool, doctor: String)
@@ -368,6 +368,7 @@ class Skin : Organ
     
     
     init(argX: String, argY: Bool, argZ: String){
+        super.init(argLatinName: <#T##String#>, argExists: <#T##Bool#>, argHealthy: <#T##Bool#>)
         self.x = argX
         self.y = argY
         self.z = argZ
