@@ -14,6 +14,8 @@ sum
 
 // A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3-digit numbers.
 
+// result should be 906609
+
 var i = 999, int1 = 999, int2 = 999, product = 0
 
 // multiply int1 * int2, decrementing int2 each loop
@@ -25,6 +27,7 @@ while i > 0 {
     if String(product) == reversed(String(product))
     {
         print(product)
+        break
     }
     else
     {
