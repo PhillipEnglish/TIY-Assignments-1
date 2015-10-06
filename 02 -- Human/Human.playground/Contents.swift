@@ -393,21 +393,21 @@ class Lungs : Organ
 
 class Stomach : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let phLevel: Double = 7.0
+    let isDistended: Bool = false
+    let hungerLevel1to10: Int = 5
     
-    func a()
+    func feed(howHungry: Int, isHealthy: Bool)
     {
         
     }
     
-    func b()
+    func takeAntacid(phLevel: Double)
     {
         
     }
     
-    func c()
+    func test(organExists: Bool, doctor: String, isDistended: Bool)
     {
         
     }
@@ -415,43 +415,43 @@ class Stomach : Organ
 
 class Gallbladder : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isNeeded: Bool = true
+    let painLevel1to10: Int = 0
+    let hasStones: Bool = false
     
-    func a()
+    func remove(latinName: String, patientApproval: Bool, isEmergency: Bool, surgeryType: String)
+    {
+        // over load super method
+    }
+    
+    func checkBileProduction(testMethod: String, doctor: String)
     {
         
     }
     
-    func b()
+    func rename(latinName: String, newFunName: String)
     {
-        
-    }
-    
-    func c()
-    {
-        
+        // I'm getting desperate here
     }
 }
 
 class Appendix : Organ
 {
-    let x: String
-    let y: Bool
-    let z: String
+    let isObsolete: Bool = true
+    let isInflamed: Bool = false
+    let appendixColor: String = ""
     
-    func a()
+    func checkAppendix(doesItExist: Bool, isInflamed: Bool, testMethod: String)
     {
         
     }
     
-    func b()
+    func treatAppendix(doctor: String, treatmentCourse: String)
     {
         
     }
     
-    func c()
+    func remove(latinName: String, isEmergency: Bool, patientConsentSigned: Bool)
     {
         
     }
