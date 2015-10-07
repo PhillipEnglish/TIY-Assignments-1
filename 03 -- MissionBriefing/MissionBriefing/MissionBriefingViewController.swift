@@ -1,11 +1,10 @@
 //
-//  MissionBriefingViewController.swift
-//  Mission Briefing
+//  ViewController.swift
+//  MissionBriefing
 //
-//  Created by Ben Gohlke on 10/7/15.
+//  Created by Jennifer Hamilton on 10/7/15.
 //  Copyright © 2015 The Iron Yard. All rights reserved.
 //
-
 import UIKit
 
 class MissionBriefingViewController: UIViewController
@@ -24,13 +23,13 @@ class MissionBriefingViewController: UIViewController
         //
         
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Action Handlers
     
     @IBAction func authenticateAgent(sender: UIButton)
@@ -97,7 +96,7 @@ class MissionBriefingViewController: UIViewController
             //
             //    Once you have the color object, you should be able to set the view's background color to this object.
             //
-
+            
             
             
             
@@ -106,4 +105,6 @@ class MissionBriefingViewController: UIViewController
         }
     }
 }
+
+
 
