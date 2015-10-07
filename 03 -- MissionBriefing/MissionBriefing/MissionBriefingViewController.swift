@@ -7,10 +7,14 @@
 //
 import UIKit
 
-class MissionBriefingViewController: UIViewController
+class MissionBriefingViewController: UIViewController, UITextFieldDelegate
 {
     // Place IBOutlet properties below
-    
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var button: UIButton!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var textField: UITextField!
     
     override func viewDidLoad()
     {
@@ -21,7 +25,9 @@ class MissionBriefingViewController: UIViewController
         // 3. The three UI elements need to be emptied on launch
         //    Hint: there is a string literal that represents empty
         //
-        
+        nameTextField.text = ""
+        passwordTextField.text = ""
+        label.text = ""
     }
     
     override func didReceiveMemoryWarning()
@@ -35,12 +41,12 @@ class MissionBriefingViewController: UIViewController
     @IBAction func authenticateAgent(sender: UIButton)
     {
         // This will cause the keyboard to dismiss when the authenticate button is tapped
-        if <#name text field property identifier goes here#>.isFirstResponder
+        if nameTextField.isFirstResponder()
         {
-            <#name text field property identifier goes here#>.resignFirstResponder
+            nameTextField.resignFirstResponder()
         }
         
-        //
+        
         // 4. Check whether there is text in BOTH the name and password textfields
         //
         if <#?#>
@@ -104,6 +110,37 @@ class MissionBriefingViewController: UIViewController
             
         }
     }
+/*
+    
+    @IBAction func buttonTapped(sender: UIButton)
+    {
+        authenticateAgent()()
+    }
+    
+    // MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        return sayHello()
+    }
+    
+    // MARK: - Private
+    
+    func sayHello() -> Bool
+    {
+        var rc = false
+        
+        if let name = nameTextField.text
+        {
+            rc = true
+            nameTextField.resignFirstResponder()
+            let nameComponents = name.characters.split(" ").map { String($0) }
+            label.text = "Hello, \(nameComponents[0])"
+        }
+        
+        return rc
+    }
+*/
 }
 
 

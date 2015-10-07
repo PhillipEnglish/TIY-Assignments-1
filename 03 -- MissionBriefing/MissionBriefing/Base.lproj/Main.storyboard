@@ -90,6 +90,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="XBb-T2-VlK" id="SwJ-Fn-Dly"/>
+                        <outlet property="label" destination="HuX-cV-XGF" id="4p4-6e-op5"/>
+                        <outlet property="nameTextField" destination="TOY-nx-EI6" id="jq1-Kq-kTK"/>
+                        <outlet property="passwordTextField" destination="zzt-AK-UHG" id="MTD-D5-hjl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
