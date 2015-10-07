@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Name View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NameViewController" customModule="SayMyName" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name goes here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2A-6Y-mq0">
+                                <rect key="frame" x="150" y="28" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0vf-qd-PA2"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGa-BU-tbh">
+                                <rect key="frame" x="279" y="66" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-Ni-qbl">
+                                <rect key="frame" x="277" y="134" width="46" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="goTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jpm-I9-gp9"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f9E-4s-cpW">
+                                <rect key="frame" x="276" y="95" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="OEM-Xs-Qf0"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cGa-BU-tbh" firstAttribute="centerX" secondItem="Y2A-6Y-mq0" secondAttribute="centerX" id="6rk-Zo-sKK"/>
+                            <constraint firstItem="f9E-4s-cpW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C0Q-6A-Odk"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="DU2-NU-1ea"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gt9-RD-6jh"/>
+                            <constraint firstItem="cGa-BU-tbh" firstAttribute="centerX" secondItem="Y2A-6Y-mq0" secondAttribute="centerX" id="MYU-61-V3l"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="f9E-4s-cpW" secondAttribute="centerX" id="NSJ-zk-Mrr"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="f9E-4s-cpW" secondAttribute="centerX" id="R7g-Yd-7e8"/>
+                            <constraint firstItem="f9E-4s-cpW" firstAttribute="top" secondItem="cGa-BU-tbh" secondAttribute="bottom" constant="8" id="RKd-1c-0Oq"/>
+                            <constraint firstItem="cGa-BU-tbh" firstAttribute="leading" secondItem="Y2A-6Y-mq0" secondAttribute="trailing" constant="-171" id="RLx-V4-aql"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="f9E-4s-cpW" secondAttribute="centerX" id="TCH-Nj-W9d"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="Y2A-6Y-mq0" secondAttribute="bottom" constant="76" id="VuJ-6P-ULu"/>
+                            <constraint firstItem="Y2A-6Y-mq0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="W2n-qY-2de"/>
+                            <constraint firstItem="Y2A-6Y-mq0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ZTN-mx-v3b"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="a13-fl-oDx"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="f9E-4s-cpW" secondAttribute="centerX" id="a9D-YD-Q8a"/>
+                            <constraint firstItem="f9E-4s-cpW" firstAttribute="centerX" secondItem="cGa-BU-tbh" secondAttribute="centerX" id="adh-Sk-IQd"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="gke-UL-cbS"/>
+                            <constraint firstItem="cGa-BU-tbh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j58-Lg-YaA"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="mo2-Ih-lMC"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="trailing" secondItem="f9E-4s-cpW" secondAttribute="trailing" id="pcQ-1e-Rk0"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="tjW-Km-nXk"/>
+                            <constraint firstItem="f9E-4s-cpW" firstAttribute="centerX" secondItem="cGa-BU-tbh" secondAttribute="centerX" id="udR-46-kvQ"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="top" secondItem="f9E-4s-cpW" secondAttribute="bottom" constant="8" id="vPR-p4-Vix"/>
+                            <constraint firstItem="cGa-BU-tbh" firstAttribute="top" secondItem="Y2A-6Y-mq0" secondAttribute="bottom" constant="8" id="xeZ-j7-Sf1"/>
+                            <constraint firstItem="Y2A-6Y-mq0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yTd-6U-dc8"/>
+                            <constraint firstItem="Hdo-Ni-qbl" firstAttribute="centerX" secondItem="Y2A-6Y-mq0" secondAttribute="centerX" id="z4H-bM-JbB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MYU-61-V3l"/>
+                                <exclude reference="RLx-V4-aql"/>
+                                <exclude reference="j58-Lg-YaA"/>
+                                <exclude reference="C0Q-6A-Odk"/>
+                                <exclude reference="udR-46-kvQ"/>
+                                <exclude reference="DU2-NU-1ea"/>
+                                <exclude reference="Gt9-RD-6jh"/>
+                                <exclude reference="NSJ-zk-Mrr"/>
+                                <exclude reference="R7g-Yd-7e8"/>
+                                <exclude reference="TCH-Nj-W9d"/>
+                                <exclude reference="VuJ-6P-ULu"/>
+                                <exclude reference="a13-fl-oDx"/>
+                                <exclude reference="a9D-YD-Q8a"/>
+                                <exclude reference="gke-UL-cbS"/>
+                                <exclude reference="mo2-Ih-lMC"/>
+                                <exclude reference="pcQ-1e-Rk0"/>
+                                <exclude reference="tjW-Km-nXk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="cGa-BU-tbh" id="hNl-4q-BYS"/>
+                        <outlet property="nameTextField" destination="Y2A-6Y-mq0" id="Tq0-AL-t5Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="286"/>
+        </scene>
+    </scenes>
+</document>
