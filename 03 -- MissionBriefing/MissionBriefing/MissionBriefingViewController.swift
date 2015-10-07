@@ -12,9 +12,9 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
     // Place IBOutlet properties below
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var button: UIButton!
-    @IBOutlet var label: UILabel!
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var authenticateButton: UIButton!
+    @IBOutlet var greetingLabel: UILabel!
+    @IBOutlet var missionTextField: UITextField!
     
     override func viewDidLoad()
     {
@@ -27,7 +27,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         //
         nameTextField.text = ""
         passwordTextField.text = ""
-        label.text = ""
+        greetingLabel.text = ""
     }
     
     override func didReceiveMemoryWarning()
@@ -41,28 +41,17 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
     @IBAction func authenticateAgent(sender: UIButton)
     {
         // This will cause the keyboard to dismiss when the authenticate button is tapped
-        if nameTextField.isFirstResponder()
+        if authenticateButton.isFirstResponder()
         {
-            nameTextField.resignFirstResponder()
+            authenticateButton.resignFirstResponder()
         }
         
         
         // 4. Check whether there is text in BOTH the name and password textfields
         //
-        if <#?#>
+        if nameTextField.text != "" && passwordTextField.text != ""
         {
-            //
-            // 5. The greeting label needs to be populated with the the string "Good evening, Agent #", where # is the last name of
-            //    the agent logging in. The agent's full name is listed in the text field, but you need to pull out just the last
-            //    name. Open the Apple Documentation and go to the page for NSString. There is a section in the left called "Dividing
-            //    Strings". You should be able to find a method that allows you to break up a string using a delimiter. In our case,
-            //    the delimiter would be a space character.
-            //
-            
-            
-            
-            
-            
+            greetAgent()
             
             //
             // 6. The mission briefing textview needs to be populated with the briefing from HQ, but it must also include the last
@@ -71,7 +60,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             //    Set the textview text property to the paragraph in "MissionBriefing.txt"
             //
             
-            
+            missionTextField = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(nameComponent), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
             
             
             
@@ -110,24 +99,27 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             
         }
     }
-/*
-    
-    @IBAction func buttonTapped(sender: UIButton)
-    {
-        authenticateAgent()()
-    }
     
     // MARK: - UITextField Delegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        return sayHello()
+        return greetAgent()
     }
-    
+
     // MARK: - Private
     
-    func sayHello() -> Bool
+    func greetAgent() -> Bool
     {
+        
+        //
+        // 5. The greeting label needs to be populated with the the string "Good evening, Agent #", where # is the last name of
+        //    the agent logging in. The agent's full name is listed in the text field, but you need to pull out just the last
+        //    name. Open the Apple Documentation and go to the page for NSString. There is a section in the left called "Dividing
+        //    Strings". You should be able to find a method that allows you to break up a string using a delimiter. In our case,
+        //    the delimiter would be a space character.
+        //
+
         var rc = false
         
         if let name = nameTextField.text
@@ -135,12 +127,12 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
             rc = true
             nameTextField.resignFirstResponder()
             let nameComponents = name.characters.split(" ").map { String($0) }
-            label.text = "Hello, \(nameComponents[0])"
+            greetingLabel.text = "Good eventing, Agent \(nameComponents[1])"
         }
         
         return rc
     }
-*/
+
 }
 
 
