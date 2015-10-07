@@ -8,7 +8,7 @@
         <!--Mission Briefing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MissionBriefingViewController" customModule="MissionBriefing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MissionBriefingViewController" customModule="MissionBriefing" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,6 +21,14 @@
                                 <rect key="frame" x="60" y="20" width="480" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AgQ-Ly-PdW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-AK-UHG">
+                                <rect key="frame" x="60" y="58" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBb-T2-VlK">
                                 <rect key="frame" x="256" y="96" width="88" height="30"/>
@@ -28,6 +36,9 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" title="Authenticate"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jx8-Hp-A10"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-cV-XGF">
                                 <rect key="frame" x="279" y="134" width="42" height="21"/>
@@ -41,20 +52,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="91" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-9R-cKL">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="91" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-9R-cKL">
                                 <rect key="frame" x="60" y="175" width="480" height="91"/>
-                                <string key="text">This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(lastName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(nameComponent[1]), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="TIYLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-iq-kD5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-iq-kD5">
                                 <rect key="frame" x="180" y="291" width="240" height="128"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-AK-UHG">
-                                <rect key="frame" x="60" y="58" width="480" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,10 +100,10 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="button" destination="XBb-T2-VlK" id="SwJ-Fn-Dly"/>
-                        <outlet property="label" destination="HuX-cV-XGF" id="4p4-6e-op5"/>
-                        <outlet property="nameTextField" destination="TOY-nx-EI6" id="jq1-Kq-kTK"/>
-                        <outlet property="passwordTextField" destination="zzt-AK-UHG" id="MTD-D5-hjl"/>
+                        <outlet property="authenticateButton" destination="XBb-T2-VlK" id="f6D-lh-51N"/>
+                        <outlet property="greetingLabel" destination="HuX-cV-XGF" id="RF2-hp-C9H"/>
+                        <outlet property="nameTextField" destination="TOY-nx-EI6" id="NVI-hh-7ae"/>
+                        <outlet property="passwordTextField" destination="zzt-AK-UHG" id="6Rc-l4-JBa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,6 +112,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TIYLogo.png" width="240" height="212"/>
+        <image name="TIYLogo" width="240" height="212"/>
     </resources>
 </document>

@@ -12,7 +12,7 @@
 		9A4546511BC5863000BB0706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A45464F1BC5863000BB0706 /* Main.storyboard */; };
 		9A4546531BC5863000BB0706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A4546521BC5863000BB0706 /* Assets.xcassets */; };
 		9A4546561BC5863000BB0706 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4546541BC5863000BB0706 /* LaunchScreen.storyboard */; };
-		9A51D76D1BC599110022D38C /* images in Resources */ = {isa = PBXBuildFile; fileRef = 9A51D76C1BC599110022D38C /* images */; settings = {ASSET_TAGS = (); }; };
+		9A51D7701BC5B4AA0022D38C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A51D76F1BC5B4AA0022D38C /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		9A4546521BC5863000BB0706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A4546551BC5863000BB0706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A4546571BC5863000BB0706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A51D76C1BC599110022D38C /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		9A51D76F1BC5B4AA0022D38C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +56,13 @@
 		9A45464A1BC5863000BB0706 /* MissionBriefing */ = {
 			isa = PBXGroup;
 			children = (
-				9A51D76C1BC599110022D38C /* images */,
 				9A45464B1BC5863000BB0706 /* AppDelegate.swift */,
 				9A45464D1BC5863000BB0706 /* MissionBriefingViewController.swift */,
 				9A45464F1BC5863000BB0706 /* Main.storyboard */,
 				9A4546521BC5863000BB0706 /* Assets.xcassets */,
 				9A4546541BC5863000BB0706 /* LaunchScreen.storyboard */,
 				9A4546571BC5863000BB0706 /* Info.plist */,
+				9A51D76F1BC5B4AA0022D38C /* Images.xcassets */,
 			);
 			path = MissionBriefing;
 			sourceTree = "<group>";
@@ -124,8 +124,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A51D76D1BC599110022D38C /* images in Resources */,
 				9A4546561BC5863000BB0706 /* LaunchScreen.storyboard in Resources */,
+				9A51D7701BC5B4AA0022D38C /* Images.xcassets in Resources */,
 				9A4546531BC5863000BB0706 /* Assets.xcassets in Resources */,
 				9A4546511BC5863000BB0706 /* Main.storyboard in Resources */,
 			);
