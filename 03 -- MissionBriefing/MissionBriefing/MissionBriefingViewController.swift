@@ -20,12 +20,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //
-        // 3. The three UI elements need to be emptied on launch
-        //    Hint: there is a string literal that represents empty
-        //
+        // # 3
         nameTextField.text = ""
         passwordTextField.text = ""
         greetingLabel.text = ""
@@ -35,10 +30,10 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Action Handlers
+    
     @IBAction func buttonTapped(sender: UIButton)
     {
         authenticateAgent()

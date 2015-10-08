@@ -111,7 +111,7 @@
                     <connections>
                         <outlet property="authenticateButton" destination="XBb-T2-VlK" id="f6D-lh-51N"/>
                         <outlet property="greetingLabel" destination="HuX-cV-XGF" id="RF2-hp-C9H"/>
-                        <outlet property="missionTextView" destination="jMD-9R-cKL" id="4Sm-Tj-tos"/>
+                        <outlet property="missionTextView" destination="jMD-9R-cKL" id="rQI-K7-uDt"/>
                         <outlet property="nameTextField" destination="TOY-nx-EI6" id="NVI-hh-7ae"/>
                         <outlet property="passwordTextField" destination="zzt-AK-UHG" id="6Rc-l4-JBa"/>
                     </connections>
