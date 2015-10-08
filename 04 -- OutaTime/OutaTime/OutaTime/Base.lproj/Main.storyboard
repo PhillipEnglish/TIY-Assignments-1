@@ -64,6 +64,9 @@
                                 <rect key="frame" x="191" y="460" width="218" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="SET DESTINATION TIME"/>
+                                <connections>
+                                    <segue destination="G1m-rn-3hZ" kind="show" identifier="ShowTimePickerSegue" id="RVv-XG-vfN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkV-4T-4AF">
                                 <rect key="frame" x="236" y="504" width="129" height="36"/>
@@ -115,7 +118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LBM-KI-B1V" firstAttribute="top" secondItem="rf2-pN-PeP" secondAttribute="bottom" constant="8" id="4Rm-LY-tKD"/>
                             <constraint firstItem="NIw-FN-eYM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6yh-XC-5TR"/>
@@ -154,10 +157,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Mbt-vS-t9M"/>
+                    <connections>
+                        <outlet property="destinationTimeLabel" destination="sUw-kb-imx" id="ROA-fO-GBs"/>
+                        <outlet property="lastTimeDepartedLabel" destination="rf2-pN-PeP" id="EOf-qi-KhD"/>
+                        <outlet property="presentTimeLabel" destination="tIZ-sO-PX8" id="pyW-Eu-NkR"/>
+                        <outlet property="speedLabel" destination="H9H-kl-PNn" id="20r-2F-nMH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="288"/>
+            <point key="canvasLocation" x="1304" y="288"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CA3-0z-LOO">
