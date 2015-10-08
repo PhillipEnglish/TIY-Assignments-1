@@ -58,9 +58,6 @@
                                 <mutableString key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </mutableString>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SV4-Iq-Gk9"/>
-                                </connections>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-iq-kD5">
                                 <rect key="frame" x="180" y="291" width="240" height="128"/>
@@ -114,6 +111,7 @@
                     <connections>
                         <outlet property="authenticateButton" destination="XBb-T2-VlK" id="f6D-lh-51N"/>
                         <outlet property="greetingLabel" destination="HuX-cV-XGF" id="RF2-hp-C9H"/>
+                        <outlet property="missionTextView" destination="jMD-9R-cKL" id="4Sm-Tj-tos"/>
                         <outlet property="nameTextField" destination="TOY-nx-EI6" id="NVI-hh-7ae"/>
                         <outlet property="passwordTextField" destination="zzt-AK-UHG" id="6Rc-l4-JBa"/>
                     </connections>

@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
+class MissionBriefingViewController: UIViewController, UITextFieldDelegate
 {
     // Place IBOutlet properties below
     @IBOutlet var nameTextField: UITextField!
@@ -29,7 +29,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
         nameTextField.text = ""
         passwordTextField.text = ""
         greetingLabel.text = ""
-//        missionTextView.text = ""
+        missionTextView.text = ""
     }
     
     override func didReceiveMemoryWarning()
@@ -51,14 +51,6 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
         return authenticateAgent()
     }
     
-    // MARK: - UITextView Delegate
-    
-    func textViewShouldReturn(textView: UITextView) -> Bool
-    {
-        return authenticateAgent()
-    }
-
-    
     // MARK: - Private
     
     func authenticateAgent() -> Bool
@@ -78,8 +70,8 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
                 let lastName = nameComponents[1].capitalizedString
                 // #5
                 greetingLabel.text = "Good evening, Agent \(lastName)"
-                // #6 TODO: fix
-//                missionTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(lastName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
+                // #6 FIXME: fix, not displaying
+                missionTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(lastName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
                 // #7
                 view.backgroundColor = UIColor(red: 0.585, green: 0.78, blue: 0.188, alpha: 1.0)
             }
