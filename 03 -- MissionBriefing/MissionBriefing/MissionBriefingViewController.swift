@@ -78,7 +78,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
                 let lastName = nameComponents[1].capitalizedString
                 // #5
                 greetingLabel.text = "Good evening, Agent \(lastName)"
-                // #6 TODO not working
+                // #6 TODO: fix
 //                missionTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(lastName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
                 // #7
                 view.backgroundColor = UIColor(red: 0.585, green: 0.78, blue: 0.188, alpha: 1.0)
@@ -102,6 +102,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
     func agentFailureToAuthenticate()
     {
         view.backgroundColor = UIColor(red: 0.78, green: 0.188, blue: 0.188, alpha: 1.0)
+        // TODO: self-destruct sequence
     }
 }
 
