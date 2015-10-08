@@ -65,14 +65,16 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
     {
         var rc = false
         
-        if let name = nameTextField.text
+        if nameTextField.text != ""
         {
+            let name = nameTextField.text
+            
             // #4
             if passwordTextField.text != ""
             {
                 rc = true
                 nameTextField.resignFirstResponder()
-                let nameComponents = name.characters.split(" ").map { String($0) }
+                let nameComponents = name!.characters.split(" ").map { String($0) }
                 let lastName = nameComponents[1].capitalizedString
                 // #5
                 greetingLabel.text = "Good evening, Agent \(lastName)"
@@ -90,6 +92,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate, UITe
         else
         {
             // #8
+            greetingLabel.text = "Please enter your agent name."
             agentFailureToAuthenticate()
         }
         
