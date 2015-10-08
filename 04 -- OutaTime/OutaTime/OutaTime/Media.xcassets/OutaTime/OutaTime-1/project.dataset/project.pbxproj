@@ -12,7 +12,7 @@
 		9A46B5111BC6EF17008754CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B50F1BC6EF17008754CD /* Main.storyboard */; };
 		9A46B5131BC6EF17008754CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B5121BC6EF17008754CD /* Assets.xcassets */; };
 		9A46B5161BC6EF17008754CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B5141BC6EF17008754CD /* LaunchScreen.storyboard */; };
-		9A46B5221BC6F542008754CD /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B5211BC6F542008754CD /* digital-7.ttf */; settings = {ASSET_TAGS = (); }; };
+		9A46B5201BC6F4A3008754CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B51F1BC6F4A3008754CD /* Media.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		9A46B5121BC6EF17008754CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A46B5151BC6EF17008754CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A46B5171BC6EF17008754CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A46B5211BC6F542008754CD /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
+		9A46B51F1BC6F4A3008754CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +56,10 @@
 		9A46B50A1BC6EF16008754CD /* OutaTime */ = {
 			isa = PBXGroup;
 			children = (
-				9A46B5211BC6F542008754CD /* digital-7.ttf */,
 				9A46B50B1BC6EF17008754CD /* AppDelegate.swift */,
 				9A46B50D1BC6EF17008754CD /* TimeCircuitsViewController.swift */,
 				9A46B50F1BC6EF17008754CD /* Main.storyboard */,
+				9A46B51F1BC6F4A3008754CD /* Media.xcassets */,
 				9A46B5121BC6EF17008754CD /* Assets.xcassets */,
 				9A46B5141BC6EF17008754CD /* LaunchScreen.storyboard */,
 				9A46B5171BC6EF17008754CD /* Info.plist */,
@@ -126,8 +126,8 @@
 			files = (
 				9A46B5161BC6EF17008754CD /* LaunchScreen.storyboard in Resources */,
 				9A46B5131BC6EF17008754CD /* Assets.xcassets in Resources */,
+				9A46B5201BC6F4A3008754CD /* Media.xcassets in Resources */,
 				9A46B5111BC6EF17008754CD /* Main.storyboard in Resources */,
-				9A46B5221BC6F542008754CD /* digital-7.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
