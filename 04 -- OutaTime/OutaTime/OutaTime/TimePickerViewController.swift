@@ -21,5 +21,7 @@ class TimePickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet var datePicker: UIDatePicker!
+    
     
 }
