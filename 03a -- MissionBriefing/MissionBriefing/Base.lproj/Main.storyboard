@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Mission Briefing View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MissionBriefingViewController" customModule="MissionBriefing" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Agent Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-nx-EI6">
+                                <rect key="frame" x="60" y="20" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AgQ-Ly-PdW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-AK-UHG">
+                                <rect key="frame" x="60" y="58" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBb-T2-VlK">
+                                <rect key="frame" x="256" y="96" width="88" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Authenticate"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jx8-Hp-A10"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-cV-XGF">
+                                <rect key="frame" x="279" y="134" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZUb-5U-3uL">
+                                <rect key="frame" x="60" y="163" width="480" height="4"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="480" placeholderIntrinsicHeight="91" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-9R-cKL">
+                                <rect key="frame" x="60" y="175" width="480" height="91"/>
+                                <string key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="TIYLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-iq-kD5">
+                                <rect key="frame" x="180" y="368" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UEH-iq-kD5" secondAttribute="height" multiplier="15:8" id="7HG-cC-waU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7HG-cC-waU"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zzt-AK-UHG" firstAttribute="centerX" secondItem="TOY-nx-EI6" secondAttribute="centerX" id="1jV-2b-5lv"/>
+                            <constraint firstItem="TOY-nx-EI6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3g9-oU-VRy"/>
+                            <constraint firstItem="TOY-nx-EI6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4a1-sp-pvJ"/>
+                            <constraint firstItem="XBb-T2-VlK" firstAttribute="top" secondItem="zzt-AK-UHG" secondAttribute="bottom" constant="8" id="9sd-bs-vgc"/>
+                            <constraint firstItem="HuX-cV-XGF" firstAttribute="top" secondItem="XBb-T2-VlK" secondAttribute="bottom" constant="8" id="GO2-pe-hgq"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="leading" secondItem="zzt-AK-UHG" secondAttribute="trailing" constant="-360" id="Ijw-HL-b1M"/>
+                            <constraint firstItem="TOY-nx-EI6" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="Jec-kz-omb"/>
+                            <constraint firstItem="zzt-AK-UHG" firstAttribute="width" secondItem="TOY-nx-EI6" secondAttribute="width" id="M4b-LC-VBr"/>
+                            <constraint firstItem="XBb-T2-VlK" firstAttribute="centerX" secondItem="zzt-AK-UHG" secondAttribute="centerX" id="MIY-oG-6i3"/>
+                            <constraint firstItem="ZUb-5U-3uL" firstAttribute="width" secondItem="zzt-AK-UHG" secondAttribute="width" id="PR1-49-gqC"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="leading" secondItem="zzt-AK-UHG" secondAttribute="trailing" constant="-480" id="Qo6-Xp-301"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UEH-iq-kD5" secondAttribute="bottom" constant="104" id="V66-5Q-wrU"/>
+                            <constraint firstItem="ZUb-5U-3uL" firstAttribute="leading" secondItem="zzt-AK-UHG" secondAttribute="trailing" constant="-480" id="XRu-6i-EIe"/>
+                            <constraint firstItem="UEH-iq-kD5" firstAttribute="top" secondItem="zzt-AK-UHG" secondAttribute="bottom" constant="200" id="ZBQ-N3-41g"/>
+                            <constraint firstItem="UEH-iq-kD5" firstAttribute="centerX" secondItem="zzt-AK-UHG" secondAttribute="centerX" id="bs5-kK-GtF"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="width" secondItem="zzt-AK-UHG" secondAttribute="width" id="dgg-xD-4Bg"/>
+                            <constraint firstItem="HuX-cV-XGF" firstAttribute="centerX" secondItem="XBb-T2-VlK" secondAttribute="centerX" id="hNA-5l-oY6"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="centerX" secondItem="zzt-AK-UHG" secondAttribute="centerX" id="ia0-fP-zKG"/>
+                            <constraint firstItem="UEH-iq-kD5" firstAttribute="top" secondItem="jMD-9R-cKL" secondAttribute="bottom" constant="102" id="kWO-23-j0K"/>
+                            <constraint firstItem="ZUb-5U-3uL" firstAttribute="top" secondItem="HuX-cV-XGF" secondAttribute="bottom" constant="8" id="pMf-EG-VdC"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qjj-C5-RFv"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="centerY" secondItem="zzt-AK-UHG" secondAttribute="centerY" id="vpZ-6T-BtK"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="top" secondItem="zzt-AK-UHG" secondAttribute="bottom" constant="87" id="xKx-rY-d70"/>
+                            <constraint firstItem="zzt-AK-UHG" firstAttribute="top" secondItem="TOY-nx-EI6" secondAttribute="bottom" constant="8" id="xTe-Je-TMk"/>
+                            <constraint firstItem="jMD-9R-cKL" firstAttribute="top" secondItem="zzt-AK-UHG" secondAttribute="bottom" constant="87" id="zHb-yY-APA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pMf-EG-VdC"/>
+                                <exclude reference="Ijw-HL-b1M"/>
+                                <exclude reference="Qo6-Xp-301"/>
+                                <exclude reference="ia0-fP-zKG"/>
+                                <exclude reference="vpZ-6T-BtK"/>
+                                <exclude reference="zHb-yY-APA"/>
+                                <exclude reference="ZBQ-N3-41g"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="authenticateButton" destination="XBb-T2-VlK" id="f6D-lh-51N"/>
+                        <outlet property="greetingLabel" destination="HuX-cV-XGF" id="RF2-hp-C9H"/>
+                        <outlet property="missionTextView" destination="jMD-9R-cKL" id="rQI-K7-uDt"/>
+                        <outlet property="nameTextField" destination="TOY-nx-EI6" id="NVI-hh-7ae"/>
+                        <outlet property="passwordTextField" destination="zzt-AK-UHG" id="6Rc-l4-JBa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="327"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TIYLogo" width="240" height="212"/>
+    </resources>
+</document>
