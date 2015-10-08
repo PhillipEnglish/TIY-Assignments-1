@@ -29,6 +29,7 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         nameTextField.text = ""
         passwordTextField.text = ""
         greetingLabel.text = ""
+        missionTextView.text = ""
     }
     
     override func didReceiveMemoryWarning()
@@ -58,14 +59,17 @@ class MissionBriefingViewController: UIViewController, UITextFieldDelegate
         
         if let name = nameTextField.text
         {
-            if passwordTextField.text != "" // TODO #4 not working
+            // #4
+            if passwordTextField.text != ""
             {
                 rc = true
                 nameTextField.resignFirstResponder()
                 let nameComponents = name.characters.split(" ").map { String($0) }
+                let lastName = nameComponents[1].capitalizedString
                 // #5
-                greetingLabel.text = "Good evening, Agent \(nameComponents[1].capitalizedString)"
-                // #6
+                greetingLabel.text = "Good evening, Agent \(lastName)"
+                // #6 TODO not working
+                missionTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(lastName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
                 // #7
             }
             else
