@@ -291,6 +291,7 @@
 				9A46B51C1BC6EF17008754CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
