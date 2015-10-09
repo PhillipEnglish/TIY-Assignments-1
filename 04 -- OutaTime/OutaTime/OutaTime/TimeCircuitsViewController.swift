@@ -13,12 +13,12 @@ import UIKit
 
 // delegate created in this class, it will be sent from the receiving class
 
-@objc protocol TimerPickerDelegate
+@objc protocol DatePickerDelegate
 {
-    func timerWasChosen(timerCount: Int)
+    func destinationDateWasChosen(dateChosen: String)
 }
 
-class TimeCircuitsViewController: UIViewController, TimerPickerDelegate
+class TimeCircuitsViewController: UIViewController, DatePickerDelegate
 {
     let dateFormatter = NSDateFormatter()
     
@@ -48,20 +48,20 @@ class TimeCircuitsViewController: UIViewController, TimerPickerDelegate
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "ShowTimePickerSegue"
+        if segue.identifier == "ShowDatePickerSegue"
         {
-            let timerPickerVC = segue.destinationViewController
-                as! TimePickerViewController
-            timerPickerVC.delegate = self
+            let datePickerVC = segue.destinationViewController
+                as! DatePickerViewController
+            datePickerVC.delegate = self
         }
     }
     
-    // MARK: - TimerPicker Delegate
+    // MARK: - DatePicker Delegate
     
-    func timerWasChosen(timerCount: Int)
+    func destinationDateWasChosen(dateChosen: String)
     {
         // passing data from TimerPicker class to current class when the "Back" button is selected
-        destinationTimeLabel.text = "\(timerCount)"
+        destinationTimeLabel.text = "\(dateChosen)"
     }
     
     func setPresentTime()
