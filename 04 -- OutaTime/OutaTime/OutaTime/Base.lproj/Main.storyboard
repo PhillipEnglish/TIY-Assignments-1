@@ -72,6 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="SET DESTINATION TIME"/>
                                 <connections>
+                                    <action selector="destinationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e8G-BN-yNR"/>
                                     <segue destination="G1m-rn-3hZ" kind="show" identifier="ShowDatePickerSegue" id="RVv-XG-vfN"/>
                                 </connections>
                             </button>

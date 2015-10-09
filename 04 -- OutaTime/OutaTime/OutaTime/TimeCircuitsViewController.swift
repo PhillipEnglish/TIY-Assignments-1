@@ -67,18 +67,27 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     
     // MARK: - Action Handlers
     
-    func setPresentTime()
+    
+    @IBAction func destinationButtonTapped(sender: UIButton)
+    {
+        
+    }
+    
+    
+    // MARK: - Private
+    
+    private func setPresentTime()
     {
         presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
     }
     
-    func setCurrentSpeed()
+    private func setCurrentSpeed()
     {
         let currentSpeed = 88
         speedLabel.text = "\(currentSpeed) MPH"
     }
     
-    func setLastTimeDeparted()
+    private func setLastTimeDeparted()
     {
         lastTimeDepartedLabel.text = dateFormatter.stringFromDate(NSDate())
     }
