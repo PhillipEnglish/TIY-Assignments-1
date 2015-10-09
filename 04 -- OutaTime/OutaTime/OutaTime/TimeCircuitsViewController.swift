@@ -15,7 +15,7 @@ import UIKit
 
 @objc protocol DatePickerDelegate
 {
-    func destinationDateWasChosen(dateChosen: String)
+    func destinationDateWasChosen(dateChosen: NSDate)
 }
 
 class TimeCircuitsViewController: UIViewController, DatePickerDelegate
@@ -58,18 +58,19 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     
     // MARK: - DatePicker Delegate
     
-    func destinationDateWasChosen(dateChosen: String)
+    func destinationDateWasChosen(dateChosen: NSDate)
     {
-        // passing data from TimerPicker class to current class when the "Back" button is selected
-        destinationTimeLabel.text = "\(dateChosen)"
+        // passing data from DatePicker class to current class when the "Back" button is selected
+        destinationTimeLabel.text = "not yet" 
+        destinationTimeLabel.text = dateFormatter.stringFromDate(dateChosen)
     }
+    
+    // MARK: - Action Handlers
     
     func setPresentTime()
     {
         presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
-
     }
-    
     
     func setCurrentSpeed()
     {
