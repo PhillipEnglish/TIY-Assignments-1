@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="1304" y="288"/>
         </scene>
-        <!--View Controller-->
+        <!--Time Picker View Controller-->
         <scene sceneID="CA3-0z-LOO">
             <objects>
-                <viewController id="G1m-rn-3hZ" sceneMemberID="viewController">
+                <viewController id="G1m-rn-3hZ" customClass="TimePickerViewController" customModule="OutaTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ILj-sc-hXx"/>
                         <viewControllerLayoutGuide type="bottom" id="qZD-HO-1bt"/>
@@ -214,6 +214,9 @@
                             <constraint firstAttribute="trailing" secondItem="Qct-uT-UGx" secondAttribute="trailing" id="p3A-kT-xMh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="Qct-uT-UGx" id="6Ds-fV-fgT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcr-1e-2VE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

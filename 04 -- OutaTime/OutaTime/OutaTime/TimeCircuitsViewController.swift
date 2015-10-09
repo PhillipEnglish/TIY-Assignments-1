@@ -9,7 +9,16 @@
 
 import UIKit
 
-class TimeCircuitsViewController: UIViewController 
+// @objc protocol <- used when you make your own delegate. delegates are used to link, or grab data, from another class
+
+// delegate created in this class, it will be sent from the receiving class
+
+@objc protocol TimerPickerDelegate
+{
+    func timerWasChosen(timerCount: Int)
+}
+
+class TimeCircuitsViewController: UIViewController, TimerPickerDelegate
 {
     let dateFormatter = NSDateFormatter()
     
@@ -35,6 +44,24 @@ class TimeCircuitsViewController: UIViewController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowTimePickerSegue"
+        {
+            let timerPickerVC = segue.destinationViewController
+                as! TimePickerViewController
+            timerPickerVC.delegate = self
+        }
+    }
+    
+    // MARK: - TimerPicker Delegate
+    
+    func timerWasChosen(timerCount: Int)
+    {
+        // passing data from TimerPicker class to current class when the "Back" button is selected
+        destinationTimeLabel.text = "\(timerCount)"
     }
     
     func setPresentTime()
