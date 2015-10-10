@@ -29,6 +29,10 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     @IBOutlet var setTimeButton: UIButton!
     @IBOutlet var travelBackButton: UIButton!
     
+    var timer: NSTimer?
+    var currentSpeed = 0
+    var presentTime: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,8 +40,9 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         // useful source: http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         dateFormatter.dateFormat = NSDateFormatter.dateFormatFromTemplate("MMM dd yyyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
         setPresentTime()
-        setCurrentSpeed()
+//        setCurrentSpeed()
         setLastTimeDeparted()
+        
         
     }
 
@@ -73,27 +78,61 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         
     }
     
+    @IBAction func travelBackButtonTapped(sender: UIButton)
+    {
+        startTimer()
+    }
     
     // MARK: - Private
     
     private func setPresentTime()
     {
+        
         presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
+        presentTime = String(presentTimeLabel)
     }
     
-    private func setCurrentSpeed()
+    private func startTimer()
     {
-        let currentSpeed = 88
-        speedLabel.text = "\(currentSpeed) MPH"
+        if timer == nil
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateUI", userInfo: nil, repeats: true)
+            travelBackButton.setTitle("Pause", forState: UIControlState.Normal)
+        }
+        else
+        {
+            travelBackButton.setTitle("Start", forState: UIControlState.Normal)
+            stopTimer()
+        }
+    }
+    
+    private func stopTimer()
+    {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func updateUI()
+    {
+        let newCount = currentSpeed
+        currentSpeed = newCount
+        speedLabel.text = ("\(currentSpeed) MPH") //String(newCount) + " MPH"
+        
+        if newCount == 88
+        {
+            stopTimer()
+            setLastTimeDeparted()
+        }
+        
     }
     
     private func setLastTimeDeparted()
     {
+//        presentTimeLabel = lastTimeDepartedLabel
         lastTimeDepartedLabel.text = dateFormatter.stringFromDate(NSDate())
     }
-   
     
-}
+    }
 
 
 
