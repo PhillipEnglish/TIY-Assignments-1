@@ -123,9 +123,6 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
             setLastTimeDeparted()
         }
     }
-    
-
-    
 }
 
 
