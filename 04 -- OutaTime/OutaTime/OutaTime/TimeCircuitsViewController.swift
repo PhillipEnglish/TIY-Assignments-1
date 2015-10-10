@@ -39,10 +39,8 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         
         // useful source: http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         dateFormatter.dateFormat = NSDateFormatter.dateFormatFromTemplate("MMM dd yyyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
+        setPresentTime()
         updateUI()
-        setLastTimeDeparted()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +63,6 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     func destinationDateWasChosen(dateChosen: NSDate)
     {
         // passing data from DatePicker class to current class when the "Back" button is selected
-        destinationTimeLabel.text = "not yet" 
         destinationTimeLabel.text = dateFormatter.stringFromDate(dateChosen)
     }
     
@@ -79,16 +76,15 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     
     @IBAction func travelBackButtonTapped(sender: UIButton)
     {
+        
         startTimer()
     }
     
     // MARK: - Private
     
-    private func setLastTimeDeparted()
+    private func setPresentTime()
     {
-        
         presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
-        lastTimeDeparted = String(destinationTimeLabel)
     }
     
     private func startTimer()
@@ -96,11 +92,9 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         if timer == nil
         {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateUI", userInfo: nil, repeats: true)
-//            travelBackButton.setTitle("BRAKE", forState: UIControlState.Normal)
         }
         else
         {
-//            travelBackButton.setTitle("START", forState: UIControlState.Normal)
             stopTimer()
         }
     }
@@ -109,8 +103,12 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     {
         timer?.invalidate()
         timer = nil
-        setLastTimeDeparted()
         speedLabel.text = "\(currentSpeed - 1) MPH"
+    }
+    
+    private func setLastTimeDeparted()
+    {
+        lastTimeDepartedLabel.text = destinationTimeLabel.text
     }
     
     func updateUI()
@@ -121,12 +119,12 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         
         if newCount == 88
         {
-            
             stopTimer()
             setLastTimeDeparted()
         }
-        
     }
+    
+
     
 }
 
