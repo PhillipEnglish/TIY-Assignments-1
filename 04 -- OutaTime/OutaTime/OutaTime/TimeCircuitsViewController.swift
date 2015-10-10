@@ -110,17 +110,18 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         timer?.invalidate()
         timer = nil
         setLastTimeDeparted()
-        speedLabel.text = "0 MPH"
+        speedLabel.text = "\(currentSpeed - 1) MPH"
     }
     
     func updateUI()
     {
-        let newCount = currentSpeed + 1
-        currentSpeed = newCount
+        let newCount = currentSpeed
+        currentSpeed = Int(newCount) + 1
         speedLabel.text = String(newCount) + " MPH"
         
         if newCount == 88
         {
+            
             stopTimer()
             setLastTimeDeparted()
         }
