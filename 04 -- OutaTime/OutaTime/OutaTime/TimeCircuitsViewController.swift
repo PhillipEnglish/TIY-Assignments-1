@@ -30,8 +30,8 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     @IBOutlet var travelBackButton: UIButton!
     
     var timer: NSTimer?
-    var currentSpeed = 0
-    var presentTime: String = ""
+    var currentSpeed: Int = 0
+    var lastTimeDeparted: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,7 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         
         // useful source: http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         dateFormatter.dateFormat = NSDateFormatter.dateFormatFromTemplate("MMM dd yyyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
-        setPresentTime()
-//        setCurrentSpeed()
+        updateUI()
         setLastTimeDeparted()
         
         
@@ -85,11 +84,11 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     
     // MARK: - Private
     
-    private func setPresentTime()
+    private func setLastTimeDeparted()
     {
         
         presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
-        presentTime = String(presentTimeLabel)
+        lastTimeDeparted = String(destinationTimeLabel)
     }
     
     private func startTimer()
@@ -97,11 +96,11 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         if timer == nil
         {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateUI", userInfo: nil, repeats: true)
-            travelBackButton.setTitle("Pause", forState: UIControlState.Normal)
+//            travelBackButton.setTitle("BRAKE", forState: UIControlState.Normal)
         }
         else
         {
-            travelBackButton.setTitle("Start", forState: UIControlState.Normal)
+//            travelBackButton.setTitle("START", forState: UIControlState.Normal)
             stopTimer()
         }
     }
@@ -110,13 +109,15 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     {
         timer?.invalidate()
         timer = nil
+        setLastTimeDeparted()
+        speedLabel.text = "0 MPH"
     }
     
     func updateUI()
     {
-        let newCount = currentSpeed
+        let newCount = currentSpeed + 1
         currentSpeed = newCount
-        speedLabel.text = ("\(currentSpeed) MPH") //String(newCount) + " MPH"
+        speedLabel.text = String(newCount) + " MPH"
         
         if newCount == 88
         {
@@ -126,13 +127,7 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         
     }
     
-    private func setLastTimeDeparted()
-    {
-//        presentTimeLabel = lastTimeDepartedLabel
-        lastTimeDepartedLabel.text = dateFormatter.stringFromDate(NSDate())
-    }
-    
-    }
+}
 
 
 
