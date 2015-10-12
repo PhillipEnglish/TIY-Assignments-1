@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A3449281BCC1D6D00CB51C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */; };
-		9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */; };
-		9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */; };
-		9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */; };
-		9A5AA0141BCC2A65009B579C /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A5AA0131BCC2A65009B579C /* heroes.json */; settings = {ASSET_TAGS = (); }; };
+		9A9F6B151BCC31490040FDF0 /* HeroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F6B141BCC31490040FDF0 /* HeroTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9A9F6B171BCC316B0040FDF0 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F6B161BCC316B0040FDF0 /* HeroDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9A9F6B191BCC31D60040FDF0 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F6B181BCC31D60040FDF0 /* Hero.swift */; settings = {ASSET_TAGS = (); }; };
+		9AB1EEDE1BCC2FC400E22D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1EEDD1BCC2FC400E22D5B /* AppDelegate.swift */; };
+		9AB1EEE31BCC2FC400E22D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1EEE11BCC2FC400E22D5B /* Main.storyboard */; };
+		9AB1EEE51BCC2FC400E22D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1EEE41BCC2FC400E22D5B /* Assets.xcassets */; };
+		9AB1EEE81BCC2FC400E22D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1EEE61BCC2FC400E22D5B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SHIELD Hero Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A34492C1BCC1D6D00CB51C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9A3449311BCC1D6D00CB51C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9A3449331BCC1D6D00CB51C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A5AA0131BCC2A65009B579C /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
+		9A9F6B141BCC31490040FDF0 /* HeroTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewController.swift; sourceTree = "<group>"; };
+		9A9F6B161BCC316B0040FDF0 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		9A9F6B181BCC31D60040FDF0 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		9AB1EEDA1BCC2FC400E22D5B /* SHIELD Hero Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SHIELD Hero Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AB1EEDD1BCC2FC400E22D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9AB1EEE21BCC2FC400E22D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9AB1EEE41BCC2FC400E22D5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AB1EEE71BCC2FC400E22D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9AB1EEE91BCC2FC400E22D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9A3449211BCC1D6D00CB51C4 /* Frameworks */ = {
+		9AB1EED71BCC2FC400E22D5B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,31 +39,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A34491B1BCC1D6D00CB51C4 = {
+		9AB1EED11BCC2FC400E22D5B = {
 			isa = PBXGroup;
 			children = (
-				9A3449261BCC1D6D00CB51C4 /* SHIELD Hero Tracker */,
-				9A3449251BCC1D6D00CB51C4 /* Products */,
+				9AB1EEDC1BCC2FC400E22D5B /* SHIELD Hero Tracker */,
+				9AB1EEDB1BCC2FC400E22D5B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9A3449251BCC1D6D00CB51C4 /* Products */ = {
+		9AB1EEDB1BCC2FC400E22D5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */,
+				9AB1EEDA1BCC2FC400E22D5B /* SHIELD Hero Tracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A3449261BCC1D6D00CB51C4 /* SHIELD Hero Tracker */ = {
+		9AB1EEDC1BCC2FC400E22D5B /* SHIELD Hero Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				9A5AA0131BCC2A65009B579C /* heroes.json */,
-				9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */,
-				9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */,
-				9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */,
-				9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */,
-				9A3449331BCC1D6D00CB51C4 /* Info.plist */,
+				9AB1EEDD1BCC2FC400E22D5B /* AppDelegate.swift */,
+				9AB1EEE11BCC2FC400E22D5B /* Main.storyboard */,
+				9AB1EEE41BCC2FC400E22D5B /* Assets.xcassets */,
+				9AB1EEE61BCC2FC400E22D5B /* LaunchScreen.storyboard */,
+				9AB1EEE91BCC2FC400E22D5B /* Info.plist */,
+				9A9F6B141BCC31490040FDF0 /* HeroTableViewController.swift */,
+				9A9F6B161BCC316B0040FDF0 /* HeroDetailViewController.swift */,
+				9A9F6B181BCC31D60040FDF0 /* Hero.swift */,
 			);
 			path = "SHIELD Hero Tracker";
 			sourceTree = "<group>";
@@ -67,13 +73,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9A3449231BCC1D6D00CB51C4 /* SHIELD Hero Tracker */ = {
+		9AB1EED91BCC2FC400E22D5B /* SHIELD Hero Tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A3449361BCC1D6D00CB51C4 /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */;
+			buildConfigurationList = 9AB1EEEC1BCC2FC400E22D5B /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */;
 			buildPhases = (
-				9A3449201BCC1D6D00CB51C4 /* Sources */,
-				9A3449211BCC1D6D00CB51C4 /* Frameworks */,
-				9A3449221BCC1D6D00CB51C4 /* Resources */,
+				9AB1EED61BCC2FC400E22D5B /* Sources */,
+				9AB1EED71BCC2FC400E22D5B /* Frameworks */,
+				9AB1EED81BCC2FC400E22D5B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -81,24 +87,24 @@
 			);
 			name = "SHIELD Hero Tracker";
 			productName = "SHIELD Hero Tracker";
-			productReference = 9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */;
+			productReference = 9AB1EEDA1BCC2FC400E22D5B /* SHIELD Hero Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9A34491C1BCC1D6D00CB51C4 /* Project object */ = {
+		9AB1EED21BCC2FC400E22D5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "The Iron Yard";
 				TargetAttributes = {
-					9A3449231BCC1D6D00CB51C4 = {
+					9AB1EED91BCC2FC400E22D5B = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 9A34491F1BCC1D6D00CB51C4 /* Build configuration list for PBXProject "SHIELD Hero Tracker" */;
+			buildConfigurationList = 9AB1EED51BCC2FC400E22D5B /* Build configuration list for PBXProject "SHIELD Hero Tracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -106,54 +112,56 @@
 				en,
 				Base,
 			);
-			mainGroup = 9A34491B1BCC1D6D00CB51C4;
-			productRefGroup = 9A3449251BCC1D6D00CB51C4 /* Products */;
+			mainGroup = 9AB1EED11BCC2FC400E22D5B;
+			productRefGroup = 9AB1EEDB1BCC2FC400E22D5B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A3449231BCC1D6D00CB51C4 /* SHIELD Hero Tracker */,
+				9AB1EED91BCC2FC400E22D5B /* SHIELD Hero Tracker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9A3449221BCC1D6D00CB51C4 /* Resources */ = {
+		9AB1EED81BCC2FC400E22D5B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */,
-				9A5AA0141BCC2A65009B579C /* heroes.json in Resources */,
-				9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */,
-				9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */,
+				9AB1EEE81BCC2FC400E22D5B /* LaunchScreen.storyboard in Resources */,
+				9AB1EEE51BCC2FC400E22D5B /* Assets.xcassets in Resources */,
+				9AB1EEE31BCC2FC400E22D5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9A3449201BCC1D6D00CB51C4 /* Sources */ = {
+		9AB1EED61BCC2FC400E22D5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3449281BCC1D6D00CB51C4 /* AppDelegate.swift in Sources */,
+				9A9F6B171BCC316B0040FDF0 /* HeroDetailViewController.swift in Sources */,
+				9A9F6B151BCC31490040FDF0 /* HeroTableViewController.swift in Sources */,
+				9AB1EEDE1BCC2FC400E22D5B /* AppDelegate.swift in Sources */,
+				9A9F6B191BCC31D60040FDF0 /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */ = {
+		9AB1EEE11BCC2FC400E22D5B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9A34492C1BCC1D6D00CB51C4 /* Base */,
+				9AB1EEE21BCC2FC400E22D5B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */ = {
+		9AB1EEE61BCC2FC400E22D5B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9A3449311BCC1D6D00CB51C4 /* Base */,
+				9AB1EEE71BCC2FC400E22D5B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -161,7 +169,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9A3449341BCC1D6D00CB51C4 /* Debug */ = {
+		9AB1EEEA1BCC2FC400E22D5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -205,7 +213,7 @@
 			};
 			name = Debug;
 		};
-		9A3449351BCC1D6D00CB51C4 /* Release */ = {
+		9AB1EEEB1BCC2FC400E22D5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +250,7 @@
 			};
 			name = Release;
 		};
-		9A3449371BCC1D6D00CB51C4 /* Debug */ = {
+		9AB1EEED1BCC2FC400E22D5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -253,7 +261,7 @@
 			};
 			name = Debug;
 		};
-		9A3449381BCC1D6D00CB51C4 /* Release */ = {
+		9AB1EEEE1BCC2FC400E22D5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -267,25 +275,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A34491F1BCC1D6D00CB51C4 /* Build configuration list for PBXProject "SHIELD Hero Tracker" */ = {
+		9AB1EED51BCC2FC400E22D5B /* Build configuration list for PBXProject "SHIELD Hero Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A3449341BCC1D6D00CB51C4 /* Debug */,
-				9A3449351BCC1D6D00CB51C4 /* Release */,
+				9AB1EEEA1BCC2FC400E22D5B /* Debug */,
+				9AB1EEEB1BCC2FC400E22D5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A3449361BCC1D6D00CB51C4 /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */ = {
+		9AB1EEEC1BCC2FC400E22D5B /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A3449371BCC1D6D00CB51C4 /* Debug */,
-				9A3449381BCC1D6D00CB51C4 /* Release */,
+				9AB1EEED1BCC2FC400E22D5B /* Debug */,
+				9AB1EEEE1BCC2FC400E22D5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9A34491C1BCC1D6D00CB51C4 /* Project object */;
+	rootObject = 9AB1EED21BCC2FC400E22D5B /* Project object */;
 }

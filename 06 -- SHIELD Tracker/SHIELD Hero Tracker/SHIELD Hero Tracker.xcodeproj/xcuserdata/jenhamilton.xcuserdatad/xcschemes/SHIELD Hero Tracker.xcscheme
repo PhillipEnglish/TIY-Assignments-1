@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A3449231BCC1D6D00CB51C4"
+               BlueprintIdentifier = "9AB1EED91BCC2FC400E22D5B"
                BuildableName = "SHIELD Hero Tracker.app"
                BlueprintName = "SHIELD Hero Tracker"
                ReferencedContainer = "container:SHIELD Hero Tracker.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A3449231BCC1D6D00CB51C4"
+            BlueprintIdentifier = "9AB1EED91BCC2FC400E22D5B"
             BuildableName = "SHIELD Hero Tracker.app"
             BlueprintName = "SHIELD Hero Tracker"
             ReferencedContainer = "container:SHIELD Hero Tracker.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A3449231BCC1D6D00CB51C4"
+            BlueprintIdentifier = "9AB1EED91BCC2FC400E22D5B"
             BuildableName = "SHIELD Hero Tracker.app"
             BlueprintName = "SHIELD Hero Tracker"
             ReferencedContainer = "container:SHIELD Hero Tracker.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A3449231BCC1D6D00CB51C4"
+            BlueprintIdentifier = "9AB1EED91BCC2FC400E22D5B"
             BuildableName = "SHIELD Hero Tracker.app"
             BlueprintName = "SHIELD Hero Tracker"
             ReferencedContainer = "container:SHIELD Hero Tracker.xcodeproj">
