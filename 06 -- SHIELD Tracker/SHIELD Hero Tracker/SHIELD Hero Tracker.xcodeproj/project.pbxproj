@@ -11,6 +11,7 @@
 		9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */; };
 		9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */; };
 		9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */; };
+		9A5AA0141BCC2A65009B579C /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A5AA0131BCC2A65009B579C /* heroes.json */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A3449311BCC1D6D00CB51C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A3449331BCC1D6D00CB51C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A5AA0131BCC2A65009B579C /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		9A3449261BCC1D6D00CB51C4 /* SHIELD Hero Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9A5AA0131BCC2A65009B579C /* heroes.json */,
 				9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */,
 				9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */,
 				9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */,
@@ -119,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */,
+				9A5AA0141BCC2A65009B579C /* heroes.json in Resources */,
 				9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */,
 				9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */,
 			);
@@ -279,6 +283,7 @@
 				9A3449381BCC1D6D00CB51C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
