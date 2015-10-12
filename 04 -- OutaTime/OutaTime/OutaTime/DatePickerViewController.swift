@@ -13,7 +13,7 @@ class DatePickerViewController: UIViewController
 {
     @IBOutlet var picker: UIDatePicker!
     // delegate property here. this is the 'sending' class
-    var delegate: DatePickerDelegate? //question mark means 'optional'
+    var delegate: DatePickerDelegate? //question mark means 'optional' (doesnt' have to have a value)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class DatePickerViewController: UIViewController
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
+        // '?' means only run if delegate has a value
         delegate?.destinationDateWasChosen(picker.date)/*this should be data sent to timecircuits*/
     }
     

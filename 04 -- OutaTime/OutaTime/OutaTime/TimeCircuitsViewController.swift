@@ -10,6 +10,7 @@
 import UIKit
 
 // @objc protocol <- used when you make your own delegate. delegates are used to link, or grab data, from another class
+// protocol is more flexible, less restrictive than a class, but holds some of the same properties
 
 // delegate created in this class, it will be sent from the receiving class
 
@@ -52,7 +53,9 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
     {
         if segue.identifier == "ShowDatePickerSegue"
         {
+            // find out what is on the other side of the segue
             let datePickerVC = segue.destinationViewController
+                // 'as!' casts to DatePickerViewController, allowing the use of 'delegate' 
                 as! DatePickerViewController
             datePickerVC.delegate = self
         }
@@ -121,6 +124,8 @@ class TimeCircuitsViewController: UIViewController, DatePickerDelegate
         {
             stopTimer()
             setLastTimeDeparted()
+            currentSpeed = 0
+            speedLabel.text = String(currentSpeed)
         }
     }
 }
