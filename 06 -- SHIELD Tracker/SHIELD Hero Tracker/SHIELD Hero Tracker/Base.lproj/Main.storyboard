@@ -42,6 +42,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="Eem-8G-nDK" kind="showDetail" trigger="accessoryAction" id="bul-4Q-n3o"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

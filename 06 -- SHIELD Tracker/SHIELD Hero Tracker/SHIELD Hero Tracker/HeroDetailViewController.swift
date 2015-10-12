@@ -8,35 +8,70 @@
 
 import UIKit
 
-class HeroDetailViewController: UIViewController {
+@objc protocol HeroDetailDelegate
+{
+    func heroDetailsRequested(heroChosen: NSDictionary)
+}
+
+class HeroDetailViewController: UIViewController, HeroDetailDelegate
+{
 
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var homeworldLabel: UILabel!
-    
     @IBOutlet weak var powersLabel: UILabel!
-    
+    var hero: Hero?
+    var delegate: HeroDetailDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        displayDetails()
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowHeroDetailSegue"
+        {
+            // find out what is on the other side of the segue
+            let heroDetailVC = segue.destinationViewController
+                // 'as!' casts to DatePickerViewController, allowing the use of 'delegate'
+                as! HeroDetailViewController
+            heroDetailVC.delegate = self
+        }
     }
-    */
+    
+    // MARK: - HeroDetail Delegate
+    
+    func heroDetailsRequested(heroChosen: NSDictionary)
+    {
+        
+    }
+
+    // MARK: - DatePicker Delegate
+//    
+//    func destinationDateWasChosen(dateChosen: NSDate)
+//    {
+//        // passing data from DatePicker class to current class when the "Back" button is selected
+//        destinationTimeLabel.text = dateFormatter.stringFromDate(dateChosen)
+//    }
+    
+    // MARK: - Private Functions
+    
+    private func displayDetails(hero: Hero)
+    {
+        nameLabel.text = hero.name
+        homeworldLabel.text = hero.homeworld
+        powersLabel.text = hero.powers
+        
+    }
 
 }
