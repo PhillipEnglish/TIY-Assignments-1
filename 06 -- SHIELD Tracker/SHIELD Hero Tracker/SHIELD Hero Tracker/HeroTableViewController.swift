@@ -10,21 +10,25 @@ import UIKit
 
 
 
-class HeroTableViewController: UITableViewController, HeroDetailDelegate
+class HeroTableViewController: UITableViewController
 {
+    @IBOutlet weak var heroSelection: UITableViewCell!
+    var delegate: HeroPickerDelegate?
     
-    //    @IBOutlet var picker: UIDatePicker!
-    //    // delegate property here. this is the 'sending' class
-    //    var delegate: DatePickerDelegate? //question mark means 'optional' (doesnt' have to have a value)
-
     var heroes = Array<Hero>()
     
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "S.H.I.E.L.D. Hero Tracker"
-        
         loadHeroes()
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        // '?' means only run if delegate has a value
+        delegate?.didSelectRowAtIndexPath(UITableViewCell)
+        /*this should be data sent to timecircuits*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,9 +36,20 @@ class HeroTableViewController: UITableViewController, HeroDetailDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowHeroDetailSegue"
+        {
+            // find out what is on the other side of the segue
+            let heroPickerVC = segue.destinationViewController
+                // 'as!' casts to DatePickerViewController, allowing the use of 'delegate'
+                as! HeroDetailViewController
+            heroPickerVC.delegate = self
+        }
+    }
    
-
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -51,6 +66,8 @@ class HeroTableViewController: UITableViewController, HeroDetailDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HeroCell", forIndexPath: indexPath)
         
+        // source: http://sketchytech.blogspot.com/2015/06/swift-getting-sorted.html
+        heroes.sortInPlace{$0.name < $1.name}
         // Configure the cell...
         let aHero = heroes[indexPath.row]
         cell.textLabel?.text = aHero.name
@@ -58,6 +75,13 @@ class HeroTableViewController: UITableViewController, HeroDetailDelegate
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = heroes[indexPath.row]
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("HeroDetailViewController") as! HeroDetailViewController
+        presentViewController(vc, animated: true, completion: nil)
+    }
+
     
     // MARK: - Private Functions
     
@@ -80,7 +104,7 @@ class HeroTableViewController: UITableViewController, HeroDetailDelegate
                 heroes.append(aHero)
             }
         }
-            // try/catch is used for catching errors. needed to build, will learn more later
+            // try/catch is used for catching errors. needed to run
         catch let error as NSError
         {
             print(error)
