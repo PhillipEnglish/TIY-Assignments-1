@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EiM-si-gRM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Hero Table View Controller-->
@@ -65,8 +66,39 @@
                     <view key="view" contentMode="scaleToFill" id="NXr-47-0wv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vD-6K-yYq">
+                                <rect key="frame" x="20" y="20" width="84" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeworldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gG-3O-Wsz">
+                                <rect key="frame" x="20" y="61" width="127" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powersLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuU-xO-YXf">
+                                <rect key="frame" x="20" y="90" width="98" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9vD-6K-yYq" firstAttribute="top" secondItem="jOg-kz-6z4" secondAttribute="bottom" id="0Mu-G2-Vxi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9vD-6K-yYq" secondAttribute="leading" id="KR9-Tz-f6k"/>
+                            <constraint firstItem="9gG-3O-Wsz" firstAttribute="top" secondItem="9vD-6K-yYq" secondAttribute="bottom" constant="20" id="KvP-5F-uvv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9gG-3O-Wsz" secondAttribute="leading" id="Ssw-u2-gKf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YuU-xO-YXf" secondAttribute="leading" id="Wgo-Ev-G6B"/>
+                            <constraint firstItem="YuU-xO-YXf" firstAttribute="top" secondItem="9gG-3O-Wsz" secondAttribute="bottom" constant="8" id="kzb-xh-5hN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfo-Se-Asx" userLabel="First Responder" sceneMemberID="firstResponder"/>
