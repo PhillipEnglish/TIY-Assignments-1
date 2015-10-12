@@ -1,14 +1,15 @@
+
 //
-//  ViewController.swift
-//  SHIELD Hero Tracker
+//  TimeCircuitsViewController.swift
+//  OutaTime
 //
-//  Created by Jennifer Hamilton on 10/12/15.
+//  Created by Jennifer Hamilton on 10/8/15.
 //  Copyright © 2015 The Iron Yard. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimeCircuitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

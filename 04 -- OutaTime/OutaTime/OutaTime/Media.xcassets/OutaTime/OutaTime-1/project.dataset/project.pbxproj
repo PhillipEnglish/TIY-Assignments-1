@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A3449281BCC1D6D00CB51C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */; };
-		9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */; };
-		9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */; };
-		9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */; };
+		9A46B50C1BC6EF17008754CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46B50B1BC6EF17008754CD /* AppDelegate.swift */; };
+		9A46B50E1BC6EF17008754CD /* TimeCircuitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46B50D1BC6EF17008754CD /* TimeCircuitsViewController.swift */; };
+		9A46B5111BC6EF17008754CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B50F1BC6EF17008754CD /* Main.storyboard */; };
+		9A46B5131BC6EF17008754CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B5121BC6EF17008754CD /* Assets.xcassets */; };
+		9A46B5161BC6EF17008754CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B5141BC6EF17008754CD /* LaunchScreen.storyboard */; };
+		9A46B5201BC6F4A3008754CD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A46B51F1BC6F4A3008754CD /* Media.xcassets */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SHIELD Hero Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A34492C1BCC1D6D00CB51C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9A3449311BCC1D6D00CB51C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9A3449331BCC1D6D00CB51C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A46B5081BC6EF16008754CD /* OutaTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutaTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A46B50B1BC6EF17008754CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A46B50D1BC6EF17008754CD /* TimeCircuitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCircuitsViewController.swift; sourceTree = "<group>"; };
+		9A46B5101BC6EF17008754CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A46B5121BC6EF17008754CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A46B5151BC6EF17008754CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A46B5171BC6EF17008754CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A46B51F1BC6F4A3008754CD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9A3449211BCC1D6D00CB51C4 /* Frameworks */ = {
+		9A46B5051BC6EF16008754CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,69 +37,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A34491B1BCC1D6D00CB51C4 = {
+		9A46B4FF1BC6EF16008754CD = {
 			isa = PBXGroup;
 			children = (
-				9A3449261BCC1D6D00CB51C4 /* SHIELD Hero Tracker */,
-				9A3449251BCC1D6D00CB51C4 /* Products */,
+				9A46B50A1BC6EF16008754CD /* OutaTime */,
+				9A46B5091BC6EF16008754CD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9A3449251BCC1D6D00CB51C4 /* Products */ = {
+		9A46B5091BC6EF16008754CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */,
+				9A46B5081BC6EF16008754CD /* OutaTime.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A3449261BCC1D6D00CB51C4 /* SHIELD Hero Tracker */ = {
+		9A46B50A1BC6EF16008754CD /* OutaTime */ = {
 			isa = PBXGroup;
 			children = (
-				9A3449271BCC1D6D00CB51C4 /* AppDelegate.swift */,
-				9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */,
-				9A34492E1BCC1D6D00CB51C4 /* Assets.xcassets */,
-				9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */,
-				9A3449331BCC1D6D00CB51C4 /* Info.plist */,
+				9A46B50B1BC6EF17008754CD /* AppDelegate.swift */,
+				9A46B50D1BC6EF17008754CD /* TimeCircuitsViewController.swift */,
+				9A46B50F1BC6EF17008754CD /* Main.storyboard */,
+				9A46B51F1BC6F4A3008754CD /* Media.xcassets */,
+				9A46B5121BC6EF17008754CD /* Assets.xcassets */,
+				9A46B5141BC6EF17008754CD /* LaunchScreen.storyboard */,
+				9A46B5171BC6EF17008754CD /* Info.plist */,
 			);
-			path = "SHIELD Hero Tracker";
+			path = OutaTime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9A3449231BCC1D6D00CB51C4 /* SHIELD Hero Tracker */ = {
+		9A46B5071BC6EF16008754CD /* OutaTime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A3449361BCC1D6D00CB51C4 /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */;
+			buildConfigurationList = 9A46B51A1BC6EF17008754CD /* Build configuration list for PBXNativeTarget "OutaTime" */;
 			buildPhases = (
-				9A3449201BCC1D6D00CB51C4 /* Sources */,
-				9A3449211BCC1D6D00CB51C4 /* Frameworks */,
-				9A3449221BCC1D6D00CB51C4 /* Resources */,
+				9A46B5041BC6EF16008754CD /* Sources */,
+				9A46B5051BC6EF16008754CD /* Frameworks */,
+				9A46B5061BC6EF16008754CD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SHIELD Hero Tracker";
-			productName = "SHIELD Hero Tracker";
-			productReference = 9A3449241BCC1D6D00CB51C4 /* SHIELD Hero Tracker.app */;
+			name = OutaTime;
+			productName = OutaTime;
+			productReference = 9A46B5081BC6EF16008754CD /* OutaTime.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9A34491C1BCC1D6D00CB51C4 /* Project object */ = {
+		9A46B5001BC6EF16008754CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "The Iron Yard";
 				TargetAttributes = {
-					9A3449231BCC1D6D00CB51C4 = {
+					9A46B5071BC6EF16008754CD = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 9A34491F1BCC1D6D00CB51C4 /* Build configuration list for PBXProject "SHIELD Hero Tracker" */;
+			buildConfigurationList = 9A46B5031BC6EF16008754CD /* Build configuration list for PBXProject "OutaTime" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -103,53 +109,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 9A34491B1BCC1D6D00CB51C4;
-			productRefGroup = 9A3449251BCC1D6D00CB51C4 /* Products */;
+			mainGroup = 9A46B4FF1BC6EF16008754CD;
+			productRefGroup = 9A46B5091BC6EF16008754CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A3449231BCC1D6D00CB51C4 /* SHIELD Hero Tracker */,
+				9A46B5071BC6EF16008754CD /* OutaTime */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9A3449221BCC1D6D00CB51C4 /* Resources */ = {
+		9A46B5061BC6EF16008754CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3449321BCC1D6D00CB51C4 /* LaunchScreen.storyboard in Resources */,
-				9A34492F1BCC1D6D00CB51C4 /* Assets.xcassets in Resources */,
-				9A34492D1BCC1D6D00CB51C4 /* Main.storyboard in Resources */,
+				9A46B5161BC6EF17008754CD /* LaunchScreen.storyboard in Resources */,
+				9A46B5131BC6EF17008754CD /* Assets.xcassets in Resources */,
+				9A46B5201BC6F4A3008754CD /* Media.xcassets in Resources */,
+				9A46B5111BC6EF17008754CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9A3449201BCC1D6D00CB51C4 /* Sources */ = {
+		9A46B5041BC6EF16008754CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3449281BCC1D6D00CB51C4 /* AppDelegate.swift in Sources */,
+				9A46B50E1BC6EF17008754CD /* TimeCircuitsViewController.swift in Sources */,
+				9A46B50C1BC6EF17008754CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9A34492B1BCC1D6D00CB51C4 /* Main.storyboard */ = {
+		9A46B50F1BC6EF17008754CD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9A34492C1BCC1D6D00CB51C4 /* Base */,
+				9A46B5101BC6EF17008754CD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9A3449301BCC1D6D00CB51C4 /* LaunchScreen.storyboard */ = {
+		9A46B5141BC6EF17008754CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9A3449311BCC1D6D00CB51C4 /* Base */,
+				9A46B5151BC6EF17008754CD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -157,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9A3449341BCC1D6D00CB51C4 /* Debug */ = {
+		9A46B5181BC6EF17008754CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -201,7 +209,7 @@
 			};
 			name = Debug;
 		};
-		9A3449351BCC1D6D00CB51C4 /* Release */ = {
+		9A46B5191BC6EF17008754CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -238,24 +246,24 @@
 			};
 			name = Release;
 		};
-		9A3449371BCC1D6D00CB51C4 /* Debug */ = {
+		9A46B51B1BC6EF17008754CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "SHIELD Hero Tracker/Info.plist";
+				INFOPLIST_FILE = OutaTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tiy.SHIELD-Hero-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.OutaTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		9A3449381BCC1D6D00CB51C4 /* Release */ = {
+		9A46B51C1BC6EF17008754CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "SHIELD Hero Tracker/Info.plist";
+				INFOPLIST_FILE = OutaTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tiy.SHIELD-Hero-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.OutaTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -263,24 +271,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A34491F1BCC1D6D00CB51C4 /* Build configuration list for PBXProject "SHIELD Hero Tracker" */ = {
+		9A46B5031BC6EF16008754CD /* Build configuration list for PBXProject "OutaTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A3449341BCC1D6D00CB51C4 /* Debug */,
-				9A3449351BCC1D6D00CB51C4 /* Release */,
+				9A46B5181BC6EF17008754CD /* Debug */,
+				9A46B5191BC6EF17008754CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A3449361BCC1D6D00CB51C4 /* Build configuration list for PBXNativeTarget "SHIELD Hero Tracker" */ = {
+		9A46B51A1BC6EF17008754CD /* Build configuration list for PBXNativeTarget "OutaTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A3449371BCC1D6D00CB51C4 /* Debug */,
-				9A3449381BCC1D6D00CB51C4 /* Release */,
+				9A46B51B1BC6EF17008754CD /* Debug */,
+				9A46B51C1BC6EF17008754CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9A34491C1BCC1D6D00CB51C4 /* Project object */;
+	rootObject = 9A46B5001BC6EF16008754CD /* Project object */;
 }
