@@ -10,6 +10,13 @@ import UIKit
 
 class HeroDetailViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var homeworldLabel: UILabel!
+    
+    @IBOutlet weak var powersLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

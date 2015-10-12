@@ -15,7 +15,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="vbF-5O-bNa" detailTextLabel="E6C-kA-h3E" style="IBUITableViewCellStyleValue1" id="BvU-Ie-4cE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" textLabel="vbF-5O-bNa" detailTextLabel="E6C-kA-h3E" style="IBUITableViewCellStyleValue1" id="BvU-Ie-4cE">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BvU-Ie-4cE" id="f5Q-MY-Htb">
@@ -100,6 +100,11 @@
                             <constraint firstItem="YuU-xO-YXf" firstAttribute="top" secondItem="9gG-3O-Wsz" secondAttribute="bottom" constant="8" id="kzb-xh-5hN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeworldLabel" destination="9gG-3O-Wsz" id="nLI-vq-mHG"/>
+                        <outlet property="nameLabel" destination="9vD-6K-yYq" id="mfa-yI-HVv"/>
+                        <outlet property="powersLabel" destination="YuU-xO-YXf" id="Vsu-5V-rqn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfo-Se-Asx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
