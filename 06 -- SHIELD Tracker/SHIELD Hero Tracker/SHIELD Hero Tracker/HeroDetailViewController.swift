@@ -8,11 +8,6 @@
 
 import UIKit
 
-@objc protocol HeroPickerDelegate
-{
-    func didSelectRowAtIndexPath(heroChosen: UITableViewCell)
-}
-
 class HeroDetailViewController: UIViewController
 {
 
@@ -26,24 +21,17 @@ class HeroDetailViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    
+        title = "Hero Details"
+        
+        
+        nameLabel.text = aHero!.name.uppercaseString
+        homeworldLabel.text = aHero!.homeworld.uppercaseString
+        powersLabel.text = aHero!.powers.uppercaseString
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    // MARK: - HeroDetail Delegate
-    
-    func didSelectRowAtIndexPath(aHero: Hero)
-    {
-        nameLabel.text = aHero.name
-        homeworldLabel.text = aHero.homeworld
-        powersLabel.text = aHero.powers
-        
     }
     
 }
