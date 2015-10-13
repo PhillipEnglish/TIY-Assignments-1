@@ -17,17 +17,14 @@ class HeroDetailViewController: UIViewController
     
     var aHero: Hero?
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Hero Details"
         
-        
-        nameLabel.text = aHero!.name.uppercaseString
-        homeworldLabel.text = aHero!.homeworld.uppercaseString
-        powersLabel.text = aHero!.powers.uppercaseString
+        nameLabel.text = aHero?.name
+        homeworldLabel.text = aHero?.homeworld
+        powersLabel.text = aHero?.powers
     }
     
     override func didReceiveMemoryWarning() {

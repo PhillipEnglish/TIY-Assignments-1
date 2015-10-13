@@ -43,7 +43,7 @@ class HeroTableViewController: UITableViewController
         let cell = tableView.dequeueReusableCellWithIdentifier("HeroCell", forIndexPath: indexPath)
         
         // source: http://sketchytech.blogspot.com/2015/06/swift-getting-sorted.html
-        heroes.sortInPlace{$0.name < $1.name}
+        
         // Configure the cell...
         let aHero = heroes[indexPath.row]
         cell.textLabel?.text = aHero.name
@@ -56,7 +56,7 @@ class HeroTableViewController: UITableViewController
         let hero = heroes[indexPath.row]
         let vc = storyboard?.instantiateViewControllerWithIdentifier("HeroDetailViewController") as! HeroDetailViewController
         vc.aHero = hero
-        presentViewController(vc, animated: true, completion: nil)
+        navigationController?.presentViewController(vc, animated: true, completion: nil)
     }
 
     // MARK: - Private Functions
@@ -73,6 +73,7 @@ class HeroTableViewController: UITableViewController
                 let aHero = Hero(dictionary: heroDictionary as! NSDictionary)
                 heroes.append(aHero)
             }
+            heroes.sortInPlace{$0.name < $1.name}
         }
         catch let error as NSError
         {
