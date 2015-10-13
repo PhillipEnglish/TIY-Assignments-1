@@ -11,7 +11,7 @@ import UIKit
 class TicketTableViewController: UITableViewController
 {
     
-    var ticketTableArray = Array<LotteryTicket>()
+    var ticketTableArray = Array<String>()
 
     override func viewDidLoad()
     {
@@ -65,7 +65,7 @@ class TicketTableViewController: UITableViewController
     private func loadTickets()
     {
         let aTicket = LotteryTicket()
-        ticketTableArray.append(aTicket)
+        ticketTableArray.append(aTicket.toString())
         tableView.reloadData()
 
     }
