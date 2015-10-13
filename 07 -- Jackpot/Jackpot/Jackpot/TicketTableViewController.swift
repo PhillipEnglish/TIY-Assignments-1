@@ -12,6 +12,7 @@ class TicketTableViewController: UITableViewController
 {
     
     var ticketTableArray = Array<String>()
+    var ticketNumber = 1
 
     override func viewDidLoad()
     {
@@ -40,7 +41,6 @@ class TicketTableViewController: UITableViewController
         return ticketTableArray.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("TicketCell", forIndexPath: indexPath)
@@ -65,7 +65,8 @@ class TicketTableViewController: UITableViewController
     private func loadTickets()
     {
         let aTicket = LotteryTicket()
-        ticketTableArray.append(aTicket.toString())
+        ticketTableArray.append("Ticket \(ticketNumber): \(aTicket.toString())")
+        ticketNumber++
         tableView.reloadData()
 
     }
