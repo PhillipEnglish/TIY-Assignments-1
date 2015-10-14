@@ -14,7 +14,7 @@ import UIKit
 
 protocol TicketPickerDelegate
 {
-    func ticketWasChosen(winningNumber: LotteryTicket) // array of LotteryTickets?
+    func winningNumberSelected(winningNumber: LotteryTicket) // array of LotteryTickets?
 }
 
 class TicketTableViewController: UITableViewController, TicketPickerDelegate
@@ -48,9 +48,8 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     
     // MARK: - TimerPicker Delegate
     
-    func ticketWasChosen(winningNumber: LotteryTicket)
+    func winningNumberSelected(winningNumber: LotteryTicket)
     {
-
         // passing data from TimerPicker class to current class when the "Back" button is selected
         winningNumber
 
@@ -67,15 +66,13 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     // MARK: - Table View
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return ticketTableArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("TicketCell", forIndexPath: indexPath)
-        
-        // Configure the cell...
+
         let aTicket = ticketTableArray[indexPath.row]
         cell.textLabel?.text = String(aTicket)
         
@@ -98,6 +95,12 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
         ticketTableArray.append("Ticket \(ticketNumber): \(aTicket.toString())")
         ticketNumber++
         tableView.reloadData()
+    }
+    
+    // TODO: compare two tickets, change cell color if it's a winner, list prize amount
+    func compareTickets()
+    {
+    
     }
 }
 

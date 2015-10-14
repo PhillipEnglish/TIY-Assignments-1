@@ -28,11 +28,10 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        // FIXME pass LotteryTicket item to TicketTableViewController to compare against current tickets
-//        delegate?.ticketWasChosen(53-picker.selectedRowInComponent(0))
+        // pass winningTicket item to TicketTableViewController to compare against current tickets
         returnWinningNumber()
-        var winningTicket = LotteryTicket(arrayFromViewPicker: winningNumber)
-        delegate?.ticketWasChosen(winningTicket)
+        let winningTicket = LotteryTicket(arrayFromViewPicker: winningNumber)
+        delegate?.winningNumberSelected(winningTicket)
         
     }
     
@@ -49,18 +48,19 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        // sets number of rows, for each picker (as identified by component)
+        // FIXME: sets number of rows, for each picker (as identified by component)
 
         return [53][1]
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int /*this is the index of the array/set of data */, forComponent component: Int) -> String?
     {
-        // func for the delegate, passing the number of the row as the row title
+        // FIXME: func for the delegate, passing the number of the row as the row title
 
         return ["\(row)"][1]
     }
     
+    // TODO: capture the data from the picker, append into winningNumber array
 //    func viewForRow(titleForRow row: Int, forComponent component: Int) -> UIView?
 //    {
 //        
@@ -68,6 +68,7 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     
     func returnWinningNumber()
     {
+        // placeholder to check accuracy of delegation and compare function
         winningNumber = [1,2,3,4,5,6]
     }
 
