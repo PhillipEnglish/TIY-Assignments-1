@@ -13,6 +13,7 @@
 		9A3B79801BCD7A1E00158994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3B797E1BCD7A1E00158994 /* LaunchScreen.storyboard */; };
 		9A3B79881BCD7C8100158994 /* TicketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B79871BCD7C8100158994 /* TicketTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9A3B798A1BCD7C9700158994 /* LotteryTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B79891BCD7C9700158994 /* LotteryTicket.swift */; settings = {ASSET_TAGS = (); }; };
+		9A61A4491BCEC7BE0012EC06 /* WinningTicketPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61A4481BCEC7BE0012EC06 /* WinningTicketPickerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9A3B79811BCD7A1E00158994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A3B79871BCD7C8100158994 /* TicketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewController.swift; sourceTree = "<group>"; };
 		9A3B79891BCD7C9700158994 /* LotteryTicket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotteryTicket.swift; sourceTree = "<group>"; };
+		9A61A4481BCEC7BE0012EC06 /* WinningTicketPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinningTicketPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9A3B79811BCD7A1E00158994 /* Info.plist */,
 				9A3B79871BCD7C8100158994 /* TicketTableViewController.swift */,
 				9A3B79891BCD7C9700158994 /* LotteryTicket.swift */,
+				9A61A4481BCEC7BE0012EC06 /* WinningTicketPickerViewController.swift */,
 			);
 			path = Jackpot;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3B798A1BCD7C9700158994 /* LotteryTicket.swift in Sources */,
+				9A61A4491BCEC7BE0012EC06 /* WinningTicketPickerViewController.swift in Sources */,
 				9A3B79761BCD7A1E00158994 /* AppDelegate.swift in Sources */,
 				9A3B79881BCD7C8100158994 /* TicketTableViewController.swift in Sources */,
 			);
@@ -287,6 +291,7 @@
 				9A3B79861BCD7A1E00158994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

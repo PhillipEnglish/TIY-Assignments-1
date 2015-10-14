@@ -12,7 +12,13 @@ class LotteryTicket
 {
 //    var ticketString: String
     var arrayOfNum: Array<Int> = []
-//    var arrayOfNum: Array<Int> = [1,2,3,4,5,6]
+    var isWinning: Bool = false
+    var prizeAmt: Int?
+    
+    var prize3 = 1
+    var prize4 = 5
+    var prize5 = 20
+    var prize6 = 100
   
     //initialize with an array of 6 unique numbers between 1 and 53
     init()
@@ -38,8 +44,6 @@ class LotteryTicket
     
     func toString() -> String
     {
-//        var ticketString = "\(arrayOfNum)"
-//        return ticketString
         return "\(arrayOfNum)"
     }
 
@@ -49,5 +53,21 @@ class LotteryTicket
         return Int(arc4random() % 53)
     }
     
-
+    func compareTicket(userTicket: LotteryTicket, winningTicket: LotteryTicket) -> Bool
+    {
+        // TODO Create a compareTicket type method that takes a ticket object as an argument and compares it with the another ticket to determine how many digits are the same.
+        if 0 == 0
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
+    func assignPrize()
+    {
+        // may be better in compareTicket method
+    }
 }

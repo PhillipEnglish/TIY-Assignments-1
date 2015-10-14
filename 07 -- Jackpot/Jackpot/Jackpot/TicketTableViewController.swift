@@ -8,7 +8,18 @@
 
 import UIKit
 
-class TicketTableViewController: UITableViewController
+// @objc protocol <- used when you make your own delegate. delegates are used to link, or grab data, from another class
+
+// delegate created in this class, because it will be the receiving class
+
+@objc protocol TicketPickerDelegate
+{
+    func ticketWasChosen(ticket: Int) // array of LotteryTickets?
+}
+
+
+
+class TicketTableViewController: UITableViewController, TicketPickerDelegate
 {
     
     var ticketTableArray = Array<String>()
@@ -26,6 +37,26 @@ class TicketTableViewController: UITableViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "TicketTableToPickerSegue"
+        {
+            let ticketPickerVC = segue.destinationViewController
+                as! WinningTicketPickerViewController
+            ticketPickerVC.delegate = self
+        }
+    }
+    
+    // MARK: - TimerPicker Delegate
+    
+    func ticketWasChosen(ticket: Int)
+    {
+//        originalCount = timerCount
+//        // passing data from TimerPicker class to current class when the "Back" button is selected
+//        countLabel.text = "\(timerCount)"
+    }
+
 
     // MARK: - Table view data source
 
