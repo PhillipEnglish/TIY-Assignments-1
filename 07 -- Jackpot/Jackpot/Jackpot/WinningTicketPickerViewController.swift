@@ -15,6 +15,7 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet var picker: UIPickerView!
     // delegate property here. this is the 'sending' class
     var delegate: TicketPickerDelegate? //question mark means 'optional'
+    var winningNumber: Array<Int> = []
     
     
     //    let cities = ["Orlando", "Winter Perk", "Longwood", "Maitland"]
@@ -28,7 +29,10 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     {
         super.viewWillDisappear(animated)
         // FIXME pass LotteryTicket item to TicketTableViewController to compare against current tickets
-        delegate?.ticketWasChosen(53-picker.selectedRowInComponent(0))
+//        delegate?.ticketWasChosen(53-picker.selectedRowInComponent(0))
+        returnWinningNumber()
+        var winningTicket = LotteryTicket(arrayFromViewPicker: winningNumber)
+        delegate?.ticketWasChosen(winningTicket)
         
     }
     
@@ -46,15 +50,25 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         // sets number of rows, for each picker (as identified by component)
-        //        return cities.count
-        return 53
+
+        return [53][1]
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int /*this is the index of the array/set of data */, forComponent component: Int) -> String?
     {
         // func for the delegate, passing the number of the row as the row title
-        //        return "\(cities[row])"
-        return "\(53-row)"
+
+        return ["\(row)"][1]
+    }
+    
+//    func viewForRow(titleForRow row: Int, forComponent component: Int) -> UIView?
+//    {
+//        
+//    }
+    
+    func returnWinningNumber()
+    {
+        winningNumber = [1,2,3,4,5,6]
     }
 
     

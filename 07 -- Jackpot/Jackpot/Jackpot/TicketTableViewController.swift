@@ -12,12 +12,10 @@ import UIKit
 
 // delegate created in this class, because it will be the receiving class
 
-@objc protocol TicketPickerDelegate
+protocol TicketPickerDelegate
 {
-    func ticketWasChosen(ticket: Int) // array of LotteryTickets?
+    func ticketWasChosen(winningNumber: LotteryTicket) // array of LotteryTickets?
 }
-
-
 
 class TicketTableViewController: UITableViewController, TicketPickerDelegate
 {
@@ -50,11 +48,12 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     
     // MARK: - TimerPicker Delegate
     
-    func ticketWasChosen(ticket: Int)
+    func ticketWasChosen(winningNumber: LotteryTicket)
     {
-//        originalCount = timerCount
-//        // passing data from TimerPicker class to current class when the "Back" button is selected
-//        countLabel.text = "\(timerCount)"
+
+        // passing data from TimerPicker class to current class when the "Back" button is selected
+        winningNumber
+
     }
 
 
@@ -99,7 +98,6 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
         ticketTableArray.append("Ticket \(ticketNumber): \(aTicket.toString())")
         ticketNumber++
         tableView.reloadData()
-
     }
 }
 

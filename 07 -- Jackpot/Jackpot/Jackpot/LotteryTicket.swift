@@ -12,6 +12,7 @@ class LotteryTicket
 {
 //    var ticketString: String
     var arrayOfNum: Array<Int> = []
+    var newTicket: Array<Int> = []
     var isWinning: Bool = false
     var prizeAmt: Int?
     
@@ -42,6 +43,11 @@ class LotteryTicket
         }
     }
     
+    init(arrayFromViewPicker: Array<Int>)
+    {
+        newTicket = arrayFromViewPicker
+    }
+    
     func toString() -> String
     {
         return "\(arrayOfNum)"
@@ -52,6 +58,8 @@ class LotteryTicket
     {
         return Int(arc4random() % 53)
     }
+    
+
     
     func compareTicket(userTicket: LotteryTicket, winningTicket: LotteryTicket) -> Bool
     {
