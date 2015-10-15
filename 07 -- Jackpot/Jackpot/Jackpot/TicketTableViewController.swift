@@ -22,6 +22,8 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     
     var ticketTableArray = Array<String>()
     var ticketNumber = 1
+    var isAWinner = false
+    var prizeLevel = 0
 
     override func viewDidLoad()
     {
@@ -75,7 +77,7 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
 
         let aTicket = ticketTableArray[indexPath.row]
         cell.textLabel?.text = String(aTicket)
-        
+        // TODO: if it's a winner, change the cell color here & display prizeLevel
         return cell
     }
     
@@ -100,7 +102,9 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     // TODO: compare two tickets, change cell color if it's a winner, list prize amount
     func compareTickets()
     {
-    
+//        compare winningTicket to tickets in Array
+//        if it's a winner, turn the cell green
+//        if a winner, grab the aTicket.assignPrize to determine what goes on the label
     }
 }
 

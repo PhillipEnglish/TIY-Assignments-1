@@ -15,6 +15,8 @@ class LotteryTicket
     var newTicket: Array<Int> = []
     
     var isWinning: Bool = false
+    
+    var timesAWinner = 0
     var prizeAmt: Int?
   
     //initialize with an array of 6 unique numbers between 1 and 53
@@ -55,31 +57,42 @@ class LotteryTicket
         return Int(arc4random() % 53)
     }
     
-    func compareTicket(userTicket: LotteryTicket, winningTicket: LotteryTicket)
+    func compareTicket(userTicket: Array<Int>, winningTicket: Array<Int>) -> Bool
     {
-        // TODO: Create a compareTicket  
+        // Create a compareTicket  
         // method that takes a ticket object as an argument and compares it with the another ticket to determine how many digits are the same. used to change the cell color
         for x in userTicket
         {
             if winningTicket.contains(x)
             {
-                isWinning = true
+                timesAWinner++
+                return true
             }
             else
             {
-                isWinning = false
+                return false
             }
         }
+        return false
     }
     
-    // TODO: assign prizes
+    // assign prizes
     // if a ticket is a winner, then you need to determine how many numbers are right to assign prize
-    func assignPrize()
+    func assignPrize() -> Int
     {
         // may be better in compareTicket method
-        var prize3 = 1
-        var prize4 = 5
-        var prize5 = 20
-        var prize6 = 100
+        switch timesAWinner {
+            case 3:
+                return 1
+            case 4:
+                return 5
+            case 5:
+                return 20
+            case 6:
+                return 100
+            default:
+                return 0
+        }
+
     }
 }
