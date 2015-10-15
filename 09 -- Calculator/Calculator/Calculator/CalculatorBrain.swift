@@ -71,21 +71,46 @@ class CalculatorBrain
         
     }
     
+    func setSpecialButton(specialButton: String) -> String
+    {
+        var digit = Double(numberString!)
+        switch specialButton
+        {
+            case "+/-":
+                digit = digit! * -1
+            case "%":
+                digit = digit! / 100
+            default:
+                0
+        }
+        
+        return String(digit)
+    }
+    
     func calculate() -> Double
     {
         
         switch operatorSelection
         {
-        case "+":
-            return op1! + op2!
-        case "-":
-            return op1! - op2!
-        case "x":
-            return op1! * op2!
-        case "÷":
-            return op1! / op2!
-        default:
-            return 0
+            case "+":
+                return op1! + op2!
+            case "-":
+                return op1! - op2!
+            case "x":
+                return op1! * op2!
+            case "÷":
+                return op1! / op2!
+            case "%":
+                if op1 != nil
+                {
+                    return op1! / 100
+                }
+                else
+                {
+                    return op2! / 100
+                }
+            default:
+                return 0
         }
     }
     
@@ -96,19 +121,4 @@ class CalculatorBrain
         op2 = nil
         operatorSelection = ""
     }
-//
-//    func specialSymbols(num: Double, symbol: String) -> Double
-//    {
-//        switch symbol
-//        {
-//            case "%":
-//                return num/100
-//            case "+/-":
-//               return num * -1
-//            default:
-//                return 0
-//        }
-//        
-//    }
-
 }

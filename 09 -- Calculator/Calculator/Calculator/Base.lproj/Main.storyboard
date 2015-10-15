@@ -44,7 +44,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="+/-"/>
                                 <connections>
-                                    <action selector="operatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jGQ-yn-RxU"/>
+                                    <action selector="specialButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZQ1-1J-vRI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cke-NR-1Lj">
@@ -55,7 +55,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="%"/>
                                 <connections>
-                                    <action selector="operatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="99A-qx-fL4"/>
+                                    <action selector="specialButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2eD-4w-EEp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBS-Ny-1Su">

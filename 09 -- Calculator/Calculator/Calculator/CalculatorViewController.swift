@@ -42,6 +42,12 @@ class CalculatorViewController: UIViewController
         calculator.setOperator(calculator.getFullNumber())
         calculator.setSymbol(sender.currentTitle!)
     }
+    
+    @IBAction func specialButton(sender: UIButton)
+    {
+        calculator.setSpecialButton(sender.currentTitle!)
+        displayLabel.text = "\(calculator.getFullNumber())"
+    }
 
     @IBAction func equalsButton(sender: UIButton)
     {
@@ -49,6 +55,7 @@ class CalculatorViewController: UIViewController
         displayLabel.text = "\(calculator.calculate())"
         calculator.clearCalculator()
     }
+
     
     @IBAction func clearbutton(sender: UIButton)
     {
