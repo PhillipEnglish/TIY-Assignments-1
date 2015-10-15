@@ -8,18 +8,44 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: UIViewController
+{
+    
+    @IBOutlet weak var displayLabel: UILabel!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+
+    // MARK: - Action Handler
+    
+    // ask button for label.text
+    
+    @IBAction func numberButton(sender: UIButton)
+    {
+        
+    }
+
+    
+    @IBAction func operatorButton(sender: UIButton)
+    {
+        
+    }
+
+    
+    @IBAction func clearbutton(sender: UIButton)
+    {
+        
+    }
 
 }
 
