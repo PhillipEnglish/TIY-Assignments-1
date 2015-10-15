@@ -10,21 +10,71 @@ import Foundation
 
 class CalculatorBrain
 {
-    var op1: Int?
-    var op2: Int?
-    var operatorX: String?
-    var answer: Int?
+    var op1: Double?
+    var op2: Double?
+    var operatorSelection = ""
+    var numberString: String?
+    var numberCompleted: Bool?
     
-    init(x: String, y: String)
+    init()
     {
-        op1 = Int(x)!
-        op2 = Int(y)!
+        op1 = nil
+        op2 = nil
+        operatorSelection = ""
+        numberString = ""
+        numberCompleted = false
+    }
+//
+//    init()
+//    {
+//        op1String = ""
+//        op2String = ""
+//        operatorSelection = ""
+//    }
+    
+//    init(x: String, y: String, symbol: String)
+//    {
+//        op1 = Double(x)
+//        op2 = Double(y)
+//        operatorX = symbol
+//    }
+    
+    func setDigit(digitAsString: String)
+    {
+        numberString! += digitAsString
+        
     }
     
-    func calculate(operators: String) -> Int
+    func getFullNumber() -> String
+    {
+        return numberString!
+    }
+    
+    func setOperator(fullNumString: String)
+    {
+        if op1 == nil
+        {
+            op1 = Double(fullNumString)
+        }
+        else
+        {
+            op2 = Double(fullNumString)
+        }
+        
+        numberCompleted = true
+        numberString = ""
+    }
+    
+    func setSymbol(symbol: String)
+    {
+        operatorSelection = symbol
+        
+    }
+    
+    func calculate() -> Double
     {
         
-        switch operators
+        switch operatorSelection
         {
         case "+":
             return op1! + op2!
@@ -34,56 +84,31 @@ class CalculatorBrain
             return op1! * op2!
         case "÷":
             return op1! / op2!
-        case "%":
-            return 5
-        case "+/-":
-            return 6
         default:
             return 0
         }
     }
     
-    func specialSymbols(num: Int, symbol: String) -> Int
+    func clearCalculator()
     {
-        switch symbol
-        {
-            case "%":
-                return num/100
-            case "+/-":
-               return num * -1
-            default:
-                return 0
-        }
-        
+        numberString = ""
+        op1 = nil
+        op2 = nil
+        operatorSelection = ""
     }
-    
-//    func add(op1: Int, op2: Int) -> Int
+//
+//    func specialSymbols(num: Double, symbol: String) -> Double
 //    {
-//        return op1 + op2
+//        switch symbol
+//        {
+//            case "%":
+//                return num/100
+//            case "+/-":
+//               return num * -1
+//            default:
+//                return 0
+//        }
+//        
 //    }
-//    
-//    func subtract(op1: Int, op2: Int) -> Int
-//    {
-//        return op1 - op2
-//    }
-//    
-//    func multiply(op1: Int, op2: Int) -> Int
-//    {
-//        return op1 * op2
-//    }
-//    
-//    func divide(op1: Int, op2: Int) -> Int
-//    {
-//        return op1/op2
-//    }
-//    
-//    func posOrNeg(op1: Int) -> Int
-//    {
-//        return op1 * -1
-//    }
-//    
-//    func percent(op1: Int) -> Int
-//    {
-//        return op1/100
-//    }
+
 }
