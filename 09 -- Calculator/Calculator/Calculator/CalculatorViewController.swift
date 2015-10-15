@@ -45,8 +45,8 @@ class CalculatorViewController: UIViewController
     
     @IBAction func specialButton(sender: UIButton)
     {
-        calculator.setSpecialButton(sender.currentTitle!)
-        displayLabel.text = "\(calculator.getFullNumber())"
+        // FIXME: not displaying correctly
+        displayLabel!.text = "\(calculator.setSpecialButton(sender.currentTitle!))"
     }
 
     @IBAction func equalsButton(sender: UIButton)
@@ -56,9 +56,9 @@ class CalculatorViewController: UIViewController
         calculator.clearCalculator()
     }
 
-    
     @IBAction func clearbutton(sender: UIButton)
     {
+        calculator.clearCalculator()
         displayLabel.text = "0"
     }
 }

@@ -45,10 +45,7 @@ class CalculatorBrain
         
     }
     
-    func getFullNumber() -> String
-    {
-        return numberString!
-    }
+    
     
     func setOperator(fullNumString: String)
     {
@@ -83,8 +80,14 @@ class CalculatorBrain
             default:
                 0
         }
-        
+        // FIXME: numberString not updating correctly
+//        numberString = String(digit)
         return String(digit)
+    }
+    
+    func getFullNumber() -> String
+    {
+        return numberString!
     }
     
     func calculate() -> Double
