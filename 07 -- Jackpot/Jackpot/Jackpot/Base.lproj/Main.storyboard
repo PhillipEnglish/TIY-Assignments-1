@@ -85,7 +85,7 @@
                                 <animations/>
                             </pickerView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1Y-sY-137">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <navigationItem title="Select Winning Numbers" id="s0H-ub-dIF">

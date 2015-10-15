@@ -14,16 +14,13 @@ import UIKit
 
 protocol TicketPickerDelegate
 {
-    func winningNumberSelected(winningNumber: LotteryTicket) // array of LotteryTickets?
+    func winningTicketWasAdded(ticket: LotteryTicket) // array of LotteryTickets?
 }
 
 class TicketTableViewController: UITableViewController, TicketPickerDelegate
 {
     
-    var ticketTableArray = Array<String>()
-    var ticketNumber = 1
-    var isAWinner = false
-    var prizeLevel = 0
+    var ticketTableArray = Array<LotteryTicket>()
 
     override func viewDidLoad()
     {
@@ -50,22 +47,20 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     
     // MARK: - TimerPicker Delegate
     
-    func winningNumberSelected(winningNumber: LotteryTicket)
+    func winningTicketWasAdded(ticket: LotteryTicket)
     {
         // passing data from TimerPicker class to current class when the "Back" button is selected
-        winningNumber
+        checkForWinnerUsingTicket(ticket)
 
     }
 
 
-    // MARK: - Table view data source
+    // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
     }
-    
-    // MARK: - Table View
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ticketTableArray.count
@@ -75,9 +70,11 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("TicketCell", forIndexPath: indexPath)
 
-        let aTicket = ticketTableArray[indexPath.row]
-        cell.textLabel?.text = String(aTicket)
+        let aTicket: LotteryTicket = ticketTableArray[indexPath.row]
+        cell.textLabel?.text = aTicket.description()
         // TODO: if it's a winner, change the cell color here & display prizeLevel
+        
+        
         return cell
     }
     
@@ -94,17 +91,23 @@ class TicketTableViewController: UITableViewController, TicketPickerDelegate
     private func loadTickets()
     {
         let aTicket = LotteryTicket()
-        ticketTableArray.append("Ticket \(ticketNumber): \(aTicket.toString())")
-        ticketNumber++
+        ticketTableArray.append(aTicket)
         tableView.reloadData()
     }
     
     // TODO: compare two tickets, change cell color if it's a winner, list prize amount
-    func compareTickets()
+    func checkForWinnerUsingTicket(winningTicket: LotteryTicket)
     {
 //        compare winningTicket to tickets in Array
 //        if it's a winner, turn the cell green
 //        if a winner, grab the aTicket.assignPrize to determine what goes on the label
+        for ticket in ticketTableArray
+        {
+            ticket.compareWithTicket(winningTicket)
+        }
+        
+        
+        tableView.reloadData()
     }
 }
 

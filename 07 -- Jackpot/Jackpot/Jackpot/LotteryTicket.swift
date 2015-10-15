@@ -11,44 +11,118 @@ import Foundation
 class LotteryTicket
 {
 //    var ticketString: String
-    var arrayOfNum: Array<Int> = []
-    var newTicket: Array<Int> = []
+    private var picks = Array<Int>()
     
-    var isWinning: Bool = false
+    var winner: Bool
     
     var timesAWinner = 0
-    var prizeAmt: Int?
+    var payout: String
   
     //initialize with an array of 6 unique numbers between 1 and 53
     init()
     {
+        winner = false
+        payout = ""
+        for _ in 0..<6
+        {
+            createPick()
+        }
+    }
+    
+    init(picksArray: Array<Int>)
+    {
+        winner = false
+        payout = ""
+        for i in 0...(picksArray.count)
+        {
+            picks.append(picksArray[i])
+        }
+
+    }
+    
+    func createPick()
+    {
+        var pickFound = false
+        repeat
+        {
+            let aPick = Int(arc4random() % 53 + 1)
+            if !picks.contains(aPick)
+            {
+                picks.append(aPick)
+                pickFound = true
+            }
+        
+        } while !pickFound
+    }
+    
+    func description() -> String
+    {
+        var numbers = ""
+        for pick in picks.sort()
+        {
+            numbers += " \(pick)"
+        }
+        return numbers
+    }
+    
+    func compareWithTicket(anotherTicket: LotteryTicket)
+    {
+        let anotherticketPicks = anotherTicket.picksArray()
+        var matchCount = 0
+        
+        for APossiblePick in anotherticketPicks
+        {
+            if picks.contains(APossiblePick)
+            {
+                matchCount++
+            }
+        }
+        
+        switch matchCount
+        {
+        case 3:
+            winner = true
+            payout = "$1"
+        case 4:
+            winner = true
+            payout = "$5"
+        case 5:
+            winner = true
+            payout = "$20"
+        case 6:
+            winner = true
+            payout = "$100"
+        default:
+            winner = false
+            payout = ""
+        }
+    }
+}
+    /*
+    
+    init(){
         var i = 0
         //limit it to 6 numbers
         while i <= 6
         {
             let num = generateNumber()
-            if arrayOfNum.contains(num)
-                // if num is already in array, generate a new num
+            if picks.contains(num)
+            // if num is already in array, generate a new num
             {
                 generateNumber()
             }
             else
             //if number does not == a number currently in array, append
             {
-                arrayOfNum.append(num)
+                picks.append(num)
                 i++
             }
         }
     }
-    
-    init(arrayFromViewPicker: Array<Int>)
-    {
-        newTicket = arrayFromViewPicker
-    }
-    
+
     func toString() -> String
     {
-        return "\(arrayOfNum)"
+        return "\(picks)"
     }
 
     
@@ -56,6 +130,7 @@ class LotteryTicket
     {
         return Int(arc4random() % 53)
     }
+
     
     func compareTicket(userTicket: Array<Int>, winningTicket: Array<Int>) -> Bool
     {
@@ -95,4 +170,5 @@ class LotteryTicket
         }
 
     }
-}
+*/
+

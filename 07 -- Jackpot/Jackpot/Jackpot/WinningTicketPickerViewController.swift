@@ -15,30 +15,19 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet var picker: UIPickerView!
     // delegate property here. this is the 'sending' class
     var delegate: TicketPickerDelegate? //question mark means 'optional'
-    var winningNumber: Array<Int> = []
-    
-    
-    //    let cities = ["Orlando", "Winter Perk", "Longwood", "Maitland"]
+    var winningPicks = Array<Int>(count: 6, repeatedValue: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillDisappear(animated: Bool)
-    {
-        super.viewWillDisappear(animated)
-        // pass winningTicket item to TicketTableViewController to compare against current tickets
-        returnWinningNumber()
-        let winningTicket = LotteryTicket(arrayFromViewPicker: winningNumber)
-        delegate?.winningNumberSelected(winningTicket)
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - UIPickerView data source
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
@@ -48,29 +37,30 @@ class WinningTicketPickerViewController: UIViewController, UIPickerViewDataSourc
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        // FIXME: sets number of rows, for each picker (as identified by component)
-
-        return [53][1]
+        return 53
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int /*this is the index of the array/set of data */, forComponent component: Int) -> String?
     {
-        // FIXME: func for the delegate, passing the number of the row as the row title
-
-        return ["\(row)"][1]
+        return "\(row + 1)"
     }
     
-    // TODO: capture the data from the picker, append into winningNumber array
-//    func viewForRow(titleForRow row: Int, forComponent component: Int) -> UIView?
-//    {
-//        
-//    }
-    
-    func returnWinningNumber()
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent componenet: Int)
     {
-        // placeholder to check accuracy of delegation and compare function
-        winningNumber = [1,2,3,4,5,6]
+        winningPicks[componenet] = row + 1
     }
+    
+    // MARK: - Action Handlers
+    
+    @IBAction func checkTickets(sender: UIButton)
+    {
+        if winningPicks.count == 6
+        {
+            let winningTicket = LotteryTicket(picksArray: winningPicks)
+            delegate?.winningTicketWasAdded(winningTicket)
+        }
+    }
+
 
     
 }
