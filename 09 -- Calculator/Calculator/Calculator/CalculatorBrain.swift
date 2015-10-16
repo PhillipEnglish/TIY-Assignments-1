@@ -14,7 +14,7 @@ class CalculatorBrain
     var op2: Double?
     var operatorSelection = ""
     var numberString: String?
-    var numberCompleted: Bool?
+    var isNumberCompleted: Bool?
     
     init()
     {
@@ -22,30 +22,14 @@ class CalculatorBrain
         op2 = nil
         operatorSelection = ""
         numberString = ""
-        numberCompleted = false
+        isNumberCompleted = false
     }
-//
-//    init()
-//    {
-//        op1String = ""
-//        op2String = ""
-//        operatorSelection = ""
-//    }
-    
-//    init(x: String, y: String, symbol: String)
-//    {
-//        op1 = Double(x)
-//        op2 = Double(y)
-//        operatorX = symbol
-//    }
     
     func setDigit(digitAsString: String)
     {
         numberString! += digitAsString
         
     }
-    
-    
     
     func setOperator(fullNumString: String)
     {
@@ -58,7 +42,7 @@ class CalculatorBrain
             op2 = Double(fullNumString)
         }
         
-        numberCompleted = true
+        isNumberCompleted = true
         numberString = ""
     }
     
@@ -92,7 +76,6 @@ class CalculatorBrain
     
     func calculate() -> Double
     {
-        
         switch operatorSelection
         {
             case "+":
