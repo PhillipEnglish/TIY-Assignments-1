@@ -54,19 +54,30 @@ class CalculatorBrain
     
     func setSpecialButton(specialButton: String) -> String
     {
+        isNumberCompleted = true
         var digit = Double(numberString!)
+        
         switch specialButton
         {
             case "+/-":
                 digit = digit! * -1
+            
             case "%":
                 digit = digit! / 100
             default:
                 0
         }
-        // FIXME: numberString not updating correctly
-//        numberString = String(digit)
-        return String(digit)
+        
+        if op1 == nil
+        {
+            op1 = digit
+        }
+        else
+        {
+            op2 = digit
+        }
+
+        return String(digit!)
     }
     
     func getFullNumber() -> String
