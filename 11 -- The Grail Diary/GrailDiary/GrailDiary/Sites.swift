@@ -13,6 +13,7 @@ class Sites {
     var location: String
     var circa: String
     var description: String
+    var siteImage: String
     
     init(dictionary: NSDictionary)
     {
@@ -20,6 +21,7 @@ class Sites {
         location = dictionary["location"] as! String
         circa = dictionary["circa"] as! String
         description = dictionary["description"] as! String
+        siteImage = dictionary["image"] as! String
     }
 
 }

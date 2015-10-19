@@ -1,8 +1,82 @@
- [
+[
+  {
+    "name": "The Georgia Guidestones",
+    "location": "Elbert County, GA",
+    "circa": "1979",
+    "description": "The messages engraved on the Georgia Guidestones deal with four major fields: (1) Governance and the establishment of a world government, (2) Population and reproduction control, (3) The environment and man's relationship to nature, and (4) Spirituality.",
+    "image": "",
+    "link": "http://www.radioliberty.com/stones.htm"
+  },
   {
     "name": "Statue of Liberty",
     "location": "New York, NY",
-    "circa": "1900",
-    "description": "A really really really tall lady with fire."
+    "circa": "1886",
+    "description": "The Statue of Liberty (Liberty Enlightening the World; French: La Liberté éclairant le monde) is a colossal neoclassical sculpture on Liberty Island in New York Harbor in New York City, in the United States. The copper statue, designed by Frédéric Auguste Bartholdi, a French sculptor, was built by Gustave Eiffel and dedicated on October 28, 1886. It was a gift to the United States from the people of France.",
+    "image": "",
+    "link": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
   },
+  {
+    "name": "Petra",
+    "location": "Ma'an, Jordan",
+    "circa": "312  BC",
+    "description": "Petra is a historical and archaeological city in the southern Jordanian governorate of Ma'an that is famous for its rock-cut architecture and water conduit system. Another name for Petra is the Rose City due to the color of the stone out of which it is carved.",
+    "image": "",
+    "link": "https://en.wikipedia.org/wiki/Petra"
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  },
+  {
+    "name": "",
+    "location": "",
+    "circa": "",
+    "description": "",
+    "image": "",
+    "link": ""
+  }
 ] 

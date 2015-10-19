@@ -43,8 +43,9 @@ class DiaryTableViewController: UITableViewController {
         let aSite = sites[indexPath.row]
         cell.nameLabel.text = aSite.name
         cell.locationLabel.text = aSite.location
-        cell.circaLabel.text = aSite.circa
-        cell.descriptionLabel.text = aSite.description
+        cell.circaLabel.text = "Circa: \(aSite.circa)"
+        cell.descriptionLabel.text = "Further Details: \(aSite.description)"
+        cell.imageView!.image = UIImage(named: aSite.siteImage)
         
         return cell
     }

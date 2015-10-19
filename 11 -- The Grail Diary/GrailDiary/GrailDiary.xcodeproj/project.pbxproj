@@ -15,6 +15,16 @@
 		9AA80BE11BD55A2F0066F6F6 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA80BE01BD55A2F0066F6F6 /* CustomCell.swift */; settings = {ASSET_TAGS = (); }; };
 		9AA80BE31BD574E20066F6F6 /* Sites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA80BE21BD574E20066F6F6 /* Sites.swift */; settings = {ASSET_TAGS = (); }; };
 		9AA80BE51BD578D20066F6F6 /* sites.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BE41BD578D20066F6F6 /* sites.json */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF11BD5881F0066F6F6 /* cairo-citadel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BE71BD5881F0066F6F6 /* cairo-citadel.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF21BD5881F0066F6F6 /* channel-tunnel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BE81BD5881F0066F6F6 /* channel-tunnel.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF31BD5881F0066F6F6 /* cn-tower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BE91BD5881F0066F6F6 /* cn-tower.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF41BD5881F0066F6F6 /* empire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BEA1BD5881F0066F6F6 /* empire.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF51BD5881F0066F6F6 /* georgia-guidestones.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BEB1BD5881F0066F6F6 /* georgia-guidestones.gif */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF61BD5881F0066F6F6 /* ggb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BEC1BD5881F0066F6F6 /* ggb.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF71BD5881F0066F6F6 /* itaipu-dam.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BED1BD5881F0066F6F6 /* itaipu-dam.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF81BD5881F0066F6F6 /* panama-canal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BEE1BD5881F0066F6F6 /* panama-canal.jpg */; settings = {ASSET_TAGS = (); }; };
+		9AA80BF91BD5881F0066F6F6 /* petra.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BEF1BD5881F0066F6F6 /* petra.JPG */; settings = {ASSET_TAGS = (); }; };
+		9AA80BFA1BD5881F0066F6F6 /* liberty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AA80BF01BD5881F0066F6F6 /* liberty.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +38,16 @@
 		9AA80BE01BD55A2F0066F6F6 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9AA80BE21BD574E20066F6F6 /* Sites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sites.swift; sourceTree = "<group>"; };
 		9AA80BE41BD578D20066F6F6 /* sites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sites.json; sourceTree = "<group>"; };
+		9AA80BE71BD5881F0066F6F6 /* cairo-citadel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cairo-citadel.jpg"; sourceTree = "<group>"; };
+		9AA80BE81BD5881F0066F6F6 /* channel-tunnel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "channel-tunnel.jpg"; sourceTree = "<group>"; };
+		9AA80BE91BD5881F0066F6F6 /* cn-tower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cn-tower.jpg"; sourceTree = "<group>"; };
+		9AA80BEA1BD5881F0066F6F6 /* empire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empire.jpg; sourceTree = "<group>"; };
+		9AA80BEB1BD5881F0066F6F6 /* georgia-guidestones.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "georgia-guidestones.gif"; sourceTree = "<group>"; };
+		9AA80BEC1BD5881F0066F6F6 /* ggb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ggb.jpg; sourceTree = "<group>"; };
+		9AA80BED1BD5881F0066F6F6 /* itaipu-dam.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "itaipu-dam.jpg"; sourceTree = "<group>"; };
+		9AA80BEE1BD5881F0066F6F6 /* panama-canal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "panama-canal.jpg"; sourceTree = "<group>"; };
+		9AA80BEF1BD5881F0066F6F6 /* petra.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = petra.JPG; sourceTree = "<group>"; };
+		9AA80BF01BD5881F0066F6F6 /* liberty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liberty.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +80,7 @@
 		9AA80B8D1BD529FB0066F6F6 /* GrailDiary */ = {
 			isa = PBXGroup;
 			children = (
+				9AA80BE61BD5881F0066F6F6 /* Images */,
 				9AA80BE41BD578D20066F6F6 /* sites.json */,
 				9AA80BE01BD55A2F0066F6F6 /* CustomCell.swift */,
 				9AA80BDC1BD558FC0066F6F6 /* DiaryTableViewController.swift */,
@@ -71,6 +92,23 @@
 				9AA80BE21BD574E20066F6F6 /* Sites.swift */,
 			);
 			path = GrailDiary;
+			sourceTree = "<group>";
+		};
+		9AA80BE61BD5881F0066F6F6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9AA80BE71BD5881F0066F6F6 /* cairo-citadel.jpg */,
+				9AA80BE81BD5881F0066F6F6 /* channel-tunnel.jpg */,
+				9AA80BE91BD5881F0066F6F6 /* cn-tower.jpg */,
+				9AA80BEA1BD5881F0066F6F6 /* empire.jpg */,
+				9AA80BEB1BD5881F0066F6F6 /* georgia-guidestones.gif */,
+				9AA80BEC1BD5881F0066F6F6 /* ggb.jpg */,
+				9AA80BED1BD5881F0066F6F6 /* itaipu-dam.jpg */,
+				9AA80BEE1BD5881F0066F6F6 /* panama-canal.jpg */,
+				9AA80BEF1BD5881F0066F6F6 /* petra.JPG */,
+				9AA80BF01BD5881F0066F6F6 /* liberty.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,10 +168,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA80BF61BD5881F0066F6F6 /* ggb.jpg in Resources */,
+				9AA80BF81BD5881F0066F6F6 /* panama-canal.jpg in Resources */,
+				9AA80BF91BD5881F0066F6F6 /* petra.JPG in Resources */,
 				9AA80B991BD529FB0066F6F6 /* LaunchScreen.storyboard in Resources */,
+				9AA80BF71BD5881F0066F6F6 /* itaipu-dam.jpg in Resources */,
 				9AA80B961BD529FB0066F6F6 /* Assets.xcassets in Resources */,
+				9AA80BFA1BD5881F0066F6F6 /* liberty.jpg in Resources */,
 				9AA80BE51BD578D20066F6F6 /* sites.json in Resources */,
+				9AA80BF41BD5881F0066F6F6 /* empire.jpg in Resources */,
+				9AA80BF31BD5881F0066F6F6 /* cn-tower.jpg in Resources */,
+				9AA80BF51BD5881F0066F6F6 /* georgia-guidestones.gif in Resources */,
 				9AA80B941BD529FB0066F6F6 /* Main.storyboard in Resources */,
+				9AA80BF11BD5881F0066F6F6 /* cairo-citadel.jpg in Resources */,
+				9AA80BF21BD5881F0066F6F6 /* channel-tunnel.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
