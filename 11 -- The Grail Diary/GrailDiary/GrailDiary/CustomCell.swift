@@ -15,7 +15,7 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var circaLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 
-    @IBOutlet weak var siteImage: UIImageView!
+    @IBOutlet weak var siteImage: UIImageView! = UIImageView(frame: CGRectMake(0, 0, 150, 100))
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +27,7 @@ class CustomCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+   
 
 }
