@@ -31,14 +31,14 @@
                                                 <outlet property="delegate" destination="x5B-sx-dsz" id="Enp-Rr-l1g"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-5X-SeF">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-5X-SeF">
                                             <rect key="frame" x="549" y="4" width="36" height="36"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="36" id="9L0-AP-Ed8"/>
                                                 <constraint firstAttribute="height" constant="36" id="FzG-AO-JmH"/>
                                             </constraints>
-                                            <state key="normal" title="wtf"/>
+                                            <state key="normal" title="wtf" image="unchecked.png"/>
                                             <connections>
                                                 <action selector="checkboxTapped:" destination="x5B-sx-dsz" eventType="touchUpInside" id="HBX-kA-TUR"/>
                                             </connections>
@@ -105,4 +105,7 @@
             <point key="canvasLocation" x="373" y="358"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="unchecked.png" width="100" height="100"/>
+    </resources>
 </document>

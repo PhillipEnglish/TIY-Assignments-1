@@ -75,13 +75,12 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 
         if anItem.isCompleted == true
         {
-            cell.checkbox.setImage(UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
-//            cell.checkbox.setBackgroundImage(UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
+
         }
         else
         {
-            cell.checkbox.setImage(UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
-//            cell.checkbox.setBackgroundImage(UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
         }
 
         return cell
@@ -165,5 +164,9 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             abort()
         }
     }
-
+    
+    private func displayCheckbox()
+    {
+    // TODO: move code here to immediately display if checked
+    }
 }
