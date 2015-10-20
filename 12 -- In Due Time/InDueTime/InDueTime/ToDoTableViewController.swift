@@ -73,14 +73,14 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             cell.todoTextField.text = anItem.itemDescription
         }
 
-        if anItem.isCompleted == true
+        if anItem.isCompleted == false
         {
-            cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
 
         }
         else
         {
-            cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
         }
 
         return cell
@@ -146,7 +146,17 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         // if enabled, item is true, item is complete and can be deleted
         // send it to db
         
-        anItem.isCompleted = Bool(sender.enabled)
+        if Bool(sender.enabled) == false
+        {
+            anItem.isCompleted = false
+        }
+        else
+        {
+            anItem.isCompleted = true
+        }
+        saveContext()
+        tableView.reloadData()
+        
     }
 
     // MARK: - Private Functions
@@ -165,8 +175,4 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         }
     }
     
-    private func displayCheckbox()
-    {
-    // TODO: move code here to immediately display if checked
-    }
 }
