@@ -45,7 +45,7 @@ class DiaryTableViewController: UITableViewController {
         cell.locationLabel.text = aSite.location
         cell.circaLabel.text = "Circa: \(aSite.circa)"
         cell.descriptionLabel.text = "Further Details: \(aSite.description)"
-//        cell.imageView!.image = UIImage(named: aSite.siteImage)
+        cell.siteImage.image = UIImage(named: aSite.siteImage)
         
         // cell image help: http://stackoverflow.com/questions/31624736/how-to-resize-a-cell-imageview-in-a-tableview-and-apply-tintcolor-in-swift
 //        
