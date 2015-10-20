@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XbP-me-9IE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--To Do Table View Controller-->
@@ -20,9 +21,38 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xpg-zn-crO" id="Aks-Ix-Id9">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-lb-Rk2">
+                                            <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                            <animations/>
+                                            <color key="onTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="switch:" destination="Xpg-zn-crO" eventType="valueChanged" id="dHN-ac-VVe"/>
+                                            </connections>
+                                        </switch>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your ToDo item..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thx-KU-wSc">
+                                            <rect key="frame" x="8" y="6" width="520" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="E2S-Pa-6bx"/>
+                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="top" secondItem="Aks-Ix-Id9" secondAttribute="topMargin" constant="-2" id="LcV-hq-DzX"/>
+                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="leading" secondItem="thx-KU-wSc" secondAttribute="trailing" constant="15" id="XRE-9z-fLo"/>
+                                        <constraint firstItem="thx-KU-wSc" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="eGV-qe-jIF"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="thx-KU-wSc" secondAttribute="leading" id="fdf-6J-tNn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jBb-lb-Rk2" secondAttribute="trailing" id="sFu-rY-BOR"/>
+                                        <constraint firstItem="thx-KU-wSc" firstAttribute="top" secondItem="Aks-Ix-Id9" secondAttribute="topMargin" constant="-2" id="wPm-ll-Vss"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="switch" destination="jBb-lb-Rk2" id="dgx-Ut-AFB"/>
+                                    <outlet property="todoTextField" destination="thx-KU-wSc" id="VT0-26-sWS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ToDoCell: UITableViewCell {
+class ToDoCell: UITableViewCell
+{
+    
+    @IBOutlet weak var todoTextField: UITextField!
+    @IBOutlet weak var `switch`: UISwitch!
 
     override func awakeFromNib() {
         super.awakeFromNib()
