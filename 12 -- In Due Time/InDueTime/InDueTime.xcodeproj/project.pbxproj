@@ -15,6 +15,7 @@
 		9AD4702E1BD6AC1B008B1209 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4702D1BD6AC1B008B1209 /* ToDoTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9AD470311BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4702F1BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		9AD470321BD6AD48008B1209 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD470301BD6AD48008B1209 /* ToDoItem.swift */; settings = {ASSET_TAGS = (); }; };
+		9AD470341BD6B04C008B1209 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD470331BD6B04C008B1209 /* ToDoCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9AD4702D1BD6AC1B008B1209 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		9AD4702F1BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9AD470301BD6AD48008B1209 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		9AD470331BD6B04C008B1209 /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +64,14 @@
 			children = (
 				9AD4702F1BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift */,
 				9AD470301BD6AD48008B1209 /* ToDoItem.swift */,
+				9AD470331BD6B04C008B1209 /* ToDoCell.swift */,
+				9AD4702D1BD6AC1B008B1209 /* ToDoTableViewController.swift */,
 				9AD470181BD6ABB5008B1209 /* AppDelegate.swift */,
 				9AD4701C1BD6ABB5008B1209 /* Main.storyboard */,
 				9AD470221BD6ABB5008B1209 /* Assets.xcassets */,
 				9AD470241BD6ABB5008B1209 /* LaunchScreen.storyboard */,
 				9AD470271BD6ABB5008B1209 /* Info.plist */,
 				9AD4701F1BD6ABB5008B1209 /* InDueTime.xcdatamodeld */,
-				9AD4702D1BD6AC1B008B1209 /* ToDoTableViewController.swift */,
 			);
 			path = InDueTime;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD470311BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift in Sources */,
+				9AD470341BD6B04C008B1209 /* ToDoCell.swift in Sources */,
 				9AD470211BD6ABB5008B1209 /* InDueTime.xcdatamodeld in Sources */,
 				9AD470321BD6AD48008B1209 /* ToDoItem.swift in Sources */,
 				9AD4702E1BD6AC1B008B1209 /* ToDoTableViewController.swift in Sources */,
