@@ -27,14 +27,18 @@
                                             <animations/>
                                             <color key="onTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
+                                                <action selector="switch:" destination="x5B-sx-dsz" eventType="valueChanged" id="5GQ-iV-ogL"/>
                                                 <action selector="switch:" destination="Xpg-zn-crO" eventType="valueChanged" id="dHN-ac-VVe"/>
                                             </connections>
                                         </switch>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your ToDo item..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thx-KU-wSc">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your ToDo item..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thx-KU-wSc">
                                             <rect key="frame" x="8" y="6" width="520" height="30"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="x5B-sx-dsz" id="Enp-Rr-l1g"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <animations/>
@@ -60,7 +64,13 @@
                             <outlet property="delegate" destination="x5B-sx-dsz" id="nNi-jj-a0C"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="zqJ-V0-XV6"/>
+                    <navigationItem key="navigationItem" id="zqJ-V0-XV6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WGS-vX-qER">
+                            <connections>
+                                <action selector="addToDoItem:" destination="x5B-sx-dsz" id="kdh-Yb-49q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ia6-4Y-AM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
