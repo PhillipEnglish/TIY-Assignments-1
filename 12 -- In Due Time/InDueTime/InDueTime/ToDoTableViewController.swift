@@ -73,29 +73,25 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             cell.todoTextField.text = anItem.itemDescription
         }
 
-        if anItem.isCompleted == false
+        if anItem.isCompleted == true
         {
-            cell.checkbox.setImage(
-            UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
+//            cell.checkbox.setBackgroundImage(UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
         }
         else
         {
-            cell.checkbox.setImage(
-                UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
+            cell.checkbox.setImage(UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
+//            cell.checkbox.setBackgroundImage(UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
         }
 
         return cell
     }
-    
-
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
-
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -127,7 +123,6 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             textField.resignFirstResponder()
             saveContext()
         }
-        
         return rc
     }
     

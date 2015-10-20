@@ -31,19 +31,14 @@
                                                 <outlet property="delegate" destination="x5B-sx-dsz" id="Enp-Rr-l1g"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-5X-SeF">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-5X-SeF">
                                             <rect key="frame" x="549" y="4" width="36" height="36"/>
                                             <animations/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                            </accessibility>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="36" id="9L0-AP-Ed8"/>
                                                 <constraint firstAttribute="height" constant="36" id="FzG-AO-JmH"/>
                                             </constraints>
-                                            <state key="normal" title="wtf">
-                                                <color key="titleColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
+                                            <state key="normal" title="wtf"/>
                                             <connections>
                                                 <action selector="checkboxTapped:" destination="x5B-sx-dsz" eventType="touchUpInside" id="HBX-kA-TUR"/>
                                             </connections>
@@ -51,6 +46,7 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="7UI-5X-SeF" firstAttribute="centerY" secondItem="thx-KU-wSc" secondAttribute="centerY" id="2SJ-Li-Wlf"/>
                                         <constraint firstAttribute="trailing" secondItem="7UI-5X-SeF" secondAttribute="trailing" constant="15" id="CcB-7f-RrL"/>
                                         <constraint firstItem="7UI-5X-SeF" firstAttribute="leading" secondItem="thx-KU-wSc" secondAttribute="trailing" constant="8" id="Wv7-MD-8Qy"/>
                                         <constraint firstItem="7UI-5X-SeF" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="ZWx-Ns-pmQ"/>
@@ -61,6 +57,7 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="wPm-ll-Vss"/>
+                                            <exclude reference="ZWx-Ns-pmQ"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
