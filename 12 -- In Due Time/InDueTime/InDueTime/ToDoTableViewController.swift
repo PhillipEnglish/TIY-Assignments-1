@@ -14,11 +14,6 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     var toDos = Array<ToDoItem>()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-    // TODO: limit scope of deletion
-    // FIXME: can't enter empty text field
-    var canBeDeleted = false
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +31,6 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,8 +90,11 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         {
             // Delete the row from the data source
             let anItem = toDos[indexPath.row]
-            toDos.removeAtIndex(indexPath.row)
-            managedObjectContext.deleteObject(anItem)
+            if anItem.isCompleted
+            {
+                toDos.removeAtIndex(indexPath.row)
+                managedObjectContext.deleteObject(anItem)
+            }
             saveContext()
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -146,17 +141,18 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         // if enabled, item is true, item is complete and can be deleted
         // send it to db
         
-        if Bool(sender.enabled) == false
+        if sender.currentImage == UIImage(named: "unchecked.png")
         {
-            anItem.isCompleted = false
+            cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
+            anItem.isCompleted = true
         }
         else
         {
-            anItem.isCompleted = true
+            cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
+            anItem.isCompleted = false
         }
-        saveContext()
-        tableView.reloadData()
         
+        saveContext()
     }
 
     // MARK: - Private Functions
