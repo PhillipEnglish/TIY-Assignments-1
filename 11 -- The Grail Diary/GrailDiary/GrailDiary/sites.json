@@ -1,0 +1,82 @@
+[
+    {
+    "name": "The Georgia Guidestones",
+    "location": "Elbert County, GA",
+    "circa": "1979",
+    "description": "The messages engraved on the Georgia Guidestones deal with four major fields: (1) Governance and the establishment of a world government, (2) Population and reproduction control, (3) The environment and man's relationship to nature, and (4) Spirituality.",
+    "image": "georgia-guidestones.gif",
+    "link": "http://www.radioliberty.com/stones.htm"
+    },
+    {
+    "name": "Statue of Liberty",
+    "location": "New York, NY",
+    "circa": "1886",
+    "description": "The Statue of Liberty (Liberty Enlightening the World; French: La Liberté éclairant le monde) is a colossal neoclassical sculpture on Liberty Island in New York Harbor in New York City, in the United States. The copper statue, designed by Frédéric Auguste Bartholdi, a French sculptor, was built by Gustave Eiffel and dedicated on October 28, 1886. It was a gift to the United States from the people of France.",
+    "image": "liberty.jpg",
+    "link": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+    },
+    {
+    "name": "Petra",
+    "location": "Ma'an, Jordan",
+    "circa": "312  BC",
+    "description": "Petra is a historical and archaeological city in the southern Jordanian governorate of Ma'an that is famous for its rock-cut architecture and water conduit system. Another name for Petra is the Rose City due to the color of the stone out of which it is carved.",
+    "image": "petra.JPG",
+    "link": "https://en.wikipedia.org/wiki/Petra"
+    },
+    {
+    "name": "Panama Canal",
+    "location": "Panama",
+    "circa": "1914",
+    "description": "The Panama Canal is a 77.1-kilometre (48 mi) ship canal in Panama that connects the Atlantic Ocean (via the Caribbean Sea) to the Pacific Ocean. ",
+    "image": "panama-canal.jpg",
+    "link": "https://en.wikipedia.org/wiki/Panama_Canal"
+    },
+    {
+    "name": "Golden Gate Bridge",
+    "location": "San Francisco, CA",
+    "circa": "1937",
+    "description": "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate strait, the 1 mile (1.6 km) wide, 3 mile (5 km) long channel between San Francisco Bay and the Pacific Ocean. ",
+    "image": "ggb.jpg",
+    "link": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+    },
+    {
+    "name": "Itaipu Dam",
+    "location": "South America",
+    "circa": "1984",
+    "description": "The Itaipu Dam (Guarani: Presa Itaipu, Portuguese: Barragem de Itaipu, Spanish: Represa de Itaipú; Portuguese pronunciation: [itɐjˈpu], locally: [ita.iˈpu], Spanish pronunciation: [itaiˈpu]) is a hydroelectric dam on the Paraná River located on the border between Brazil and Paraguay.",
+    "image": "itaipu-dam.jpg",
+    "link": "https://en.wikipedia.org/wiki/Itaipu_Dam"
+    },
+    {
+    "name": "Empire State Building",
+    "location": "New York, NY",
+    "circa": "1931",
+    "description": "The Empire State Building is a 102-story[7][8][9][note 2] skyscraper located in Midtown Manhattan, New York City, on Fifth Avenue between West 33rd and 34th Streets.",
+    "image": "empire.jpg",
+    "link": "https://en.wikipedia.org/wiki/Empire_State_Building"
+    },
+    {
+    "name": "CN Tower",
+    "location": "Toronto, Ontario, Canada",
+    "circa": "1976",
+    "description": "The CN Tower (French: Tour CN) is a 553.33 m-high (1,815.4 ft) concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "image": "cn-tower.jpg",
+    "link": "https://en.wikipedia.org/wiki/CN_Tower"
+    },
+    {
+    "name": "Channel Tunnel",
+    "location": "England and France",
+    "circa": "1994",
+    "description": "The Channel Tunnel (French: Le tunnel sous la Manche; also referred to as the Chunnel)[2][3] is a 50.5-kilometre (31.4 mi) rail tunnel linking Folkestone, Kent, in the United Kingdom, with Coquelles, Pas-de-Calais, near Calais in northern France, beneath the English Channel at the Strait of Dover.",
+    "image": "channel-tunnel.jpg",
+    "link": "https://en.wikipedia.org/wiki/Channel_Tunnel"
+    },
+    {
+    "name": "Cairo Citadel",
+    "location": "Cairo, Egypt",
+    "circa": "1183",
+    "description": "The Saladin Citadel of Cairo (Arabic: قلعة صلاح الدين‎ Qalaʿat Salāḥ ad-Dīn) is a medieval Islamic fortification in Cairo, Egypt. The location, on Mokattam hill near the center of Cairo, was once famous for its fresh breeze and grand views of the city. It is now a preserved historic site, with mosques and museums.",
+    "image": "cairo-citadel.jpg",
+    "link": "https://en.wikipedia.org/wiki/Cairo_Citadel"
+    }
+]
