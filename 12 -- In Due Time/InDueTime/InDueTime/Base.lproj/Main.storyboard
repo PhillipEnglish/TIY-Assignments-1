@@ -22,17 +22,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-lb-Rk2">
-                                            <rect key="frame" x="543" y="6" width="51" height="31"/>
-                                            <animations/>
-                                            <color key="onTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="switch:" destination="x5B-sx-dsz" eventType="valueChanged" id="5GQ-iV-ogL"/>
-                                                <action selector="switch:" destination="Xpg-zn-crO" eventType="valueChanged" id="dHN-ac-VVe"/>
-                                            </connections>
-                                        </switch>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your ToDo item..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="thx-KU-wSc">
-                                            <rect key="frame" x="8" y="6" width="520" height="30"/>
+                                            <rect key="frame" x="8" y="11" width="533" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -40,21 +31,42 @@
                                                 <outlet property="delegate" destination="x5B-sx-dsz" id="Enp-Rr-l1g"/>
                                             </connections>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-5X-SeF">
+                                            <rect key="frame" x="549" y="4" width="36" height="36"/>
+                                            <animations/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                            </accessibility>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="9L0-AP-Ed8"/>
+                                                <constraint firstAttribute="height" constant="36" id="FzG-AO-JmH"/>
+                                            </constraints>
+                                            <state key="normal" title="wtf">
+                                                <color key="titleColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="checkboxTapped:" destination="x5B-sx-dsz" eventType="touchUpInside" id="HBX-kA-TUR"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="E2S-Pa-6bx"/>
-                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="top" secondItem="Aks-Ix-Id9" secondAttribute="topMargin" constant="-2" id="LcV-hq-DzX"/>
-                                        <constraint firstItem="jBb-lb-Rk2" firstAttribute="leading" secondItem="thx-KU-wSc" secondAttribute="trailing" constant="15" id="XRE-9z-fLo"/>
+                                        <constraint firstAttribute="trailing" secondItem="7UI-5X-SeF" secondAttribute="trailing" constant="15" id="CcB-7f-RrL"/>
+                                        <constraint firstItem="7UI-5X-SeF" firstAttribute="leading" secondItem="thx-KU-wSc" secondAttribute="trailing" constant="8" id="Wv7-MD-8Qy"/>
+                                        <constraint firstItem="7UI-5X-SeF" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="ZWx-Ns-pmQ"/>
                                         <constraint firstItem="thx-KU-wSc" firstAttribute="centerY" secondItem="Aks-Ix-Id9" secondAttribute="centerY" id="eGV-qe-jIF"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="thx-KU-wSc" secondAttribute="leading" id="fdf-6J-tNn"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jBb-lb-Rk2" secondAttribute="trailing" id="sFu-rY-BOR"/>
-                                        <constraint firstItem="thx-KU-wSc" firstAttribute="top" secondItem="Aks-Ix-Id9" secondAttribute="topMargin" constant="-2" id="wPm-ll-Vss"/>
+                                        <constraint firstItem="thx-KU-wSc" firstAttribute="top" secondItem="Aks-Ix-Id9" secondAttribute="topMargin" id="wPm-ll-Vss"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="wPm-ll-Vss"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="switch" destination="jBb-lb-Rk2" id="dgx-Ut-AFB"/>
+                                    <outlet property="checkbox" destination="7UI-5X-SeF" id="a08-CB-d13"/>
                                     <outlet property="todoTextField" destination="thx-KU-wSc" id="VT0-26-sWS"/>
                                 </connections>
                             </tableViewCell>

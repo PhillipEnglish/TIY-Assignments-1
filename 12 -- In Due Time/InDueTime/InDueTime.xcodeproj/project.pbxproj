@@ -16,6 +16,8 @@
 		9AD470311BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4702F1BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		9AD470321BD6AD48008B1209 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD470301BD6AD48008B1209 /* ToDoItem.swift */; settings = {ASSET_TAGS = (); }; };
 		9AD470341BD6B04C008B1209 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD470331BD6B04C008B1209 /* ToDoCell.swift */; settings = {ASSET_TAGS = (); }; };
+		9AD470361BD6D42A008B1209 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD470351BD6D42A008B1209 /* checked.png */; settings = {ASSET_TAGS = (); }; };
+		9AD470381BD6D43E008B1209 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD470371BD6D43E008B1209 /* unchecked.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9AD4702F1BD6AD48008B1209 /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9AD470301BD6AD48008B1209 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		9AD470331BD6B04C008B1209 /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		9AD470351BD6D42A008B1209 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		9AD470371BD6D43E008B1209 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				9AD470181BD6ABB5008B1209 /* AppDelegate.swift */,
 				9AD4701C1BD6ABB5008B1209 /* Main.storyboard */,
 				9AD470221BD6ABB5008B1209 /* Assets.xcassets */,
+				9AD470351BD6D42A008B1209 /* checked.png */,
+				9AD470371BD6D43E008B1209 /* unchecked.png */,
 				9AD470241BD6ABB5008B1209 /* LaunchScreen.storyboard */,
 				9AD470271BD6ABB5008B1209 /* Info.plist */,
 				9AD4701F1BD6ABB5008B1209 /* InDueTime.xcdatamodeld */,
@@ -134,8 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD470261BD6ABB5008B1209 /* LaunchScreen.storyboard in Resources */,
+				9AD470361BD6D42A008B1209 /* checked.png in Resources */,
 				9AD470231BD6ABB5008B1209 /* Assets.xcassets in Resources */,
 				9AD4701E1BD6ABB5008B1209 /* Main.storyboard in Resources */,
+				9AD470381BD6D43E008B1209 /* unchecked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

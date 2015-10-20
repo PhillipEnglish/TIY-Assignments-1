@@ -13,8 +13,9 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 {
     var toDos = Array<ToDoItem>()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    var isCompleted = false
+
+    // TODO: limit scope of deletion
+    // FIXME: can't enter empty text field
     var canBeDeleted = false
     
 
@@ -72,6 +73,16 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             cell.todoTextField.text = anItem.itemDescription
         }
 
+        if anItem.isCompleted == false
+        {
+            cell.checkbox.setImage(
+            UIImage(contentsOfFile: "unchecked.png"), forState: UIControlState.Normal)
+        }
+        else
+        {
+            cell.checkbox.setImage(
+                UIImage(contentsOfFile: "checked.png"), forState: UIControlState.Normal)
+        }
 
         return cell
     }
@@ -99,7 +110,6 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-
     
     // MARK: - Text Field Delegate
     
@@ -121,37 +131,30 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         return rc
     }
     
-    
     // MARK: - Action Handlers
     
     @IBAction func addToDoItem(sender: UIBarButtonItem)
     {
         let aToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: managedObjectContext) as! ToDoItem
         // add to array
+        
         toDos.append(aToDoItem)
         // reload the view
         tableView.reloadData()
     }
-
     
-    @IBAction func `switch`(sender: UISwitch)
+    @IBAction func checkboxTapped(sender: UIButton)
     {
         let contentView = sender.superview
         let cell = contentView?.superview as! ToDoCell
         let indexPath = tableView.indexPathForCell(cell)
-        
         let anItem = toDos[indexPath!.row]
         // if enabled, item is true, item is complete and can be deleted
         // send it to db
+        
         anItem.isCompleted = Bool(sender.enabled)
-        // save in local variable is true, update canBeDeleted
-        if isCompleted
-        {
-            canBeDeleted = true
-        }
     }
-    
-    
+
     // MARK: - Private Functions
     
     private func saveContext()
