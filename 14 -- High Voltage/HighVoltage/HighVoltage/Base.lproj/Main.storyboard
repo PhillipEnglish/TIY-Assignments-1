@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Measurement Table View Controller-->
         <scene sceneID="Kw2-LF-2Rk">
             <objects>
-                <tableViewController id="yhW-Bh-KoE" sceneMemberID="viewController">
+                <tableViewController id="yhW-Bh-KoE" customClass="MeasurementTableViewController" customModule="HighVoltage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ekX-NB-7eM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -71,8 +71,8 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
         // Configure the cell...
-        let title = visibleMeasurements?[indexPath.row]
-        cell.measurementLabel.text = "\(title)"
+        let title = visibleMeasurements![indexPath.row]
+        cell.measurementLabel.text = title
         cell.dataTextField.text = "000" // if data not entered, then blank, otherwise show calcuation result
 
         return cell
