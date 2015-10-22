@@ -16,16 +16,19 @@ protocol MeasurementListTableViewControllerDelegate
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, MeasurementListTableViewControllerDelegate
 {
     let allMeasurements = ["Amps": "amps","Ohms": "ohms","Volts": "volts","Watts": "watts"]
-    var visibleMeasurements: Array<String>?
+    var visibleMeasurements = Array<String>()
     var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
     
     var calculate = Calculator()
+    
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var instructionLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
-        visibleMeasurements?.append("Amps")
-
+        instructionLabel.text = "Please add 2 values, then press calculate."
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,14 +59,15 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return visibleMeasurements!.count
+        return visibleMeasurements.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -71,7 +75,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
         // Configure the cell...
-        let title = visibleMeasurements![indexPath.row]
+        let title = visibleMeasurements[indexPath.row]
         cell.measurementLabel.text = title
         cell.dataTextField.text = "000" // if data not entered, then blank, otherwise show calcuation result
 
@@ -91,24 +95,41 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     func measureWasChosen(chosenMeasurement: String)
     {
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        visibleMeasurements?.append(chosenMeasurement)
+        visibleMeasurements.append(chosenMeasurement)
         
         let rowToRemove = (remainingMeasurements as NSArray).indexOfObject(chosenMeasurement)
         remainingMeasurements.removeAtIndex(rowToRemove)
-//        
-//        if remainingMeasurements.count == 0
-//        {
-//            // add and outlet for addButton
-//            // addButton.enabled = false
-//            
-//            // use addbutton.enabled = true in reset/clear function
-//        }
+        
+        if remainingMeasurements.count == 2
+        {
+            // add and outlet for addButton
+             addButton.enabled = false
+            
+            // use
+        }
         
         tableView?.reloadData()
     }
-
     
     // MARK: - Action Handler
+    
+    @IBAction func calculateButton(sender: UIButton)
+    {
+        instructionLabel.text = "Your results are: "
+    }
+    
+    @IBAction func clearButtonTapped(sender: UIBarButtonItem)
+    {
+        remainingMeasurements = visibleMeasurements
+        visibleMeasurements.removeAll()
+        addButton.enabled = true
+        tableView.reloadData()
+    }
+    
+    // TODO: when 2 items are selected and moved to list, provide a 'calculate' button
+    
+    
+
     
 //    @IBAction func numberButton(sender: UIButton)
 //    {

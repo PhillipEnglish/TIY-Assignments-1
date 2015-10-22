@@ -14,9 +14,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="8j6-g5-6uh">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instructionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-ox-dr6">
+                                    <rect key="frame" x="8" y="11" width="468" height="21"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVL-Wm-Lzf">
+                                    <rect key="frame" x="484" y="7" width="108" height="30"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="108" id="5o6-oN-Z19"/>
+                                        <constraint firstAttribute="height" constant="30" id="upK-pE-eeg"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Calculate">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="calculateButton:" destination="yhW-Bh-KoE" eventType="touchUpInside" id="Ufc-4h-AOI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="uVL-Wm-Lzf" firstAttribute="leading" secondItem="fI3-ox-dr6" secondAttribute="trailing" constant="8" id="AJU-J4-rsJ"/>
+                                <constraint firstItem="fI3-ox-dr6" firstAttribute="leading" secondItem="8j6-g5-6uh" secondAttribute="leading" constant="8" id="Cwg-DH-RsO"/>
+                                <constraint firstAttribute="trailing" secondItem="uVL-Wm-Lzf" secondAttribute="trailing" constant="8" id="rOI-Z3-siv"/>
+                                <constraint firstItem="uVL-Wm-Lzf" firstAttribute="centerY" secondItem="8j6-g5-6uh" secondAttribute="centerY" id="sPJ-VI-7Mq"/>
+                                <constraint firstItem="fI3-ox-dr6" firstAttribute="centerY" secondItem="8j6-g5-6uh" secondAttribute="centerY" id="yhN-V1-gJI"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeasurementCell" id="ISY-0l-mvK" customClass="MeasurementCell" customModule="HighVoltage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ISY-0l-mvK" id="Y7p-dU-Ovd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -54,12 +92,16 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="yhW-Bh-KoE" id="eIm-1N-c08"/>
-                            <outlet property="delegate" destination="yhW-Bh-KoE" id="lMe-UC-dx5"/>
+                            <outlet property="dataSource" destination="yhW-Bh-KoE" id="P5e-91-GCt"/>
+                            <outlet property="delegate" destination="yhW-Bh-KoE" id="MKG-un-XIk"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Vqg-MY-clM">
-                        <barButtonItem key="leftBarButtonItem" title="Clear" id="UN4-EB-Qgv"/>
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="UN4-EB-Qgv">
+                            <connections>
+                                <action selector="clearButtonTapped:" destination="yhW-Bh-KoE" id="l3D-ke-vsd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mWE-vf-FHd">
                             <connections>
                                 <segue destination="U0l-lg-x6p" kind="popoverPresentation" identifier="ShowMeasurementListPopoverSegue" popoverAnchorBarButtonItem="mWE-vf-FHd" id="J2C-ew-CzR">
@@ -68,6 +110,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="mWE-vf-FHd" id="VeU-k1-ohX"/>
+                        <outlet property="instructionLabel" destination="fI3-ox-dr6" id="GeF-b6-U0J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWf-Va-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
