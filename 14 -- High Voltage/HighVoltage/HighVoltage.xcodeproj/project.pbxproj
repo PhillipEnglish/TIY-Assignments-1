@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		9AE15BFD1BD948CA001DC302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15BFC1BD948CA001DC302 /* AppDelegate.swift */; };
-		9AE15BFF1BD948CA001DC302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15BFE1BD948CA001DC302 /* ViewController.swift */; };
 		9AE15C021BD948CA001DC302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE15C001BD948CA001DC302 /* Main.storyboard */; };
 		9AE15C041BD948CA001DC302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE15C031BD948CA001DC302 /* Assets.xcassets */; };
 		9AE15C071BD948CA001DC302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE15C051BD948CA001DC302 /* LaunchScreen.storyboard */; };
+		9AE15C0F1BD95922001DC302 /* MeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15C0E1BD95922001DC302 /* MeasurementCell.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE15C111BD95A1E001DC302 /* MeasurementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15C101BD95A1E001DC302 /* MeasurementTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE15C131BD95AE3001DC302 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15C121BD95AE3001DC302 /* Calculator.swift */; settings = {ASSET_TAGS = (); }; };
+		9AE15C151BD95B31001DC302 /* MeasurementListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE15C141BD95B31001DC302 /* MeasurementListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9AE15BF91BD948CA001DC302 /* HighVoltage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighVoltage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE15BFC1BD948CA001DC302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AE15BFE1BD948CA001DC302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9AE15C011BD948CA001DC302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AE15C031BD948CA001DC302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE15C061BD948CA001DC302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AE15C081BD948CA001DC302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AE15C0E1BD95922001DC302 /* MeasurementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementCell.swift; sourceTree = "<group>"; };
+		9AE15C101BD95A1E001DC302 /* MeasurementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementTableViewController.swift; sourceTree = "<group>"; };
+		9AE15C121BD95AE3001DC302 /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		9AE15C141BD95B31001DC302 /* MeasurementListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +60,12 @@
 		9AE15BFB1BD948CA001DC302 /* HighVoltage */ = {
 			isa = PBXGroup;
 			children = (
-				9AE15BFC1BD948CA001DC302 /* AppDelegate.swift */,
-				9AE15BFE1BD948CA001DC302 /* ViewController.swift */,
 				9AE15C001BD948CA001DC302 /* Main.storyboard */,
+				9AE15C101BD95A1E001DC302 /* MeasurementTableViewController.swift */,
+				9AE15C141BD95B31001DC302 /* MeasurementListTableViewController.swift */,
+				9AE15C0E1BD95922001DC302 /* MeasurementCell.swift */,
+				9AE15C121BD95AE3001DC302 /* Calculator.swift */,
+				9AE15BFC1BD948CA001DC302 /* AppDelegate.swift */,
 				9AE15C031BD948CA001DC302 /* Assets.xcassets */,
 				9AE15C051BD948CA001DC302 /* LaunchScreen.storyboard */,
 				9AE15C081BD948CA001DC302 /* Info.plist */,
@@ -134,7 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AE15BFF1BD948CA001DC302 /* ViewController.swift in Sources */,
+				9AE15C0F1BD95922001DC302 /* MeasurementCell.swift in Sources */,
+				9AE15C131BD95AE3001DC302 /* Calculator.swift in Sources */,
+				9AE15C151BD95B31001DC302 /* MeasurementListTableViewController.swift in Sources */,
+				9AE15C111BD95A1E001DC302 /* MeasurementTableViewController.swift in Sources */,
 				9AE15BFD1BD948CA001DC302 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
