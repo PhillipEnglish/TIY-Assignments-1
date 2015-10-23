@@ -15,42 +15,39 @@ protocol MeasurementListTableViewControllerDelegate
 
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, MeasurementListTableViewControllerDelegate
 {
-    let allMeasurements = ["Amps": "","Ohms": "","Volts": "","Watts": ""]
-    var visibleMeasurements = Array<String>()
+    var valueDictionary = [String: String]()
+//    var visibleMeasurements = [String: String]()
+    var visibleValues = Array<String>()
     var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
+    var allMeasurements = ["Amps","Ohms","Volts","Watts"]
     
     var calculator: Calculator?
     
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var instructionLabel: UILabel!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
         instructionLabel.text = "Add two values to calculate: "
+        // TODO:  calculateButton.enable == true only when 2 values input
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "ShowMeasurementListPopoverSegue"
         {
             let destVC = segue.destinationViewController as! MeasurementListTableViewController
-            // set destination array to remainingMeasurments
             destVC.measurements = remainingMeasurements
-            // take over modification of the popover view controller
             destVC.popoverPresentationController?.delegate = self
-            // get that delegate info
             destVC.delegate = self
-            // display just as tall as needed for the  Measurments left
             let contentHeight = 44.0 * CGFloat(remainingMeasurements.count)
             destVC.preferredContentSize = CGSizeMake(200.0, contentHeight)
         }
@@ -61,23 +58,28 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return visibleMeasurements.count
+        return visibleValues.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
-        // Configure the cell...
-        let anItem = visibleMeasurements[indexPath.row]
-        cell.measurementLabel.text = anItem
-        cell.dataTextField.text = "000" // if data not entered, then blank, otherwise show calcuation result
+        // Move the value string from popover tableView to MeasurementTV and display
+        let valueString = visibleValues[indexPath.row]
+        cell.measurementLabel.text = valueString
+        
+        // Pull up the keyboard for the dataTextField, capture the text
+        cell.dataTextField.becomeFirstResponder()
+
+        let inputString = cell.dataTextField.text
+        
+        // save the key, value pair into the valueDictionary
+        valueDictionary[valueString] = inputString
 
         return cell
     }
@@ -95,17 +97,14 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     func measureWasChosen(chosenMeasurement: String)
     {
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        visibleMeasurements.append(chosenMeasurement)
+        visibleValues.append(chosenMeasurement)
         
         let rowToRemove = (remainingMeasurements as NSArray).indexOfObject(chosenMeasurement)
         remainingMeasurements.removeAtIndex(rowToRemove)
         
         if remainingMeasurements.count == 2
         {
-            // add and outlet for addButton
-             addButton.enabled = false
-            
-            // use
+            addButton.enabled = false
         }
         
         tableView?.reloadData()
@@ -113,30 +112,54 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     
     // MARK: - Action Handler
     
+    // TODO: capture input in textField and set as value to appropriate key
+    
     @IBAction func calculateButton(sender: UIButton)
     {
         instructionLabel.text = "Your results are: "
         
-        // pass values into allMeasurements dicitonary
-//        allMeasurements.calculate()
-//        
-//        // display results
-//        for (key, value) in allMeasurements
-//        {
-//            measurementLable.text = key
-//            dataTextField.text = value
-//        }
+        // TODO: pass values into finalResults dicitonary
+//        calculator!.calculate(finalResults)
+//
+        // TODO: display results
+        
+//        finalResults
+
     }
     
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
     {
-        remainingMeasurements = visibleMeasurements
-        visibleMeasurements.removeAll()
+        remainingMeasurements = allMeasurements
+        visibleValues.removeAll()
         addButton.enabled = true
         tableView.reloadData()
         instructionLabel.text = "Add two values to calculate: "
     }
     
-    // TODO: when 2 items are selected and moved to list, provide a 'calculate' button
+    // MARK: - UITestField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        var rc = false
+        
+        if textField != ""
+        {
+            rc = true
+            let contentView = textField.superview
+            let cell = contentView?.superview as! MeasurementCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let valueString = visibleValues[indexPath!.row]
+            let inputString = cell.dataTextField.text
+            textField.text = inputString
+            
+            // save the key, value pair into the valueDictionary
+            valueDictionary[valueString] = inputString
+            
+            textField.resignFirstResponder()
+
+
+        }
+        return rc
+    }
     
 }
