@@ -118,9 +118,9 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     {
         instructionLabel.text = "Your results are: "
         
-        // TODO: pass values into finalResults dicitonary
-//        calculator!.calculate(finalResults)
-//
+        // TODO: pass values to calculator
+        calculator!.calculate(valueDictionary)
+
         // TODO: display results
         
 //        finalResults
@@ -147,13 +147,13 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             rc = true
             let contentView = textField.superview
             let cell = contentView?.superview as! MeasurementCell
-            let indexPath = tableView.indexPathForCell(cell)
-            let valueString = visibleValues[indexPath!.row]
+//            let indexPath = tableView.indexPathForCell(cell)
+//            let valueString = visibleValues[indexPath!.row]
             let inputString = cell.dataTextField.text
             textField.text = inputString
             
-            // save the key, value pair into the valueDictionary
-            valueDictionary[valueString] = inputString
+//            // save the key, value pair into the valueDictionary
+//            valueDictionary[valueString] = inputString
             
             textField.resignFirstResponder()
 
