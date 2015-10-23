@@ -10,115 +10,39 @@ import Foundation
 
 class Calculator
 {
+    var valuesToCalc = [String: String]()
     
-    var op1: Double?
-    var op2: Double?
-    var operatorSelection = ""
-    var numberString: String?
-    var isNumberCompleted: Bool?
+    var amps: Double = 0.0
+    var ohms: Double = 0.0
+    var watts: Double = 0.0
+    var volts: Double = 0.0
     
-    init()
+    init(dictionary: [String:String])
     {
-    op1 = nil
-    op2 = nil
-    operatorSelection = ""
-    numberString = ""
-    isNumberCompleted = false
+
     }
     
-    func setDigit(digitAsString: String)
+    func setupCalc(dictionary: [String:String])
     {
-    numberString! += digitAsString
-    
+        for (key, value) in dictionary
+        {
+            switch key
+            {
+            case "Amps":
+                amps = Double(value)!
+            case "Ohms":
+                ohms = Double(value)!
+            case "Watts":
+                watts = Double(value)!
+            case "Volts":
+                volts = Double(value)!
+            default: break
+        
+            }
+        }
     }
     
-    func setOperator(fullNumString: String)
-    {
-    if op1 == nil
-    {
-    op1 = Double(fullNumString)
-    }
-    else
-    {
-    op2 = Double(fullNumString)
-    }
-    
-    isNumberCompleted = true
-    numberString = ""
-    }
-    
-    func setSymbol(symbol: String)
-    {
-    operatorSelection = symbol
-    
-    }
-    
-    func setSpecialButton(specialButton: String) -> String
-    {
-    isNumberCompleted = true
-    var digit = Double(numberString!)
-    
-    switch specialButton
-    {
-    case "+/-":
-    digit = digit! * -1
-    
-    case "%":
-    digit = digit! / 100
-    default:
-    0
-    }
-    
-    if op1 == nil
-    {
-    op1 = digit
-    }
-    else
-    {
-    op2 = digit
-    }
-    
-    return String(digit!)
-    }
-    
-    func getFullNumber() -> String
-    {
-    return numberString!
-    }
-    
-    func calculate() -> Double
-    {
-    switch operatorSelection
-    {
-    case "+":
-    return op1! + op2!
-    case "-":
-    return op1! - op2!
-    case "x":
-    return op1! * op2!
-    case "÷":
-    return op1! / op2!
-    case "%":
-    if op1 != nil
-    {
-    return op1! / 100
-    }
-    else
-    {
-    return op2! / 100
-    }
-    default:
-    return 0
-    }
-    }
-    
-    func clearCalculator()
-    {
-    numberString = ""
-    op1 = nil
-    op2 = nil
-    operatorSelection = ""
-    }
+
 
     
 }

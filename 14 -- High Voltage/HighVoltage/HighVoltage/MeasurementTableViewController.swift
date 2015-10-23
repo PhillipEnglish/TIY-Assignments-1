@@ -15,11 +15,11 @@ protocol MeasurementListTableViewControllerDelegate
 
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, MeasurementListTableViewControllerDelegate
 {
-    let allMeasurements = ["Amps": "amps","Ohms": "ohms","Volts": "volts","Watts": "watts"]
+    let allMeasurements = ["Amps": "","Ohms": "","Volts": "","Watts": ""]
     var visibleMeasurements = Array<String>()
     var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
     
-    var calculate = Calculator()
+    var calculator: Calculator?
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -28,7 +28,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
-        instructionLabel.text = "Please add 2 values, then press calculate."
+        instructionLabel.text = "Add two values to calculate: "
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,8 +75,8 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
         // Configure the cell...
-        let title = visibleMeasurements[indexPath.row]
-        cell.measurementLabel.text = title
+        let anItem = visibleMeasurements[indexPath.row]
+        cell.measurementLabel.text = anItem
         cell.dataTextField.text = "000" // if data not entered, then blank, otherwise show calcuation result
 
         return cell
@@ -116,6 +116,16 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     @IBAction func calculateButton(sender: UIButton)
     {
         instructionLabel.text = "Your results are: "
+        
+        // pass values into allMeasurements dicitonary
+//        allMeasurements.calculate()
+//        
+//        // display results
+//        for (key, value) in allMeasurements
+//        {
+//            measurementLable.text = key
+//            dataTextField.text = value
+//        }
     }
     
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
@@ -124,41 +134,9 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         visibleMeasurements.removeAll()
         addButton.enabled = true
         tableView.reloadData()
+        instructionLabel.text = "Add two values to calculate: "
     }
     
     // TODO: when 2 items are selected and moved to list, provide a 'calculate' button
     
-    
-
-    
-//    @IBAction func numberButton(sender: UIButton)
-//    {
-//        calculate.setDigit(sender.currentTitle!)
-//        displayLabel.text = "\(calculate.getFullNumber())"
-//    }
-//    
-//    @IBAction func operatorButton(sender: UIButton)
-//    {
-//        calculate.setOperator(calculator.getFullNumber())
-//        calculate.setSymbol(sender.currentTitle!)
-//        displayLabel.text = "\(sender.currentTitle!)"
-//    }
-//    
-//    @IBAction func specialButton(sender: UIButton)
-//    {
-//        displayLabel.text = calculate.setSpecialButton(sender.currentTitle!)
-//    }
-//    
-//    @IBAction func equalsButton(sender: UIButton)
-//    {
-//        calculate.setOperator(calculate.getFullNumber())
-//        displayLabel.text = "\(calculate.calculate())"
-//        calculate.clearCalculator()
-//    }
-//    
-//    @IBAction func clearbutton(sender: UIButton)
-//    {
-//        calculate.clearCalculator()
-//        displayLabel.text = "0"
-//    }
 }
