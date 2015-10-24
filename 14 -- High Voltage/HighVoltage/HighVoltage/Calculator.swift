@@ -10,7 +10,7 @@ import Foundation
 
 class Calculator
 {
-    var valuesToCalc = [String: String]()
+//    var valuesToCalc = [String: String]()
     
     var amps: Double = 0.0
     var ohms: Double = 0.0

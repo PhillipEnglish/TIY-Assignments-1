@@ -21,7 +21,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     var allMeasurements = ["Amps","Ohms","Volts","Watts"]
     var allValues = Array<String>()
     
-    var calculator: Calculator?
+    var calculator: Calculator!
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var calculateButton: UIButton!
@@ -71,6 +71,8 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         // Move the value string from popover tableView to MeasurementTV and display
         let valueString = visibleValues[indexPath.row]
         cell.measurementLabel.text = valueString
+        
+        cell.dataTextField.delegate = self
         
         // Pull up the keyboard for the dataTextField, capture the text
         if cell.dataTextField.text == "" 
@@ -153,14 +155,14 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         instructionLabel.text = "Your results are: "
         
         // TODO: pass values to calculator and get results
-        valueDictionary = calculator!.calculate(valueDictionary)
-
+        let resultDictionary = Calculator(dictionary: valueDictionary).calculate(valueDictionary)
+        
         // TODO: display results
 
-        allValues.append(valueDictionary["Amps"]!)
-        allValues.append(valueDictionary["Ohms"]!)
-        allValues.append(valueDictionary["Volts"]!)
-        allValues.append(valueDictionary["Watts"]!)
+        allValues.append(resultDictionary["Amps"]!)
+        allValues.append(resultDictionary["Ohms"]!)
+        allValues.append(resultDictionary["Volts"]!)
+        allValues.append(resultDictionary["Watts"]!)
         
         tableView.reloadData()
 
