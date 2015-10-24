@@ -16,7 +16,6 @@ protocol MeasurementListTableViewControllerDelegate
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, MeasurementListTableViewControllerDelegate
 {
     var valueDictionary = [String: String]()
-//    var visibleMeasurements = [String: String]()
     var visibleValues = Array<String>()
     var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
     var allMeasurements = ["Amps","Ohms","Volts","Watts"]
@@ -78,7 +77,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
 
         let inputString = cell.dataTextField.text
         
-        // save the key, value pair into the valueDictionary
+        // TODO: capture input in textField and set as value to appropriate key
         valueDictionary[valueString] = inputString
 
         return cell
@@ -89,7 +88,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
     {
-        return .None // shorthand for UIModalPresentationStyle.None
+        return .None
     }
     
     // MARK: - CharacterListTableViewController Delegate
@@ -112,7 +111,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     
     // MARK: - Action Handler
     
-    // TODO: capture input in textField and set as value to appropriate key
+    
     
     @IBAction func calculateButton(sender: UIButton)
     {
@@ -145,12 +144,12 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         if textField != ""
         {
             rc = true
-            let contentView = textField.superview
-            let cell = contentView?.superview as! MeasurementCell
+//            let contentView = textField.superview
+//            let cell = contentView?.superview as! MeasurementCell
 //            let indexPath = tableView.indexPathForCell(cell)
 //            let valueString = visibleValues[indexPath!.row]
-            let inputString = cell.dataTextField.text
-            textField.text = inputString
+//            let inputString = cell.dataTextField.text
+//            textField.text = inputString
             
 //            // save the key, value pair into the valueDictionary
 //            valueDictionary[valueString] = inputString
