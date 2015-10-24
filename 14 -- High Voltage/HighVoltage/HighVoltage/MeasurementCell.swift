@@ -13,7 +13,6 @@ class MeasurementCell: UITableViewCell {
     
     @IBOutlet weak var measurementLabel: UILabel!
     @IBOutlet weak var dataTextField: UITextField!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

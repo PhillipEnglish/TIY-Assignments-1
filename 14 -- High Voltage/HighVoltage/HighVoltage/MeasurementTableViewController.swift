@@ -31,7 +31,6 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
         instructionLabel.text = "Add two values to calculate: "
-        // TODO:  calculateButton.enable == true only when 2 values input
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,12 +73,25 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         cell.measurementLabel.text = valueString
         
         // Pull up the keyboard for the dataTextField, capture the text
-        cell.dataTextField.becomeFirstResponder()
+        if cell.dataTextField.text == "" 
+        {
+            cell.dataTextField.becomeFirstResponder()
+        }
 
-        let inputString = cell.dataTextField.text
+//        let inputString = cell.dataTextField.text
+//        
+//        // TODO: capture input in textField and set as value to appropriate key
+//        valueDictionary[valueString] = inputString
         
-        // TODO: capture input in textField and set as value to appropriate key
-        valueDictionary[valueString] = inputString
+        // TODO:  calculateButton.enable == true only when 2 values input
+        if visibleValues.count == 2
+        {
+            calculateButton.enabled = true
+        }
+        else
+        {
+            calculateButton.enabled = false
+        }
 
         return cell
     }
@@ -109,10 +121,32 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         
         tableView?.reloadData()
     }
+    // MARK: - UITestField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        var rc = false
+        
+        let contentView = textField.superview
+        let cell = contentView?.superview as! MeasurementCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let valueString = visibleValues[indexPath!.row]
+        
+        if textField != ""
+        {
+            rc = true
+            textField.resignFirstResponder()
+            
+            //            // save the key, value pair into the valueDictionary
+            valueDictionary[valueString] = textField.text
+        }
+        
+        tableView.reloadData()
+        return rc
+    }
+
     
     // MARK: - Action Handler
-    
-    
     
     @IBAction func calculateButton(sender: UIButton)
     {
@@ -141,30 +175,5 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         instructionLabel.text = "Add two values to calculate: "
     }
     
-    // MARK: - UITestField Delegate
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
-        var rc = false
-        
-        if textField != ""
-        {
-            rc = true
-//            let contentView = textField.superview
-//            let cell = contentView?.superview as! MeasurementCell
-//            let indexPath = tableView.indexPathForCell(cell)
-//            let valueString = visibleValues[indexPath!.row]
-//            let inputString = cell.dataTextField.text
-//            textField.text = inputString
-            
-//            // save the key, value pair into the valueDictionary
-//            valueDictionary[valueString] = inputString
-            
-            textField.resignFirstResponder()
-
-
-        }
-        return rc
-    }
     
 }

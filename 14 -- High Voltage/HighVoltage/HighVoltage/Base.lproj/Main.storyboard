@@ -71,7 +71,7 @@
                                             <rect key="frame" x="304" y="7" width="288" height="30"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
                                     </subviews>
                                     <animations/>
@@ -86,7 +86,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="dataTextField" destination="ksS-NQ-CHJ" id="S2L-kv-S93"/>
+                                    <outlet property="dataTextField" destination="ksS-NQ-CHJ" id="ImP-mC-7Ah"/>
                                     <outlet property="measurementLabel" destination="Q5A-We-wqy" id="7lu-9f-Haf"/>
                                 </connections>
                             </tableViewCell>
