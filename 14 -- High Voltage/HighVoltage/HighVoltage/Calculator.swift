@@ -43,30 +43,55 @@ class Calculator
         
         while amps == 0
         {
-            amps = volts / ohms
-            amps = watts / volts
-            amps = sqrt(watts) / ohms
+            if ohms > 0
+            {
+                amps = volts / ohms
+                amps = sqrt(watts) / ohms
+            }
+            else
+            {
+                amps = watts / volts
+            }
+            
         }
         
         while ohms == 0
         {
-            ohms = volts / amps
-            ohms = (volts*volts) / watts
-            ohms = watts / (amps*amps)
+            if amps > 0
+            {
+                ohms = volts / amps
+                ohms = watts / (amps*amps)
+            }
+            else
+            {
+                ohms = (volts*volts) / watts
+            }
         }
 
         while volts == 0
         {
-            volts = amps * ohms
-            volts = watts / amps
-            volts = sqrt(watts) * ohms
+            if ohms > 0
+            {
+                volts = amps * ohms
+                volts = sqrt(watts) * ohms
+            }
+            else
+            {
+                volts = watts / amps
+            }
         }
         
         while watts == 0
         {
-            watts = volts * amps
-            watts = (volts * volts)/ohms
-            watts = (amps * amps) * ohms
+            if ohms > 0
+            {
+                watts = (volts * volts)/ohms
+                watts = (amps * amps) * ohms
+            }
+            else
+            {
+                watts = volts * amps
+            }
         }
         
         var resultDictionary = [String:String]()

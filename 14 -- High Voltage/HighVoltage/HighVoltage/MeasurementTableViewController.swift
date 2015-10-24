@@ -19,6 +19,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     var visibleValues = Array<String>()
     var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
     var allMeasurements = ["Amps","Ohms","Volts","Watts"]
+    var allValues = Array<String>()
     
     var calculator: Calculator?
     
@@ -117,12 +118,17 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     {
         instructionLabel.text = "Your results are: "
         
-        // TODO: pass values to calculator
-        calculator!.calculate(valueDictionary)
+        // TODO: pass values to calculator and get results
+        valueDictionary = calculator!.calculate(valueDictionary)
 
         // TODO: display results
+
+        allValues.append(valueDictionary["Amps"]!)
+        allValues.append(valueDictionary["Ohms"]!)
+        allValues.append(valueDictionary["Volts"]!)
+        allValues.append(valueDictionary["Watts"]!)
         
-//        finalResults
+        tableView.reloadData()
 
     }
     
