@@ -17,6 +17,13 @@ class Calculator
     var watts: Double = 0.0
     var volts: Double = 0.0
     
+    var ampsExists = false
+    var ohmsExists = false
+    var voltsExists = false
+    var wattsExists = false
+
+    
+    
     init(dictionary: [String:String])
     {
 
@@ -30,17 +37,60 @@ class Calculator
             {
             case "Amps":
                 amps = Double(value)!
+                ampsExists = true
             case "Ohms":
                 ohms = Double(value)!
+                ohmsExists = true
             case "Watts":
                 watts = Double(value)!
-            case "Volts":
+                wattsExists = true
+                //            case "Volts":
+            default:
                 volts = Double(value)!
-            default: break
+                voltsExists = true
+                //            default: break
                 
             }
         }
-        
+                
+        if voltsExists
+        {
+            if ohmsExists
+            {
+                amps = volts / ohms
+                watts = (volts * volts)/ohms
+
+            }
+            else if ampsExists
+            {
+                ohms = volts / amps
+                watts = volts * amps
+            }
+            else
+            {
+                amps = watts / volts
+                ohms = (volts*volts) / watts
+            }
+        }
+        else if ampsExists
+        {
+            if wattsExists
+            {
+                volts = watts / amps
+                ohms = watts / (amps*amps)
+            }
+            else
+            {
+                volts = amps * ohms
+                watts = (amps * amps) * ohms
+            }
+        }
+        else
+        {
+            volts = sqrt(watts) * ohms
+            amps = sqrt(watts) / ohms
+        }
+/*
         while amps == 0
         {
             if ohms > 0
@@ -52,9 +102,9 @@ class Calculator
             {
                 amps = watts / volts
             }
-            
+    
         }
-        
+    
         while ohms == 0
         {
             if amps > 0
@@ -93,6 +143,7 @@ class Calculator
                 watts = volts * amps
             }
         }
+*/
         
         var resultDictionary = [String:String]()
         
