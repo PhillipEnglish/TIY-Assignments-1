@@ -13,7 +13,7 @@ protocol MeasurementListTableViewControllerDelegate
     func measureWasChosen(chosenMeasurement: String)
 }
 
-class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, MeasurementListTableViewControllerDelegate
+class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, MeasurementListTableViewControllerDelegate
 {
     var valueDictionary = [String: String]()
     var visibleValues = Array<String>()
@@ -119,7 +119,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             addButton.enabled = false
         }
         
-        tableView?.reloadData()
+        tableView.reloadData()
     }
     // MARK: - UITestField Delegate
     
@@ -132,12 +132,12 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let indexPath = tableView.indexPathForCell(cell)
         let valueString = visibleValues[indexPath!.row]
         
-        if textField != ""
+        if textField.text != ""
         {
             rc = true
             textField.resignFirstResponder()
             
-            //            // save the key, value pair into the valueDictionary
+            // save the key, value pair into the valueDictionary
             valueDictionary[valueString] = textField.text
         }
         
