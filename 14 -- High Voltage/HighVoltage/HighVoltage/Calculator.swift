@@ -90,69 +90,15 @@ class Calculator
             volts = sqrt(watts) * ohms
             amps = sqrt(watts) / ohms
         }
-/*
-        while amps == 0
-        {
-            if ohms > 0
-            {
-                amps = volts / ohms
-                amps = sqrt(watts) / ohms
-            }
-            else
-            {
-                amps = watts / volts
-            }
-    
-        }
-    
-        while ohms == 0
-        {
-            if amps > 0
-            {
-                ohms = volts / amps
-                ohms = watts / (amps*amps)
-            }
-            else
-            {
-                ohms = (volts*volts) / watts
-            }
-        }
-
-        while volts == 0
-        {
-            if ohms > 0
-            {
-                volts = amps * ohms
-                volts = sqrt(watts) * ohms
-            }
-            else
-            {
-                volts = watts / amps
-            }
-        }
         
-        while watts == 0
-        {
-            if ohms > 0
-            {
-                watts = (volts * volts)/ohms
-                watts = (amps * amps) * ohms
-            }
-            else
-            {
-                watts = volts * amps
-            }
-        }
-*/
+        var resultsDictionary = [String:String]()
         
-        var resultDictionary = [String:String]()
-        
-        resultDictionary["Amps"] = String(amps)
-        resultDictionary["Ohms"] = String(ohms)
-        resultDictionary["Volts"] = String(volts)
-        resultDictionary["Watts"] = String(watts)
+        resultsDictionary["Amps"] = String(amps)
+        resultsDictionary["Ohms"] = String(ohms)
+        resultsDictionary["Volts"] = String(volts)
+        resultsDictionary["Watts"] = String(watts)
        
-        return resultDictionary
+        return resultsDictionary
     }
    
 }

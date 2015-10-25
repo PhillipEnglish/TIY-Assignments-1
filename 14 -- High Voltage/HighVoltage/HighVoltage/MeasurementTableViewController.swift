@@ -16,10 +16,11 @@ protocol MeasurementListTableViewControllerDelegate
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, MeasurementListTableViewControllerDelegate
 {
     var valueDictionary = [String: String]()
+    var visibleUnits = Array<String>()
     var visibleValues = Array<String>()
-    var remainingMeasurements = ["Amps","Ohms","Volts","Watts"]
-    var allMeasurements = ["Amps","Ohms","Volts","Watts"]
-    var allValues = Array<String>()
+    var remainingUnits = ["Amps","Ohms","Volts","Watts"]
+    var allUnits = ["Amps","Ohms","Volts","Watts"]
+//    var allValues = Array<String>()
     
     var calculator: Calculator!
     
@@ -31,6 +32,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
         instructionLabel.text = "Add two values to calculate: "
+        calculateButton.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +46,10 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         if segue.identifier == "ShowMeasurementListPopoverSegue"
         {
             let destVC = segue.destinationViewController as! MeasurementListTableViewController
-            destVC.measurements = remainingMeasurements
+            destVC.measurements = remainingUnits
             destVC.popoverPresentationController?.delegate = self
             destVC.delegate = self
-            let contentHeight = 44.0 * CGFloat(remainingMeasurements.count)
+            let contentHeight = 44.0 * CGFloat(remainingUnits.count)
             destVC.preferredContentSize = CGSizeMake(200.0, contentHeight)
         }
     }
@@ -61,7 +63,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return visibleValues.count
+        return visibleUnits.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -69,7 +71,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
         // Move the value string from popover tableView to MeasurementTV and display
-        let valueString = visibleValues[indexPath.row]
+        let valueString = visibleUnits[indexPath.row]
         cell.measurementLabel.text = valueString
         
         cell.dataTextField.delegate = self
@@ -79,14 +81,9 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         {
             cell.dataTextField.becomeFirstResponder()
         }
-
-//        let inputString = cell.dataTextField.text
-//        
-//        // TODO: capture input in textField and set as value to appropriate key
-//        valueDictionary[valueString] = inputString
         
         // TODO:  calculateButton.enable == true only when 2 values input
-        if visibleValues.count == 2
+        if visibleUnits.count == 2
         {
             calculateButton.enabled = true
         }
@@ -97,7 +94,6 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
 
         return cell
     }
-
     
     // MARK: - UIPopover Presentation Controller Delegate
     
@@ -111,12 +107,12 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     func measureWasChosen(chosenMeasurement: String)
     {
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        visibleValues.append(chosenMeasurement)
+        visibleUnits.append(chosenMeasurement)
         
-        let rowToRemove = (remainingMeasurements as NSArray).indexOfObject(chosenMeasurement)
-        remainingMeasurements.removeAtIndex(rowToRemove)
+        let rowToRemove = (remainingUnits as NSArray).indexOfObject(chosenMeasurement)
+        remainingUnits.removeAtIndex(rowToRemove)
         
-        if remainingMeasurements.count == 2
+        if remainingUnits.count == 2
         {
             addButton.enabled = false
         }
@@ -132,7 +128,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let contentView = textField.superview
         let cell = contentView?.superview as! MeasurementCell
         let indexPath = tableView.indexPathForCell(cell)
-        let valueString = visibleValues[indexPath!.row]
+        let valueString = visibleUnits[indexPath!.row]
         
         if textField.text != ""
         {
@@ -154,15 +150,17 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     {
         instructionLabel.text = "Your results are: "
         
-        // TODO: pass values to calculator and get results
+        // pass values to calculator and get results
         let resultDictionary = Calculator(dictionary: valueDictionary).calculate(valueDictionary)
         
         // TODO: display results
-
-        allValues.append(resultDictionary["Amps"]!)
-        allValues.append(resultDictionary["Ohms"]!)
-        allValues.append(resultDictionary["Volts"]!)
-        allValues.append(resultDictionary["Watts"]!)
+        visibleUnits.removeAll()
+        
+        for (key,value) in resultDictionary
+        {
+            visibleUnits.append(key)
+            visibleValues.append(value)
+        }
         
         tableView.reloadData()
 
@@ -170,9 +168,10 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
     {
-        remainingMeasurements = allMeasurements
-        visibleValues.removeAll()
+        remainingUnits = allUnits
+        visibleUnits.removeAll()
         addButton.enabled = true
+        calculateButton.enabled = false
         tableView.reloadData()
         instructionLabel.text = "Add two values to calculate: "
     }
