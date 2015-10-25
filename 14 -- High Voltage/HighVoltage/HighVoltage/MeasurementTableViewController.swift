@@ -15,7 +15,7 @@ protocol MeasurementListTableViewControllerDelegate
 
 class MeasurementTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, MeasurementListTableViewControllerDelegate
 {
-    var valueDictionary = [String: String]()
+    var valuesToCalculateDictionary = [String: String]()
     var visibleUnits = Array<String>()
     var visibleValues = Array<String>()
     var remainingUnits = ["Amps","Ohms","Volts","Watts"]
@@ -71,10 +71,11 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
 
         // Move the value string from popover tableView to MeasurementTV and display
-        let valueString = visibleUnits[indexPath.row]
-        cell.measurementLabel.text = valueString
+        let unitString = visibleUnits[indexPath.row]
         
+        cell.measurementLabel.text = unitString
         cell.dataTextField.delegate = self
+        
         
         // Pull up the keyboard for the dataTextField, capture the text
         if cell.dataTextField.text == "" 
@@ -82,10 +83,16 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             cell.dataTextField.becomeFirstResponder()
         }
         
-        // TODO:  calculateButton.enable == true only when 2 values input
+        if visibleValues.count != 0
+        {
+            let valueString = visibleValues[indexPath.row]
+            cell.dataTextField.text = valueString
+        }
+        
         if visibleUnits.count == 2
         {
             calculateButton.enabled = true
+            instructionLabel.text = ""
         }
         else
         {
@@ -128,7 +135,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let contentView = textField.superview
         let cell = contentView?.superview as! MeasurementCell
         let indexPath = tableView.indexPathForCell(cell)
-        let valueString = visibleUnits[indexPath!.row]
+        let unitString = visibleUnits[indexPath!.row]
         
         if textField.text != ""
         {
@@ -136,7 +143,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             textField.resignFirstResponder()
             
             // save the key, value pair into the valueDictionary
-            valueDictionary[valueString] = textField.text
+            valuesToCalculateDictionary[unitString] = textField.text
         }
         
         tableView.reloadData()
@@ -151,7 +158,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         instructionLabel.text = "Your results are: "
         
         // pass values to calculator and get results
-        let resultDictionary = Calculator(dictionary: valueDictionary).calculate(valueDictionary)
+        let resultDictionary = Calculator(dictionary: valuesToCalculateDictionary).calculate(valuesToCalculateDictionary)
         
         // TODO: display results
         visibleUnits.removeAll()
@@ -170,6 +177,8 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     {
         remainingUnits = allUnits
         visibleUnits.removeAll()
+        visibleValues.removeAll()
+        valuesToCalculateDictionary.removeAll()
         addButton.enabled = true
         calculateButton.enabled = false
         tableView.reloadData()
