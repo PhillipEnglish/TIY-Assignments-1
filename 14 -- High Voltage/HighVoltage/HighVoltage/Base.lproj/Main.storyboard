@@ -18,37 +18,30 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instructionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-ox-dr6">
-                                    <rect key="frame" x="8" y="11" width="468" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instructionLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-ox-dr6">
+                                    <rect key="frame" x="15" y="11" width="570" height="21"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVL-Wm-Lzf">
-                                    <rect key="frame" x="484" y="7" width="108" height="30"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="108" id="5o6-oN-Z19"/>
-                                        <constraint firstAttribute="height" constant="30" id="upK-pE-eeg"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <state key="normal" title="Calculate"/>
-                                    <connections>
-                                        <action selector="calculateButton:" destination="yhW-Bh-KoE" eventType="touchUpInside" id="Ufc-4h-AOI"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="uVL-Wm-Lzf" firstAttribute="leading" secondItem="fI3-ox-dr6" secondAttribute="trailing" constant="8" id="AJU-J4-rsJ"/>
                                 <constraint firstItem="fI3-ox-dr6" firstAttribute="leading" secondItem="8j6-g5-6uh" secondAttribute="leading" constant="8" id="Cwg-DH-RsO"/>
-                                <constraint firstAttribute="trailing" secondItem="uVL-Wm-Lzf" secondAttribute="trailing" constant="8" id="rOI-Z3-siv"/>
-                                <constraint firstItem="uVL-Wm-Lzf" firstAttribute="centerY" secondItem="8j6-g5-6uh" secondAttribute="centerY" id="sPJ-VI-7Mq"/>
+                                <constraint firstItem="fI3-ox-dr6" firstAttribute="centerY" secondItem="8j6-g5-6uh" secondAttribute="centerY" id="WbA-xM-JQa"/>
+                                <constraint firstAttribute="trailing" secondItem="fI3-ox-dr6" secondAttribute="trailing" constant="15" id="XRQ-BI-lmu"/>
+                                <constraint firstItem="fI3-ox-dr6" firstAttribute="leading" secondItem="8j6-g5-6uh" secondAttribute="leading" constant="15" id="XTh-Ok-0Le"/>
+                                <constraint firstItem="fI3-ox-dr6" firstAttribute="centerX" secondItem="8j6-g5-6uh" secondAttribute="centerX" id="x5g-eS-1sW"/>
                                 <constraint firstItem="fI3-ox-dr6" firstAttribute="centerY" secondItem="8j6-g5-6uh" secondAttribute="centerY" id="yhN-V1-gJI"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Cwg-DH-RsO"/>
+                                    <exclude reference="WbA-xM-JQa"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeasurementCell" id="ISY-0l-mvK" customClass="MeasurementCell" customModule="HighVoltage" customModuleProvider="target">
@@ -110,7 +103,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="mWE-vf-FHd" id="VeU-k1-ohX"/>
-                        <outlet property="calculateButton" destination="uVL-Wm-Lzf" id="qej-BD-Iuv"/>
                         <outlet property="instructionLabel" destination="fI3-ox-dr6" id="GeF-b6-U0J"/>
                     </connections>
                 </tableViewController>

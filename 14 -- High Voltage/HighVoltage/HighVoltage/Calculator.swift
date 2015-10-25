@@ -22,7 +22,7 @@ class Calculator
     var voltsExists = false
     var wattsExists = false
 
-    
+    var resultsDictionary = [String:String]()
     
     init(dictionary: [String:String])
     {
@@ -91,7 +91,7 @@ class Calculator
             amps = sqrt(watts) / ohms
         }
         
-        var resultsDictionary = [String:String]()
+        
         
         resultsDictionary["Amps"] = String(amps)
         resultsDictionary["Ohms"] = String(ohms)
@@ -99,6 +99,15 @@ class Calculator
         resultsDictionary["Watts"] = String(watts)
        
         return resultsDictionary
+    }
+    
+    func clearCalculator()
+    {
+        amps = 0.0
+        ohms = 0.0
+        volts = 0.0
+        watts = 0.0
+        resultsDictionary.removeAll()
     }
    
 }

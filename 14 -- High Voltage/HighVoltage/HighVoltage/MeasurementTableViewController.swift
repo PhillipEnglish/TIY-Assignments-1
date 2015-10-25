@@ -20,19 +20,15 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     var visibleValues = Array<String>()
     var remainingUnits = ["Amps","Ohms","Volts","Watts"]
     var allUnits = ["Amps","Ohms","Volts","Watts"]
-//    var allValues = Array<String>()
-    
     var calculator: Calculator!
     
     @IBOutlet weak var addButton: UIBarButtonItem!
-    @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var instructionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "⚡️ High Voltage ⚡️"
-        instructionLabel.text = "Add two values to calculate: "
-        calculateButton.enabled = false
+        instructionLabel.text = "ADD(+) TWO VALUES TO CALCULATE"
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,36 +65,26 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("MeasurementCell", forIndexPath: indexPath) as! MeasurementCell
-
-        // Move the value string from popover tableView to MeasurementTV and display
         let unitString = visibleUnits[indexPath.row]
         
         cell.measurementLabel.text = unitString
         cell.dataTextField.delegate = self
         
-        
-        // Pull up the keyboard for the dataTextField, capture the text
         if cell.dataTextField.text == "" 
         {
             cell.dataTextField.becomeFirstResponder()
         }
         
-        if visibleValues.count != 0
+        if visibleValues.count == 4
         {
             let valueString = visibleValues[indexPath.row]
             cell.dataTextField.text = valueString
+            // FIXME: not resigning
+            resignFirstResponder()
+            // below causes error: no index path for table cell being reused
+//            cell.dataTextField.userInteractionEnabled = false
         }
         
-        if visibleUnits.count == 2
-        {
-            calculateButton.enabled = true
-            instructionLabel.text = ""
-        }
-        else
-        {
-            calculateButton.enabled = false
-        }
-
         return cell
     }
     
@@ -136,7 +122,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         let cell = contentView?.superview as! MeasurementCell
         let indexPath = tableView.indexPathForCell(cell)
         let unitString = visibleUnits[indexPath!.row]
-        
+               
         if textField.text != ""
         {
             rc = true
@@ -146,21 +132,25 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             valuesToCalculateDictionary[unitString] = textField.text
         }
         
+        if valuesToCalculateDictionary.count == 2
+        {
+            calculate()
+        }
+        
         tableView.reloadData()
         return rc
     }
-
     
     // MARK: - Action Handler
     
-    @IBAction func calculateButton(sender: UIButton)
+    func calculate()
     {
-        instructionLabel.text = "Your results are: "
+        instructionLabel.text = "RESULTS:"
         
         // pass values to calculator and get results
-        let resultDictionary = Calculator(dictionary: valuesToCalculateDictionary).calculate(valuesToCalculateDictionary)
-        
-        // TODO: display results
+        calculator = Calculator(dictionary: valuesToCalculateDictionary)
+        let resultDictionary = calculator.calculate(valuesToCalculateDictionary)
+
         visibleUnits.removeAll()
         
         for (key,value) in resultDictionary
@@ -168,21 +158,19 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             visibleUnits.append(key)
             visibleValues.append(value)
         }
-        
-        tableView.reloadData()
-
     }
     
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
     {
+        // FIXME: last value entered is persisting in text field, but not recognized by Responder
+        calculator.clearCalculator()
         remainingUnits = allUnits
         visibleUnits.removeAll()
         visibleValues.removeAll()
         valuesToCalculateDictionary.removeAll()
         addButton.enabled = true
-        calculateButton.enabled = false
+        instructionLabel.text = "ADD(+) TWO VALUES TO CALCULATE"
         tableView.reloadData()
-        instructionLabel.text = "Add two values to calculate: "
     }
     
     
