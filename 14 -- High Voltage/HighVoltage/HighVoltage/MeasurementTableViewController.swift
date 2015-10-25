@@ -80,8 +80,8 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             let valueString = visibleValues[indexPath.row]
             cell.dataTextField.text = valueString
             // FIXME: not resigning
-            resignFirstResponder()
             // below causes error: no index path for table cell being reused
+//            cell.dataTextField.resignFirstResponder()
 //            cell.dataTextField.userInteractionEnabled = false
         }
         
@@ -146,18 +146,24 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
     func calculate()
     {
         instructionLabel.text = "RESULTS:"
+        visibleUnits.removeAll()
+        visibleValues.removeAll()
         
         // pass values to calculator and get results
         calculator = Calculator(dictionary: valuesToCalculateDictionary)
         let resultDictionary = calculator.calculate(valuesToCalculateDictionary)
-
-        visibleUnits.removeAll()
         
-        for (key,value) in resultDictionary
-        {
+        // sort resultDictionary alpha by key http://stackoverflow.com/questions/25377177/swift-sort-dictionary-by-keys
+        for (key,value) in Array(resultDictionary).sort({$0.0 < $1.0}) {
             visibleUnits.append(key)
             visibleValues.append(value)
         }
+        
+//        for (key,value) in resultDictionary
+//        {
+//            visibleUnits.append(key)
+//            visibleValues.append(value)
+//        }
     }
     
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
