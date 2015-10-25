@@ -9,9 +9,7 @@
 import Foundation
 
 class Calculator
-{
-//    var valuesToCalc = [String: String]()
-    
+{    
     var amps: Double = 0.0
     var ohms: Double = 0.0
     var watts: Double = 0.0
@@ -44,12 +42,9 @@ class Calculator
             case "Watts":
                 watts = Double(value)!
                 wattsExists = true
-                //            case "Volts":
             default:
                 volts = Double(value)!
                 voltsExists = true
-                //            default: break
-                
             }
         }
                 
@@ -91,8 +86,6 @@ class Calculator
             amps = sqrt(watts) / ohms
         }
         
-        
-        
         resultsDictionary["Amps"] = String(amps)
         resultsDictionary["Ohms"] = String(ohms)
         resultsDictionary["Volts"] = String(volts)
@@ -109,7 +102,6 @@ class Calculator
         watts = 0.0
         resultsDictionary.removeAll()
     }
-   
 }
 
 

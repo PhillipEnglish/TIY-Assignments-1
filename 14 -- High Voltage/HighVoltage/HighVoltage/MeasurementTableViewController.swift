@@ -48,8 +48,7 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
             let contentHeight = 44.0 * CGFloat(remainingUnits.count)
             destVC.preferredContentSize = CGSizeMake(200.0, contentHeight)
         }
-    }
-    
+    }    
 
     // MARK: - Table view data source
 
@@ -70,21 +69,16 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         cell.measurementLabel.text = unitString
         cell.dataTextField.delegate = self
         
-        if cell.dataTextField.text == "" 
-        {
-            cell.dataTextField.becomeFirstResponder()
-        }
-        
         if visibleValues.count == 4
         {
             let valueString = visibleValues[indexPath.row]
             cell.dataTextField.text = valueString
-            // FIXME: not resigning
-            // below causes error: no index path for table cell being reused
-//            cell.dataTextField.resignFirstResponder()
-//            cell.dataTextField.userInteractionEnabled = false
         }
         
+        if cell.dataTextField.text == ""
+        {
+            cell.dataTextField.becomeFirstResponder()
+        }
         return cell
     }
     
@@ -127,48 +121,29 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         {
             rc = true
             textField.resignFirstResponder()
-            
-            // save the key, value pair into the valueDictionary
             valuesToCalculateDictionary[unitString] = textField.text
         }
         
         if valuesToCalculateDictionary.count == 2
         {
             calculate()
+            textField.text = ""
         }
-        
+
         tableView.reloadData()
         return rc
     }
     
     // MARK: - Action Handler
     
-    func calculate()
-    {
-        instructionLabel.text = "RESULTS:"
-        visibleUnits.removeAll()
-        visibleValues.removeAll()
-        
-        // pass values to calculator and get results
-        calculator = Calculator(dictionary: valuesToCalculateDictionary)
-        let resultDictionary = calculator.calculate(valuesToCalculateDictionary)
-        
-        // sort resultDictionary alpha by key http://stackoverflow.com/questions/25377177/swift-sort-dictionary-by-keys
-        for (key,value) in Array(resultDictionary).sort({$0.0 < $1.0}) {
-            visibleUnits.append(key)
-            visibleValues.append(value)
-        }
-        
-//        for (key,value) in resultDictionary
-//        {
-//            visibleUnits.append(key)
-//            visibleValues.append(value)
-//        }
-    }
-    
     @IBAction func clearButtonTapped(sender: UIBarButtonItem)
     {
-        // FIXME: last value entered is persisting in text field, but not recognized by Responder
+        let oldValues = self.tableView.visibleCells as! Array<MeasurementCell>
+        
+        for cells in oldValues
+        {
+            cells.dataTextField.text = ""
+        }
         calculator.clearCalculator()
         remainingUnits = allUnits
         visibleUnits.removeAll()
@@ -179,5 +154,20 @@ class MeasurementTableViewController: UITableViewController, UIPopoverPresentati
         tableView.reloadData()
     }
     
+    // MARK: - Private Functions
     
+    func calculate()
+    {
+        instructionLabel.text = "RESULTS:"
+        visibleUnits.removeAll()
+        visibleValues.removeAll()
+        calculator = Calculator(dictionary: valuesToCalculateDictionary)
+        let resultDictionary = calculator.calculate(valuesToCalculateDictionary)
+        
+        // sort resultDictionary alpha by key http://stackoverflow.com/questions/25377177/swift-sort-dictionary-by-keys
+        for (key,value) in Array(resultDictionary).sort({$0.0 < $1.0}) {
+            visibleUnits.append(key)
+            visibleValues.append(value)
+        }
+    }
 }
