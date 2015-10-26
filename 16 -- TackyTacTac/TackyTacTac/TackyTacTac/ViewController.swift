@@ -11,9 +11,6 @@ import UIKit
 class ViewController: UIViewController
 {
 
-    // TODO: Add functionality to allow the user to reset the board
-    // TODO: Add functionality to allow the user to reset the scores (and by extension, the board as well)
-
     // TODO: Add functionality to randomly choose from several different colors for each player so each game shows different sets of game board colors
     
     var grid=[[0,0,0], /* Array at 0, [0,1,2] */
@@ -75,7 +72,6 @@ class ViewController: UIViewController
         player1ScoreLabel.textAlignment = .Center
         stalemateScoreLabel.textAlignment = .Center
         player2ScoreLabel.textAlignment = .Center
-        
         
         // center in view
         gameStatusLabel.center.x = view.center.x
@@ -157,8 +153,6 @@ class ViewController: UIViewController
         }
     }
     
-
-    
     // MARK: - Action Handlers
     
     func spacePressed(button: TTTButton)
@@ -174,20 +168,18 @@ class ViewController: UIViewController
         }
     }
     
-    func resetGameButtonPressed()
+    func resetGameButtonPressed(sender: UIButton!)
     {
-
         startNewGame()
-
     }
     
-    func resetAllButtonPressed()
+    func resetAllButtonPressed(sender: UIButton!)
     {
         startNewGame()
         clearScoreBoard()
     }
 
-        // MARK: - Private Functions
+    // MARK: - Private Functions
     
     private func checkForWinner()
     {
@@ -279,9 +271,9 @@ class ViewController: UIViewController
         stalemateScore = 0
         player2Score = 0
         
-        player1ScoreLabel.text = ""
-        stalemateScoreLabel.text = ""
-        player2ScoreLabel.text = ""
+        player1ScoreLabel.text = "0"
+        stalemateScoreLabel.text = "0"
+        player2ScoreLabel.text = "0"
     }
 }
 
@@ -291,7 +283,6 @@ class TTTButton: UIButton
     var col = 0
     
     var player = 0 {
-        // when variable changes, the following code will run, similar to a listener
         didSet {
             switch player {
             case 1: backgroundColor = UIColor.magentaColor()
