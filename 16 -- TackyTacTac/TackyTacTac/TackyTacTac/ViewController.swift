@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController
 {
 
-    // TODO: Add functionality to show the score of each player (how many games won) as well as how many games were a stalemate
     // TODO: Add functionality to allow the user to reset the board
     // TODO: Add functionality to allow the user to reset the scores (and by extension, the board as well)
 
@@ -28,7 +27,7 @@ class ViewController: UIViewController
     var player2Score = 0
     var stalemateScore = 0
 
-    let gameStatusLabel = UILabel(frame: CGRect(x: 0, y: 80, width: 200, height: 50))
+    let gameStatusLabel = UILabel(frame: CGRect(x: 0, y: 40, width: 200, height: 50))
     
     let titlesView = UIView(frame: CGRect(x: 0, y: 500, width: 320, height: 50))
     
@@ -42,25 +41,28 @@ class ViewController: UIViewController
     let stalemateScoreLabel = UILabel(frame: CGRect(x: 110, y: 0, width: 100, height: 50))
     let player2ScoreLabel = UILabel(frame: CGRect(x: 220, y: 0, width: 100, height: 50))
     
-//    let buttonView = UIView(frame: CGRect(x: 80, y: 500, width: 300, height: 50))
-//    
-//    let clearGameButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-//    let clearAllButton = UIButton(frame: CGRect(x: 200, y: 0, width: 100, height: 50))
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        
         gameStatusLabel.text = "Player 1 Turn"
-//        clearGameButton.setTitle("Clear Game", forState: .Normal)
-//        clearAllButton.setTitle("Clear All Games", forState: .Normal)
+        setUpLabels()
+        createResetGameButton()
+        createResetAllButton()
+        createGrid()
         updateScoreBoard()
-        
+    }
+
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Setup View
+    
+    func setUpLabels()
+    {
         gameStatusLabel.textAlignment = .Center
-        
-//        clearGameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-//        clearAllButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
         
         player1ScoreTitleLabel.textAlignment = .Center
         stalemateScoreTitleLabel.textAlignment = .Center
@@ -79,8 +81,7 @@ class ViewController: UIViewController
         gameStatusLabel.center.x = view.center.x
         titlesView.center.x = view.center.x
         scoresView.center.x = view.center.x
-//        buttonView.center.x = view.center.x
-
+        
         // add labels to views
         titlesView.addSubview(player1ScoreTitleLabel)
         titlesView.addSubview(stalemateScoreTitleLabel)
@@ -89,16 +90,40 @@ class ViewController: UIViewController
         scoresView.addSubview(player1ScoreLabel)
         scoresView.addSubview(stalemateScoreLabel)
         scoresView.addSubview(player2ScoreLabel)
-//        
-//        buttonView.addSubview(clearGameButton)
-//        buttonView.addSubview(clearAllButton)
         
         // must add to the view to be visible
         view.addSubview(gameStatusLabel)
-//        view.addSubview(buttonView)
         view.addSubview(titlesView)
         view.addSubview(scoresView)
-        
+    }
+    
+    
+    func createResetGameButton()
+    {
+        let resetGameButton = UIButton()
+        resetGameButton.setTitle("Clear Game", forState: .Normal)
+        resetGameButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        resetGameButton.titleLabel!.font = UIFont(name: "Helvetica", size: 14)
+        resetGameButton.frame = CGRectMake(0, 80, 100, 50) // X, Y, width, height
+        resetGameButton.center.x = view.center.x
+        resetGameButton.addTarget(self, action: "resetGameButtonPressed:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(resetGameButton)
+    }
+    
+    func createResetAllButton()
+    {
+        let resetAllButton = UIButton()
+        resetAllButton.setTitle("Clear All", forState: .Normal)
+        resetAllButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        resetAllButton.titleLabel!.font = UIFont(name: "Helvetica", size: 14)
+        resetAllButton.frame = CGRectMake(0, 110, 100, 50) // X, Y, width, height
+        resetAllButton.center.x = view.center.x
+        resetAllButton.addTarget(self, action: "resetAllButtonPressed:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(resetAllButton)
+    }
+    
+    func createGrid()
+    {
         // determine screen size(s), store as an int
         let screenHeight = Int(UIScreen.mainScreen().bounds.height)
         let screenWidth = Int(UIScreen.mainScreen().bounds.width)
@@ -119,49 +144,52 @@ class ViewController: UIViewController
                 let x = c * (buttonHW + buttonSpacing) + leftSpacing
                 let y = r * (buttonHW + buttonSpacing) + topSpacing
                 
-                let button = TTTButton(frame:CGRect(x: x, y: y, width: buttonHW, height: buttonHW))
-                button.backgroundColor = UIColor.cyanColor()
+                let tileButton = TTTButton(frame:CGRect(x: x, y: y, width: buttonHW, height: buttonHW))
+                tileButton.backgroundColor = UIColor.cyanColor()
                 
-                button.row = r
-                button.col = c
+                tileButton.row = r
+                tileButton.col = c
                 
                 // same as wiring IBAction. colon on action means func takes arguments.
-                button.addTarget(self, action: "spacePressed:", forControlEvents: .TouchUpInside)
-                view.addSubview(button)
+                tileButton.addTarget(self, action: "spacePressed:", forControlEvents: .TouchUpInside)
+                view.addSubview(tileButton)
             }
         }
     }
+    
 
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: - Action Handlers
-
+    
     func spacePressed(button: TTTButton)
     {
         if button.player == 0
         {
-//            if isPlayer1Turn
-//            {
-//                button.player = 1
-//            }
-//            else
-//            {
-//                button.player = 2
-//            }
             button.player = isPlayer1Turn ? 1 : 2
             grid[button.row][button.col] = isPlayer1Turn ? 1 : 2
             isPlayer1Turn = !isPlayer1Turn
             buttonsUsed++
             checkForWinner()
             updateScoreBoard()
-            
         }
     }
     
-    func checkForWinner()
+    func resetGameButtonPressed()
+    {
+
+        startNewGame()
+
+    }
+    
+    func resetAllButtonPressed()
+    {
+        startNewGame()
+        clearScoreBoard()
+    }
+
+        // MARK: - Private Functions
+    
+    private func checkForWinner()
     {
         let possibilities = [
                             ((0,0),(0,1),(0,2)),
@@ -181,6 +209,7 @@ class ViewController: UIViewController
             let value2 = grid[p2.0][p2.1]
             let value3 = grid[p3.0][p3.1]
             
+            
             if value1 == value2 && value2 == value3
             {
                 if value1 != 0
@@ -189,16 +218,16 @@ class ViewController: UIViewController
                    if value1 == 1
                     {
                         player1Score++
+                        startNewGame()
                         break
                     }
                     else if value1 == 2
                     {
                         player2Score++
+                        startNewGame()
                         break
                     }
-                 break
                 }
-               
                 else
                 {
                     if isPlayer1Turn
@@ -211,17 +240,26 @@ class ViewController: UIViewController
                     }
                 }
             }
+            else if buttonsUsed == 9
+            {
+                gameStatusLabel.text = ("Stalemate!")
+                stalemateScore++
+                startNewGame()
+                break
+            }
             else
             {
-                if buttonsUsed == 7
-                {
-                    gameStatusLabel.text = ("Stalemate!")
-                    stalemateScore++
-                    break
-                }
+                print("does not win")
             }
-            
         }
+    }
+    
+    func startNewGame()
+    {
+        grid = [[0,0,0],[0,0,0],[0,0,0]]
+        createGrid()
+        isPlayer1Turn = true
+        buttonsUsed = 0
     }
     
     func updateScoreBoard()
@@ -234,7 +272,17 @@ class ViewController: UIViewController
         stalemateScoreLabel.text = String(stalemateScore)
         player2ScoreLabel.text = String(player2Score)
     }
-
+    
+    func clearScoreBoard()
+    {
+        player1Score = 0
+        stalemateScore = 0
+        player2Score = 0
+        
+        player1ScoreLabel.text = ""
+        stalemateScoreLabel.text = ""
+        player2ScoreLabel.text = ""
+    }
 }
 
 class TTTButton: UIButton
@@ -253,23 +301,5 @@ class TTTButton: UIButton
         }
     }
 }
-
-class ClearGameButton: UIButton
-{
-    
-}
-
-class ClearAllButton: UIButton
-{
-    
-}
-
-
-
-
-
-
-
-
 
 
