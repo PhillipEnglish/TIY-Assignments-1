@@ -26,13 +26,15 @@ class ViewController: UIViewController
 
     let gameStatusLabel = UILabel(frame: CGRect(x: 0, y: 40, width: 200, height: 50))
     
-    let titlesView = UIView(frame: CGRect(x: 0, y: 500, width: 320, height: 50))
+    let scoreBoardLabel = UILabel(frame: CGRect(x: 0, y: 500, width: 308, height: 25))
+    
+    let titlesView = UIView(frame: CGRect(x: 0, y: 525, width: 320, height: 50))
     
     let player1ScoreTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     let stalemateScoreTitleLabel = UILabel(frame: CGRect(x: 110, y: 0, width: 100, height: 50))
     let player2ScoreTitleLabel = UILabel(frame: CGRect(x: 220, y: 0, width: 100, height: 50))
     
-    let scoresView = UIView(frame: CGRect(x: 0, y: 525, width: 320, height: 50))
+    let scoresView = UIView(frame: CGRect(x: 0, y: 575, width: 320, height: 50))
     
     let player1ScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     let stalemateScoreLabel = UILabel(frame: CGRect(x: 110, y: 0, width: 100, height: 50))
@@ -43,6 +45,7 @@ class ViewController: UIViewController
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         gameStatusLabel.text = "Player 1 Turn"
+        scoreBoardLabel.text = "SCOREBOARD"
         setUpLabels()
         createResetGameButton()
         createResetAllButton()
@@ -60,6 +63,7 @@ class ViewController: UIViewController
     func setUpLabels()
     {
         gameStatusLabel.textAlignment = .Center
+        scoreBoardLabel.textAlignment = .Center
         
         player1ScoreTitleLabel.textAlignment = .Center
         stalemateScoreTitleLabel.textAlignment = .Center
@@ -73,8 +77,11 @@ class ViewController: UIViewController
         stalemateScoreLabel.textAlignment = .Center
         player2ScoreLabel.textAlignment = .Center
         
+        scoreBoardLabel.backgroundColor = UIColor.lightGrayColor()
+        
         // center in view
         gameStatusLabel.center.x = view.center.x
+        scoreBoardLabel.center.x = view.center.x
         titlesView.center.x = view.center.x
         scoresView.center.x = view.center.x
         
@@ -89,6 +96,7 @@ class ViewController: UIViewController
         
         // must add to the view to be visible
         view.addSubview(gameStatusLabel)
+        view.addSubview(scoreBoardLabel)
         view.addSubview(titlesView)
         view.addSubview(scoresView)
     }
@@ -282,12 +290,26 @@ class TTTButton: UIButton
     var row = 0
     var col = 0
     
+    // http://classictutorials.com/2014/08/generate-a-random-color-in-swift/
+    
+    func randomColor() -> UIColor
+    {
+        let red = CGFloat(drand48())
+        let green = CGFloat(drand48())
+        let blue = CGFloat(drand48())
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+//    let color1 = randomColor()
+//    let color2 = randomColor()
+//    let color3 = randomColor()
+    
     var player = 0 {
         didSet {
             switch player {
-            case 1: backgroundColor = UIColor.magentaColor()
-            case 2: backgroundColor = UIColor.yellowColor()
-            default: backgroundColor = UIColor.cyanColor()
+            case 1: backgroundColor = UIColor.magentaColor() // color1()
+            case 2: backgroundColor = UIColor.yellowColor() // color2()
+            default: backgroundColor = UIColor.cyanColor() // color3()
             }
         }
     }
