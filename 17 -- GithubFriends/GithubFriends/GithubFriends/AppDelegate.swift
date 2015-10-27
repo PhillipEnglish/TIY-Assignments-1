@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // set up window == screen size
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //
+        let friendListVC = NewFriendViewController()
+        // create navigation controller
+        let navController = UINavigationController(rootViewController: friendListVC)
+        // puts albumVC in navController, in window
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
