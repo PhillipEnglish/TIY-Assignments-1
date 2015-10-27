@@ -10,7 +10,7 @@ import UIKit
 
 protocol APIControllerProtocol
 {
-    func didReceiveAPIResults(results: NSArray)
+    func didReceiveAPIResults(results: NSDictionary)
 }
 
 class NewFriendViewController: UITableViewController, APIControllerProtocol
@@ -24,6 +24,9 @@ class NewFriendViewController: UITableViewController, APIControllerProtocol
         // Do any additional setup after loading the view, typically from a nib.
         api = APIController(delegate: self)
         api.searchGithubFor("embryoconcepts")
+        api.searchGithubFor("jcgohlke")
+        api.searchGithubFor("daaavid")
+
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "FriendCell")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
@@ -55,7 +58,7 @@ class NewFriendViewController: UITableViewController, APIControllerProtocol
     }
     // MARK: - API Controller Protocol
     
-    func didReceiveAPIResults(results: NSArray)
+    func didReceiveAPIResults(results: NSDictionary)
     {
         dispatch_async(dispatch_get_main_queue(), {
             self.friends = Friend.friendsWithJSON(results)

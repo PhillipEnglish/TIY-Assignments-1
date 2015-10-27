@@ -29,23 +29,20 @@ struct Friend
     
     // static func runs on Album class - not an Album object
     // this func makes Album objects from JSON data
-    static func friendsWithJSON(results: NSArray) -> [Friend]
+    static func friendsWithJSON(results: NSDictionary) -> [Friend]
     {
         var friends = [Friend]()
         
         if results.count > 0
         {
-            for result in results
-            {
-                let login = result["login"] as? String ?? ""
-                let name = result["name"] as? String ?? ""
-                let location = result["location"] as? String ?? ""
-                let email = result["email"] as? String ?? ""
-                let bio = result["bio"] as? String ?? ""
-                let avatar_url = result["avatar_url"] as? String ?? ""
+            let login = results.valueForKey("login") as? String ?? ""
+            let name = results.valueForKey("name") as? String ?? ""
+            let location = results.valueForKey("location") as? String ?? ""
+            let email = results.valueForKey("email") as? String ?? ""
+            let bio = results.valueForKey("bio") as? String ?? ""
+            let avatar_url = results.valueForKey("avatar_url") as? String ?? ""
                 
-                friends.append(Friend(login: login, name: name, location: location, email: email, bio: bio, avatar_url: avatar_url))
-            }
+             friends.append(Friend(login: login, name: name, location: location, email: email, bio: bio, avatar_url: avatar_url))
         }
         
         return friends

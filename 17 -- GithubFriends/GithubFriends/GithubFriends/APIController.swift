@@ -40,11 +40,11 @@ class APIController
                     if let dictionary = self.parseJSON(data!)
                     {
                         // FIXME: above dictionary is full, but not passing to results[]
-                        if let results: NSArray = dictionary["results"] as? NSArray
-                        {
-                            self.delegate.didReceiveAPIResults(results)
+//                        if let results: NSArray = dictionary["results"] as? NSArray
+//                        {
+                            self.delegate.didReceiveAPIResults(dictionary)
                             print("api results passed to delegate")
-                        }
+//                        }
                     }
                 }
             })

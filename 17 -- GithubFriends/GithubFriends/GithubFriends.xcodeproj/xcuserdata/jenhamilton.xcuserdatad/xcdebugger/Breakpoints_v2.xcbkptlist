@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubFriends/APIController.swift"
-            timestampString = "467671403.585129"
+            timestampString = "467672751.010873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -41,28 +41,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GithubFriends/APIController.swift"
-            timestampString = "467671696.316262"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "searchGithubFor(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GithubFriends/NewFriendViewController.swift"
-            timestampString = "467671625.254761"
+            timestampString = "467673723.216541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "didReceiveAPIResults(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubFriends/NewFriendViewController.swift"
-            timestampString = "467671631.074997"
+            timestampString = "467673723.216541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "didReceiveAPIResults(_:)"
             landmarkType = "5">
             <Locations>
@@ -86,11 +70,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GithubFriends.NewFriendViewController.didReceiveAPIResults (GithubFriends.NewFriendViewController)(__ObjC.NSArray) -&gt; ()"
+                  symbolName = "GithubFriends.NewFriendViewController.didReceiveAPIResults (GithubFriends.NewFriendViewController)(__ObjC.NSDictionary) -&gt; ()"
                   moduleName = "GithubFriends"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/17%20--%20GithubFriends/GithubFriends/GithubFriends/NewFriendViewController.swift"
-                  timestampString = "467671697.347746"
+                  timestampString = "467672752.038371"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
@@ -101,11 +85,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "protocol witness for GithubFriends.APIControllerProtocol.didReceiveAPIResults &lt;A where A: GithubFriends.APIControllerProtocol&gt; (A)(__ObjC.NSArray) -&gt; () in conformance GithubFriends.NewFriendViewController : GithubFriends.APIControllerProtocol in GithubFriends"
+                  symbolName = "protocol witness for GithubFriends.APIControllerProtocol.didReceiveAPIResults &lt;A where A: GithubFriends.APIControllerProtocol&gt; (A)(__ObjC.NSDictionary) -&gt; () in conformance GithubFriends.NewFriendViewController : GithubFriends.APIControllerProtocol in GithubFriends"
                   moduleName = "GithubFriends"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/17%20--%20GithubFriends/GithubFriends/GithubFriends/NewFriendViewController.swift"
-                  timestampString = "467671697.348152"
+                  timestampString = "467672752.038896"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
@@ -113,22 +97,6 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GithubFriends/APIController.swift"
-            timestampString = "467671692.292538"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "searchGithubFor(_:)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
