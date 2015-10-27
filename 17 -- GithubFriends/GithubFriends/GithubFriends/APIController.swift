@@ -22,7 +22,6 @@ class APIController
             let url = NSURL(string: "https://api.github.com/users/\(searchTerm)")
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-                print("Task completed")
                 if error != nil
                 {
                     print(error!.localizedDescription)
@@ -32,7 +31,6 @@ class APIController
                     if let dictionary = self.parseJSON(data!)
                     {
                             self.delegate.didReceiveAPIResults(dictionary)
-                            print("api results passed to delegate")
                     }
                 }
             })

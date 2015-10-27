@@ -19,12 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up window == screen size
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         //
-        let friendListVC = NewFriendViewController()
+        let friendListVC = FriendTableViewController()
+//        let newFriendVC = NewFriendViewController()
         // create navigation controller
         let navController = UINavigationController(rootViewController: friendListVC)
+
         // puts albumVC in navController, in window
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+//        navController.pushViewController(newFriendVC, animated: false)
+
         
         return true
     }
