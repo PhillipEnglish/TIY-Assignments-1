@@ -27,8 +27,6 @@ struct Friend
         self.avatar_url = avatar_url
     }
     
-    // static func runs on Album class - not an Album object
-    // this func makes Album objects from JSON data
     static func friendsWithJSON(results: NSDictionary) -> [Friend]
     {
         var friends = [Friend]()
@@ -44,7 +42,6 @@ struct Friend
                 
              friends.append(Friend(login: login, name: name, location: location, email: email, bio: bio, avatar_url: avatar_url))
         }
-        
         return friends
     }
     

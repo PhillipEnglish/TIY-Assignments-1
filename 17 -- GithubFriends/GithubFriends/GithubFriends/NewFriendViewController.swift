@@ -34,7 +34,6 @@ class NewFriendViewController: UITableViewController, APIControllerProtocol
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -53,6 +52,7 @@ class NewFriendViewController: UITableViewController, APIControllerProtocol
         
         let friend = friends[indexPath.row]
         cell.textLabel?.text = friend.name
+        cell.detailTextLabel?.text = friend.login
         
         return cell
     }
@@ -61,7 +61,16 @@ class NewFriendViewController: UITableViewController, APIControllerProtocol
     func didReceiveAPIResults(results: NSDictionary)
     {
         dispatch_async(dispatch_get_main_queue(), {
-            self.friends = Friend.friendsWithJSON(results)
+            // TODO: iterate over the results and store in friends
+            let login = results.valueForKey("login") as? String ?? ""
+            let name = results.valueForKey("name") as? String ?? ""
+            let location = results.valueForKey("location") as? String ?? ""
+            let email = results.valueForKey("email") as? String ?? ""
+            let bio = results.valueForKey("bio") as? String ?? ""
+            let avatar_url = results.valueForKey("avatar_url") as? String ?? ""
+            
+            self.friends.append(Friend(login: login, name: name, location: location, email: email, bio: bio, avatar_url: avatar_url))
+//            self.friends = Friend.friendsWithJSON(results)
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
