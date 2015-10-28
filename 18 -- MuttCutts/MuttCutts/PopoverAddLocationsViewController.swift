@@ -16,10 +16,8 @@ class PopoverAddLocationsViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
     
-    
-    
-    var from: String?
-    var to: String?
+    var from: String = "from test"
+    var to: String = "to test"
 
     
     override func viewDidLoad()
@@ -46,13 +44,13 @@ class PopoverAddLocationsViewController: UIViewController, UITextFieldDelegate
         
         if fromTextField.text != ""
         {
-            from = textField.text
+            from = textField.text!
 //            let from = textField.text
 //            locations.append(from!)
             
             if toTextField.text != ""
             {
-                to = textField.text
+                to = textField.text!
 //                let to = textField.text
 //                locations.append(to!)
                 textField.resignFirstResponder()
@@ -60,7 +58,7 @@ class PopoverAddLocationsViewController: UIViewController, UITextFieldDelegate
             }
         }
         
-        delegate?.locationsWereSelected(from!, to: to!)
+        delegate?.locationsWereSelected(from, to: to)
         
         return rc
     }

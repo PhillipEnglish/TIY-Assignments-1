@@ -15,28 +15,28 @@ protocol PopoverAddLocationsViewControllerDelegate
     func locationsWereSelected(from: String, to: String)
 }
 
-class MapViewController: UIViewController, PopoverAddLocationsViewControllerDelegate, UIPopoverPresentationControllerDelegate
+class MapViewController: UIViewController, PopoverAddLocationsViewControllerDelegate, UIPopoverPresentationControllerDelegate, MKMapViewDelegate
 {
+    
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
-    var location1 = CLLocationCoordinate2DMake(28.540923, -81.38216)
+    var location1 = CLLocationCoordinate2DMake(0, 0)
     var location1Annotation = MKPointAnnotation()
-    var location1TitleString: String? = "test1"
+    var location1TitleString: String? = ""
     
-    var location2 = CLLocationCoordinate2DMake(27.770068, -82.63642)
+    var location2 = CLLocationCoordinate2DMake(0, 0)
     var location2Annotation = MKPointAnnotation()
-    var location2TitleString: String? = "test2"
+    var location2TitleString: String? = ""
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        distanceLabel.hidden = true
-        setLocations()
-        mapLocations()
-        calculateDistance()
+        blurView.hidden = true
+
     }
 
     override func didReceiveMemoryWarning()
@@ -52,6 +52,7 @@ class MapViewController: UIViewController, PopoverAddLocationsViewControllerDele
     {
         if segue.identifier == "ShowPopoverSegue"
         {
+            clearLocations()
             let destVC = segue.destinationViewController as! PopoverAddLocationsViewController
             destVC.popoverPresentationController?.delegate = self
             destVC.delegate = self
@@ -85,6 +86,9 @@ class MapViewController: UIViewController, PopoverAddLocationsViewControllerDele
         location1TitleString = String(loc1.title)
         location2TitleString = String(loc2.title)
         
+        setLocations()
+        mapLocations()
+        calculateDistance()
         view.reloadInputViews()
     }
     
@@ -137,6 +141,21 @@ class MapViewController: UIViewController, PopoverAddLocationsViewControllerDele
         let lineOfSightDistance = loc1.distanceFromLocation(loc2)
         distanceLabel.hidden = false
         distanceLabel.text = ("Distance between \(location1TitleString) and \(location2TitleString): " + String(format: "%.2f", lineOfSightDistance * 0.00062137) + " miles")
+    }
+    
+    private func clearLocations()
+    {
+        location1 = CLLocationCoordinate2DMake(0, 0)
+        location1Annotation = MKPointAnnotation()
+        location1TitleString = ""
+        
+        location2 = CLLocationCoordinate2DMake(0, 0)
+        location2Annotation = MKPointAnnotation()
+        location2TitleString = ""
+        
+        blurView.hidden = true
+        
+        view.reloadInputViews()
     }
 
 }
