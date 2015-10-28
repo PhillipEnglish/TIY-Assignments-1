@@ -23,8 +23,8 @@ class FriendTableViewController: UITableViewController, APIControllerProtocol
         super.viewDidLoad()
         api = APIController(delegate: self)
         api.searchGithubFor("embryoconcepts")
-        api.searchGithubFor("jcgohlke")
-        api.searchGithubFor("daaavid")
+        api.searchGithubFor("embryoconcepts")
+        api.searchGithubFor("embryoconcepts")
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "FriendCell")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -54,6 +54,16 @@ class FriendTableViewController: UITableViewController, APIControllerProtocol
         cell.detailTextLabel?.text = friend.login
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let aFriend = friends[indexPath.row]
+        let friendDetailVC = FriendDetailViewController()
+        friendDetailVC.friend = aFriend
+        friendDetailVC.setDetails()
+        
+        navigationController?.pushViewController(friendDetailVC, animated: true)
     }
     
     // MARK: - API Controller Protocol

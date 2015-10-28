@@ -8,17 +8,17 @@
 
 import UIKit
 
-class NewFriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
-{
-    
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
-}
+//class NewFriendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+//{
+//    
+//    
+//    override func viewDidLoad()
+//    {
+//        super.viewDidLoad()
+//    }
+//    
+//    override func didReceiveMemoryWarning()
+//    {
+//        super.didReceiveMemoryWarning()
+//    }
+//}
