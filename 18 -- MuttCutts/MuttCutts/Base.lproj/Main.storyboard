@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" id="Wiy-fd-0Mm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nH6-7Y-es6">
                             <connections>
-                                <segue destination="hsH-gh-F8D" kind="popoverPresentation" popoverAnchorBarButtonItem="nH6-7Y-es6" id="iIK-ov-OWM">
+                                <segue destination="hsH-gh-F8D" kind="popoverPresentation" identifier="ShowPopoverSegue" popoverAnchorBarButtonItem="nH6-7Y-es6" id="iIK-ov-OWM">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="1293" y="344"/>
         </scene>
-        <!--View Controller-->
+        <!--Popover Add Locations View Controller-->
         <scene sceneID="v2j-on-erO">
             <objects>
-                <viewController id="hsH-gh-F8D" sceneMemberID="viewController">
+                <viewController id="hsH-gh-F8D" customClass="PopoverAddLocationsViewController" customModule="MuttCutts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F97-UG-1or"/>
                         <viewControllerLayoutGuide type="bottom" id="24F-47-ZuW"/>
@@ -96,14 +96,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNo-rc-WrD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNo-rc-WrD">
                                 <rect key="frame" x="15" y="47" width="55" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CH1-V6-nmB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CH1-V6-nmB">
                                 <rect key="frame" x="15" y="104" width="55" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -127,6 +127,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CH1-V6-nmB" firstAttribute="leading" secondItem="eVb-qq-VUj" secondAttribute="leading" constant="15" id="7BI-p5-LYn"/>
+                            <constraint firstItem="24F-47-ZuW" firstAttribute="top" secondItem="bnv-Rw-tPl" secondAttribute="bottom" constant="527" id="7In-f4-x85"/>
+                            <constraint firstItem="MT7-Kx-qBw" firstAttribute="top" secondItem="F97-UG-1or" secondAttribute="bottom" constant="80" id="CQ4-R7-BE3"/>
                             <constraint firstItem="CH1-V6-nmB" firstAttribute="top" secondItem="wNo-rc-WrD" secondAttribute="bottom" constant="36" id="IBO-vf-6tG"/>
                             <constraint firstItem="24F-47-ZuW" firstAttribute="top" secondItem="MT7-Kx-qBw" secondAttribute="bottom" constant="470" id="MHm-GH-o3c"/>
                             <constraint firstAttribute="trailing" secondItem="MT7-Kx-qBw" secondAttribute="trailing" constant="15" id="V9u-oc-toU"/>
@@ -141,7 +143,18 @@
                             <constraint firstItem="24F-47-ZuW" firstAttribute="top" secondItem="CH1-V6-nmB" secondAttribute="bottom" constant="475" id="urc-Wj-fzT"/>
                             <constraint firstItem="MT7-Kx-qBw" firstAttribute="top" secondItem="bnv-Rw-tPl" secondAttribute="bottom" constant="27" id="vUz-dM-mSs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aOQ-tn-xh3"/>
+                                <exclude reference="gxF-kl-bju"/>
+                                <exclude reference="vUz-dM-mSs"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="fromTextField" destination="bnv-Rw-tPl" id="rwE-qe-pi8"/>
+                        <outlet property="toTextField" destination="MT7-Kx-qBw" id="OMa-lY-koQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyT-Rn-NXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

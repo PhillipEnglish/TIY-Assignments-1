@@ -8,14 +8,25 @@
 
 import UIKit
 
-class PopoverAddLocationsViewController: UIViewController
+class PopoverAddLocationsViewController: UIViewController, UITextFieldDelegate
 {
+    var locations = Array<String>()
+    var delegate: PopoverAddLocationsViewControllerDelegate?
+
+    @IBOutlet weak var fromTextField: UITextField!
+    @IBOutlet weak var toTextField: UITextField!
+    
+    
+    
+    var from: String?
+    var to: String?
 
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         title = "Enter Locations:"
+        fromTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
@@ -26,17 +37,35 @@ class PopoverAddLocationsViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Private Functions
-    func setupView()
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         
+        var rc = false
+        
+        if fromTextField.text != ""
+        {
+            from = textField.text
+//            let from = textField.text
+//            locations.append(from!)
+            
+            if toTextField.text != ""
+            {
+                to = textField.text
+//                let to = textField.text
+//                locations.append(to!)
+                textField.resignFirstResponder()
+                rc = true
+            }
+        }
+        
+        delegate?.locationsWereSelected(from!, to: to!)
+        
+        return rc
     }
     
-    func storeLocations()
-    {
-        
-    }
-
+    
     /*
     // MARK: - Navigation
 
