@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1F655C1BE1286A0044244F /* PopoverAddLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F655B1BE1286A0044244F /* PopoverAddLocationsViewController.swift */; };
 		9ABA82491BE106C100335CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA82481BE106C100335CD2 /* AppDelegate.swift */; };
 		9ABA824B1BE106C100335CD2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA824A1BE106C100335CD2 /* MapViewController.swift */; };
 		9ABA824E1BE106C100335CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA824C1BE106C100335CD2 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1F655B1BE1286A0044244F /* PopoverAddLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAddLocationsViewController.swift; sourceTree = "<group>"; };
 		9ABA82451BE106C100335CD2 /* MuttCutts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuttCutts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABA82481BE106C100335CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ABA824A1BE106C100335CD2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				9ABA824C1BE106C100335CD2 /* Main.storyboard */,
 				9ABA824A1BE106C100335CD2 /* MapViewController.swift */,
+				9A1F655B1BE1286A0044244F /* PopoverAddLocationsViewController.swift */,
 				9ABA82481BE106C100335CD2 /* AppDelegate.swift */,
 				9ABA824F1BE106C100335CD2 /* Assets.xcassets */,
 				9ABA82511BE106C100335CD2 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1F655C1BE1286A0044244F /* PopoverAddLocationsViewController.swift in Sources */,
 				9ABA824B1BE106C100335CD2 /* MapViewController.swift in Sources */,
 				9ABA82491BE106C100335CD2 /* AppDelegate.swift in Sources */,
 			);

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map View Controller-->
@@ -66,7 +67,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wiy-fd-0Mm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nH6-7Y-es6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nH6-7Y-es6">
+                            <connections>
+                                <segue destination="hsH-gh-F8D" kind="popoverPresentation" popoverAnchorBarButtonItem="nH6-7Y-es6" id="iIK-ov-OWM">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="distanceLabel" destination="0wK-2L-0pe" id="Ow4-n4-X5K"/>
@@ -76,6 +83,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1293" y="344"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v2j-on-erO">
+            <objects>
+                <viewController id="hsH-gh-F8D" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F97-UG-1or"/>
+                        <viewControllerLayoutGuide type="bottom" id="24F-47-ZuW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eVb-qq-VUj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNo-rc-WrD">
+                                <rect key="frame" x="15" y="47" width="55" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CH1-V6-nmB">
+                                <rect key="frame" x="15" y="104" width="55" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-Rw-tPl">
+                                <rect key="frame" x="85" y="43" width="500" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MT7-Kx-qBw">
+                                <rect key="frame" x="85" y="100" width="500" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CH1-V6-nmB" firstAttribute="leading" secondItem="eVb-qq-VUj" secondAttribute="leading" constant="15" id="7BI-p5-LYn"/>
+                            <constraint firstItem="CH1-V6-nmB" firstAttribute="top" secondItem="wNo-rc-WrD" secondAttribute="bottom" constant="36" id="IBO-vf-6tG"/>
+                            <constraint firstItem="24F-47-ZuW" firstAttribute="top" secondItem="MT7-Kx-qBw" secondAttribute="bottom" constant="470" id="MHm-GH-o3c"/>
+                            <constraint firstAttribute="trailing" secondItem="MT7-Kx-qBw" secondAttribute="trailing" constant="15" id="V9u-oc-toU"/>
+                            <constraint firstItem="wNo-rc-WrD" firstAttribute="leading" secondItem="eVb-qq-VUj" secondAttribute="leading" constant="15" id="XUy-nq-4tg"/>
+                            <constraint firstItem="bnv-Rw-tPl" firstAttribute="leading" secondItem="wNo-rc-WrD" secondAttribute="trailing" constant="15" id="aOQ-tn-xh3"/>
+                            <constraint firstItem="MT7-Kx-qBw" firstAttribute="leading" secondItem="eVb-qq-VUj" secondAttribute="leadingMargin" constant="65" id="bM2-29-5XS"/>
+                            <constraint firstAttribute="trailing" secondItem="bnv-Rw-tPl" secondAttribute="trailing" constant="15" id="eUY-jG-Ic3"/>
+                            <constraint firstItem="bnv-Rw-tPl" firstAttribute="leading" secondItem="eVb-qq-VUj" secondAttribute="leadingMargin" constant="65" id="eqt-DM-pTQ"/>
+                            <constraint firstItem="MT7-Kx-qBw" firstAttribute="leading" secondItem="CH1-V6-nmB" secondAttribute="trailing" constant="15" id="gxF-kl-bju"/>
+                            <constraint firstItem="wNo-rc-WrD" firstAttribute="top" secondItem="F97-UG-1or" secondAttribute="bottom" constant="27" id="ifc-vl-ZcK"/>
+                            <constraint firstItem="bnv-Rw-tPl" firstAttribute="top" secondItem="F97-UG-1or" secondAttribute="bottom" constant="23" id="r58-jX-ubk"/>
+                            <constraint firstItem="24F-47-ZuW" firstAttribute="top" secondItem="CH1-V6-nmB" secondAttribute="bottom" constant="475" id="urc-Wj-fzT"/>
+                            <constraint firstItem="MT7-Kx-qBw" firstAttribute="top" secondItem="bnv-Rw-tPl" secondAttribute="bottom" constant="27" id="vUz-dM-mSs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyT-Rn-NXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EOJ-u8-zVS">

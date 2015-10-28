@@ -16,10 +16,13 @@ class MapViewController: UIViewController
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    let tiyOrlando = CLLocationCoordinate2DMake(28.540923, -81.38216)
-    let tiyOrlandoAnnotation = MKPointAnnotation()
-    let tiyTampa = CLLocationCoordinate2DMake(27.770068, -82.63642)
-    let tiyTampaAnnotation = MKPointAnnotation()
+    let location1 = CLLocationCoordinate2DMake(28.540923, -81.38216)
+    let location1Annotation = MKPointAnnotation()
+    let location1TitleString: String? = "test1"
+    
+    let location2 = CLLocationCoordinate2DMake(27.770068, -82.63642)
+    let location2Annotation = MKPointAnnotation()
+    let location2TitleString: String? = "test2"
     
     override func viewDidLoad()
     {
@@ -47,7 +50,7 @@ class MapViewController: UIViewController
     
     
     // MARK: - Popover Delegate
-    
+    // TODO: add delegate actions for popover
     
     // MARK: - Private Functions
     
@@ -69,13 +72,13 @@ class MapViewController: UIViewController
     private func setLocations()
     {
         // map creation:
-        tiyOrlandoAnnotation.coordinate = tiyOrlando
-        tiyOrlandoAnnotation.title = "The Iron Yard"
-        tiyOrlandoAnnotation.subtitle = "Orlando"
+        location1Annotation.coordinate = location1
+        location1Annotation.title = location1TitleString
+//        location1Annotation.subtitle = "Orlando"
         
-        tiyTampaAnnotation.coordinate = tiyTampa
-        tiyTampaAnnotation.title = "The Iron Yard"
-        tiyTampaAnnotation.subtitle = "Tampa"
+        location2Annotation.coordinate = location2
+        location2Annotation.title = location2TitleString
+//        location2Annotation.subtitle = "Tampa"
 
     }
     
@@ -84,7 +87,7 @@ class MapViewController: UIViewController
 //        let viewRegion = MKCoordinateRegionMakeWithDistance(tiyOrlando, 2000, 2000)
 //        mapView.setRegion(viewRegion, animated: true)
 
-        let annotations = [tiyOrlandoAnnotation,tiyTampaAnnotation]
+        let annotations = [location1Annotation,location2Annotation]
         mapView.addAnnotations(annotations)
         mapView.showAnnotations(annotations, animated: true)
         // zoom out enough to show the annotations
@@ -94,11 +97,11 @@ class MapViewController: UIViewController
     private func calculateDistance()
     {
         // creating a location object
-        let orlandoLocation = CLLocation(coordinate: tiyOrlando, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: NSDate())
-        let tampaLocation = CLLocation(coordinate: tiyTampa, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: NSDate())
+        let orlandoLocation = CLLocation(coordinate: location1, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: NSDate())
+        let tampaLocation = CLLocation(coordinate: location2, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: NSDate())
         let lineOfSightDistance = orlandoLocation.distanceFromLocation(tampaLocation)
         distanceLabel.hidden = false
-        distanceLabel.text = ("Distance between \(tiyOrlandoAnnotation.subtitle!) and \(tiyTampaAnnotation.subtitle!): " + String(format: "%.2f", lineOfSightDistance * 0.00062137) + " miles")
+        distanceLabel.text = ("Distance between \(location1Annotation.subtitle!) and \(location2Annotation.subtitle!): " + String(format: "%.2f", lineOfSightDistance * 0.00062137) + " miles")
     }
 
 }
