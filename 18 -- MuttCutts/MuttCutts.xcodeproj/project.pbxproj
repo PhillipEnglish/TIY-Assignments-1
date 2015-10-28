@@ -54,9 +54,9 @@
 		9ABA82471BE106C100335CD2 /* MuttCutts */ = {
 			isa = PBXGroup;
 			children = (
-				9ABA82481BE106C100335CD2 /* AppDelegate.swift */,
-				9ABA824A1BE106C100335CD2 /* MapViewController.swift */,
 				9ABA824C1BE106C100335CD2 /* Main.storyboard */,
+				9ABA824A1BE106C100335CD2 /* MapViewController.swift */,
+				9ABA82481BE106C100335CD2 /* AppDelegate.swift */,
 				9ABA824F1BE106C100335CD2 /* Assets.xcassets */,
 				9ABA82511BE106C100335CD2 /* LaunchScreen.storyboard */,
 				9ABA82541BE106C100335CD2 /* Info.plist */,
@@ -284,6 +284,7 @@
 				9ABA82591BE106C100335CD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
