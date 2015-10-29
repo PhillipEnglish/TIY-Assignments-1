@@ -21,9 +21,10 @@ protocol LocationSearchViewControllerDelegate
 class CityListTableViewController: UITableViewController, APIControllerProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate
 {
     var cities = Array<City>()
-    var highLowTemps = Array<String>()
-    var icons = Array<String>()
-    var currentTemps = Array<String>()
+    var weatherForCities = Array<Weather>()
+//    var highLowTemps = Array<String>()
+//    var icons = Array<String>()
+//    var currentTemps = Array<String>()
     
     var api: APIController!
     
@@ -58,10 +59,10 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
         let cityString = cities[indexPath.row]
-        let currentTemp = cities[indexPath.row]
+        let currentTemp = weatherForCities[indexPath.row]
         
         cell.cityLabel.text = cityString.name
-        cell.currentTempLabel.text = String(currentTemp.lat!)
+        cell.currentTempLabel.text = String(currentTemp.temperature)
 
         return cell
     }
@@ -72,11 +73,16 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
     {
         dispatch_async(dispatch_get_main_queue(), {
             
-            self.cities.append(City.cityWithJSON(results))
+            let aCity = City.cityWithJSON(results)
+            
+            self.cities.append(aCity)
+            
+            self.api.searchForecastFor(aCity.lat!, lng: aCity.lng!)
+            self.weatherForCities.append(Weather.weatherWithJSON(results))
+            
             self.tableView.reloadData()
             
-            
-            // now look for the weather!!!!!!!!!!!!
+
         })
         
     }
@@ -110,6 +116,7 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
 
         api = APIController(delegate: self)
         api.searchGMapsFor(zipCode)
+//        api.searchForecastFor(<#T##lat: Double##Double#>, lng: <#T##Double#>)
     
         tableView.reloadData()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false

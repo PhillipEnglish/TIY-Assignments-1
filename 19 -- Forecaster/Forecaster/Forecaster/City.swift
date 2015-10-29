@@ -22,7 +22,7 @@ struct City
         self.name = name
         self.location = location
         self.lat = location.valueForKey("lat") as? Double
-        self.lng = location.valueForKey("lat") as? Double
+        self.lng = location.valueForKey("lng") as? Double
     }
         
     static func cityWithJSON(results: NSDictionary) -> City

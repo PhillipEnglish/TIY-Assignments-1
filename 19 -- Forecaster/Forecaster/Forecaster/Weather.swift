@@ -10,40 +10,53 @@ import Foundation
 
 struct Weather
 {
-    let login: String
     let name: String
-    let location: String
-    let email: String
-    let bio: String
-    let avatar_url: String
+    let latitude: Double
+    let longitude: Double
+    let summary: String
+    let icon: String
+//    let precipProbability: Double
+//    let precipIntensity: Double
+    let temperature: Double
+//    let apparentTemperature: Double
+//    let dewpoint: Double
+//    let humidity: Double
+//    let windSpeed: Double
+//    let windBearing: Double
+//    let visibility: Double
+//    let cloudCover: Double
+//    let pressure: Double
+
     
-    init(login: String, name: String, location: String, email: String, bio: String, avatar_url: String)
+    init(name: String, latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double)
     {
-        self.login = login
         self.name = name
-        self.location = location
-        self.email = email
-        self.bio = bio
-        self.avatar_url = avatar_url
+        self.latitude = latitude
+        self.longitude = longitude
+        self.summary = summary
+        self.icon = icon
+        self.temperature = temperature
     }
     
-    static func friendsWithJSON(results: NSDictionary) -> [Weather]
+    static func weatherWithJSON(weatherDictionaryResults: NSDictionary) -> Weather
     {
-        var weathers = [Weather]()
+        var weather: Weather!
+        let currentWeatherDictionary = weatherDictionaryResults.valueForKey("currently")
         
-        if results.count > 0
+        if currentWeatherDictionary!.count > 0
         {
-            let login = results.valueForKey("login") as? String ?? ""
-            let name = results.valueForKey("name") as? String ?? ""
-            let location = results.valueForKey("location") as? String ?? ""
-            let email = results.valueForKey("email") as? String ?? ""
-            let bio = results.valueForKey("bio") as? String ?? ""
-            let avatar_url = results.valueForKey("avatar_url") as? String ?? ""
+            let name = currentWeatherDictionary!.valueForKey("name") as? String ?? ""
+            let latitude = currentWeatherDictionary!.valueForKey("latitude") as? Double
+            let longitude = currentWeatherDictionary!.valueForKey("longitude") as? Double
+            let summary = currentWeatherDictionary!.valueForKey("summary") as? String ?? ""
+            let icon = currentWeatherDictionary!.valueForKey("icon") as? String ?? ""
+            let temperature = currentWeatherDictionary!.valueForKey("temperature") as? Double
             
-            weathers.append(Weather(login: login, name: name, location: location, email: email, bio: bio, avatar_url: avatar_url))
+            weather = Weather(name: name, latitude: latitude!, longitude: longitude!, summary: summary, icon: icon, temperature: temperature!)
         }
-        return weathers
+        return weather
     }
     
     
 }
+
