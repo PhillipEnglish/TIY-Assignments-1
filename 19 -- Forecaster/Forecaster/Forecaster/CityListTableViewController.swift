@@ -13,7 +13,12 @@ protocol APIControllerProtocol
     func didReceiveAPIResults(results: NSDictionary)
 }
 
-class CityListTableViewController: UITableViewController, APIControllerProtocol
+protocol LocationSearchViewControllerDelegate
+{
+    func locationWasSelected(zipCode: Int)
+}
+
+class CityListTableViewController: UITableViewController, APIControllerProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate
 {
     var cities = Array<City>()
     var highLowTemps = Array<String>()
@@ -26,15 +31,8 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        api = APIController(delegate: self)
-        api.searchGMapsFor(32803)
-        api.searchGMapsFor(32174)
-        api.searchGMapsFor(90210)
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning()
@@ -57,9 +55,7 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell
-        
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
         let cityString = cities[indexPath.row]
         let currentTemp = cities[indexPath.row]
@@ -76,16 +72,8 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
     {
         dispatch_async(dispatch_get_main_queue(), {
             
-            // TODO: iterate over the results and store in friends
-//            let name = results.valueForKey("name") as? String ?? ""
-//            let location = results.valueForKey("location") as? [String: String]
-            
             self.cities.append(City.cityWithJSON(results))
-//            self.cities = City.cityWithJSON(results)
             self.tableView.reloadData()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            
-            
             
             
             // now look for the weather!!!!!!!!!!!!
@@ -93,7 +81,40 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
         
     }
 
+    // MARK: - Navigation
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "ShowLocationPopoverSegue"
+        {
+            let destVC = segue.destinationViewController as! LocationSearchViewController
+            destVC.popoverPresentationController?.delegate = self
+            destVC.delegate = self
+            destVC.preferredContentSize = CGSizeMake(200.0, 100.0)
+        }
+    }
+    
+    // MARK: - UIPopover Presentation Controller Delegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return .None
+    }
+    
+    
+    // MARK: - Location Delegate
+    func locationWasSelected(zipCode: Int)
+    {
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
+        api = APIController(delegate: self)
+        api.searchGMapsFor(zipCode)
+    
+        tableView.reloadData()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
+    }
     
     /*
     // Override to support conditional editing of the table view.

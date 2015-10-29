@@ -8,18 +8,41 @@
 
 import UIKit
 
-class LocationSearchViewController: UIViewController {
+class LocationSearchViewController: UIViewController, UITextFieldDelegate
+{
+    @IBOutlet weak var zipTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    
+    var delegate: LocationSearchViewControllerDelegate?
+    var location: String = ""
+    var zipCode: String = ""
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        zipTextField.becomeFirstResponder()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        var rc = false
+        
+        if zipTextField.text != ""
+        {
+            zipCode = textField.text!
+            textField.resignFirstResponder()
+            rc = true
+        }
+        
+        delegate?.locationWasSelected(Int(zipCode)!)
+        
+        return rc
+    }
 }
 
