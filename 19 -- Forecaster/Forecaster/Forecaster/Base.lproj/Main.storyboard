@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--City List Table View Controller-->
@@ -21,10 +22,46 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dde-xL-chq" id="4pb-La-74D">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-bZ-MOk">
+                                            <rect key="frame" x="514" y="1" width="45" height="38"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="BTM-ZQ-Bz1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFR-Hn-oz3">
+                                            <rect key="frame" x="8" y="6" width="446" height="32"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" constant="-2" id="4ko-oX-VXf"/>
+                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="leading" secondItem="xFR-Hn-oz3" secondAttribute="trailing" constant="60" id="B2P-rJ-UeR"/>
+                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" constant="-7" id="BGh-3J-PUS"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="baseline" secondItem="AwZ-bZ-MOk" secondAttribute="baseline" id="Hav-5L-dHL"/>
+                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="trailing" secondItem="4pb-La-74D" secondAttribute="trailingMargin" id="LGB-Fh-3ej"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="leading" secondItem="4pb-La-74D" secondAttribute="leadingMargin" id="XNt-Te-kSk"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="centerY" secondItem="4pb-La-74D" secondAttribute="centerY" id="wF2-dN-jyJ"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="leading" secondItem="4pb-La-74D" secondAttribute="leadingMargin" constant="7" id="xy5-ch-Il9"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="xy5-ch-Il9"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
+                                    <outlet property="cityLabel" destination="xFR-Hn-oz3" id="k8i-nJ-rAh"/>
+                                    <outlet property="currentTempLabel" destination="AwZ-bZ-MOk" id="7HM-oa-B1f"/>
                                     <segue destination="VZj-mJ-VfT" kind="showDetail" id="x6W-ff-zy0"/>
                                 </connections>
                             </tableViewCell>

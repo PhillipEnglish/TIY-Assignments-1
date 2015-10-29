@@ -8,10 +8,34 @@
 
 import UIKit
 
-class CityListTableViewController: UITableViewController {
+protocol APIControllerProtocol
+{
+    func didReceiveAPIResults(results: NSDictionary)
+}
 
-    override func viewDidLoad() {
+class CityListTableViewController: UITableViewController, APIControllerProtocol
+{
+    var cities = Array<City>()
+    var highLowTemps = Array<String>()
+    var icons = Array<String>()
+    var currentTemps = Array<String>()
+    
+//    var testCity = City(name: "Orlando, FL", location: "32803")
+    
+    var api: APIController!
+    
+
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+//        cities.append(testCity)
+        api = APIController(delegate: self)
+        api.searchGMapsFor("32803")
+        api.searchGMapsFor("32174")
+        api.searchGMapsFor("90210")
+        
+//        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "FriendCell")
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,7 +44,8 @@ class CityListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -29,24 +54,50 @@ class CityListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cities.count
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell
+        
+        
 
-        // Configure the cell...
+        let cityString = cities[indexPath.row]
+//        let currentTempString = visibleCities[indexPath.row]
+        
+        cell.cityLabel.text = cityString.name
+//        cell.currentTempLabel.text = currentTempString
 
         return cell
     }
-    */
+    
+    // MARK: - API Controller Protocol
+    
+    func didReceiveAPIResults(results: NSDictionary)
+    {
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            // TODO: iterate over the results and store in friends
+            let name = results.valueForKey("name") as? String ?? ""
+            let location = results.valueForKey("location") as? String ?? ""
+            
+            self.cities.append(City(name: name, location: location))
+            self.tableView.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+        
+    }
 
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
