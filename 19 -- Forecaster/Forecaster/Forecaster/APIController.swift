@@ -17,9 +17,9 @@ class APIController
         self.delegate = delegate
     }
     
-    func searchGMapsFor(searchTerm: String)
+    func searchGMapsFor(searchTerm: Int)
     {
-        let url = NSURL(string: "https://api.github.com/users/\(searchTerm)")
+        let url = NSURL(string: "https://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:\(searchTerm)&sensor=false")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if error != nil
@@ -30,12 +30,20 @@ class APIController
             {
                 if let dictionary = self.parseJSON(data!)
                 {
-                    self.delegate.didReceiveAPIResults(dictionary)
+                    if let resultArray: NSArray = dictionary["results"] as? NSArray
+                    {
+                        if let innerResultDictionary = resultArray[0] as? NSDictionary
+                        {
+                            self.delegate.didReceiveAPIResults(innerResultDictionary)
+                        }
+                    }
+
                 }
             }
         })
         task.resume()
     }
+    
     
     func parseJSON(data: NSData) -> NSDictionary?
     {

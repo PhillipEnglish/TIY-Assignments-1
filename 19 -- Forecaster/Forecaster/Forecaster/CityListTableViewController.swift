@@ -20,28 +20,21 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
     var icons = Array<String>()
     var currentTemps = Array<String>()
     
-//    var testCity = City(name: "Orlando, FL", location: "32803")
-    
     var api: APIController!
     
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-//        cities.append(testCity)
         api = APIController(delegate: self)
-        api.searchGMapsFor("32803")
-        api.searchGMapsFor("32174")
-        api.searchGMapsFor("90210")
+        api.searchGMapsFor(32803)
+        api.searchGMapsFor(32174)
+        api.searchGMapsFor(90210)
         
-//        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "FriendCell")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning()
@@ -53,13 +46,11 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
         return cities.count
     }
 
@@ -71,10 +62,10 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
         
 
         let cityString = cities[indexPath.row]
-//        let currentTempString = visibleCities[indexPath.row]
+        let currentTemp = cities[indexPath.row]
         
         cell.cityLabel.text = cityString.name
-//        cell.currentTempLabel.text = currentTempString
+        cell.currentTempLabel.text = String(currentTemp.lat!)
 
         return cell
     }
@@ -86,12 +77,18 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol
         dispatch_async(dispatch_get_main_queue(), {
             
             // TODO: iterate over the results and store in friends
-            let name = results.valueForKey("name") as? String ?? ""
-            let location = results.valueForKey("location") as? String ?? ""
+//            let name = results.valueForKey("name") as? String ?? ""
+//            let location = results.valueForKey("location") as? [String: String]
             
-            self.cities.append(City(name: name, location: location))
+            self.cities.append(City.cityWithJSON(results))
+//            self.cities = City.cityWithJSON(results)
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            
+            
+            
+            // now look for the weather!!!!!!!!!!!!
         })
         
     }

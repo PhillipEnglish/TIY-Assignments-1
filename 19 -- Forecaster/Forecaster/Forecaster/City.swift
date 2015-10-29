@@ -11,26 +11,38 @@ import Foundation
 struct City
 {
     let name: String!
-    let location: String!
+    let location: NSDictionary
+    let lat: Double?
+    let lng: Double?
     
-    init(name: String, location: String)
+    // create weather object
+    
+    init(name: String, location: NSDictionary)
     {
         self.name = name
         self.location = location
+        self.lat = location.valueForKey("lat") as? Double
+        self.lng = location.valueForKey("lat") as? Double
     }
-    
-    static func citiesWithJSON(results: NSDictionary) -> [City]
+        
+    static func cityWithJSON(results: NSDictionary) -> City
     {
-        var cities = [City]()
+        var aCity: City!
         
         if results.count > 0
         {
-            let name = results.valueForKey("name") as? String ?? ""
-            let location = results.valueForKey("location") as? String ?? ""
+           
+                let formattedAddress = results.valueForKey("formatted_address") as? String
+                let addressComponents = formattedAddress!.characters.split(",").map { String($0) }
+                let name =  addressComponents[0]
+                let geometry = results.valueForKey("geometry") as? NSDictionary
+                
+                let location = geometry!.valueForKey("location") as? NSDictionary
+                
+                aCity = (City(name: name, location: location!))
             
-            cities.append(City(name: name, location: location))
         }
-        return cities
+        return aCity
     }
     
     
