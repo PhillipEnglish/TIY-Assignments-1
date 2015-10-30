@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Forecaster/CityListTableViewController.swift"
-            timestampString = "467854685.209084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "didReceiveAPIResults(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forecaster/CityListTableViewController.swift"
-            timestampString = "467854686.220541"
+            timestampString = "467855597.593731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "didReceiveAPIResults(_:)"
+            landmarkName = "didReceiveAPIResults(_:weatherResults:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,61 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Forecaster/APIController.swift"
-            timestampString = "467854700.762425"
+            filePath = "Forecaster/Weather.swift"
+            timestampString = "467855622.042896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "searchForecastFor(_:lng:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.APIController.searchForecastFor (Forecaster.APIController)(Swift.Double, lng : Swift.Double) -&gt; ()"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/APIController.swift"
-                  timestampString = "467854813.787326"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "443">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.APIController.(searchForecastFor (Forecaster.APIController) -&gt; (Swift.Double, lng : Swift.Double) -&gt; ()).(closure #1)"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/APIController.swift"
-                  timestampString = "467854813.787781"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "27">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forecaster/APIController.swift"
-            timestampString = "467854704.20866"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "searchForecastFor(_:lng:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "weatherWithJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -32,9 +32,9 @@ class APIController
                 {
                     if let resultArray: NSArray = dictionary["results"] as? NSArray
                     {
-                        if let innerResultDictionary = resultArray[0] as? NSDictionary
+                        if let cityInnerResultDictionary = resultArray[0] as? NSDictionary
                         {
-                            self.delegate.didReceiveAPIResults(innerResultDictionary)
+                            self.delegate.didReceiveAPIResults(cityInnerResultDictionary)
                         }
                     }
 
@@ -55,6 +55,7 @@ class APIController
             }
             else
             {
+                
                 if let weatherDictionary = self.parseJSON(data!)
                 {
                     self.delegate.didReceiveAPIResults(weatherDictionary)

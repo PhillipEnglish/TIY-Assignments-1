@@ -74,11 +74,13 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         dispatch_async(dispatch_get_main_queue(), {
             
             let aCity = City.cityWithJSON(results)
-            
             self.cities.append(aCity)
             
             self.api.searchForecastFor(aCity.lat!, lng: aCity.lng!)
-            self.weatherForCities.append(Weather.weatherWithJSON(results))
+            
+            // FIXME: pull in new results from API Controller, split into separate protocols
+            let weather = Weather.weatherWithJSON(results)
+            self.weatherForCities.append(weather)
             
             self.tableView.reloadData()
             
