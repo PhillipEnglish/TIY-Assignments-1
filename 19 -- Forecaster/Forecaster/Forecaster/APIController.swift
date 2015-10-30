@@ -10,11 +10,17 @@ import Foundation
 
 class APIController
 {
-    var delegate: APIControllerProtocol
+    var cityDelegate: APIControllerProtocol?
+    var weatherDelegate: WeatherResultProtocol?
     
-    init(delegate: APIControllerProtocol)
+    init(cityDelegate: APIControllerProtocol)
     {
-        self.delegate = delegate
+        self.cityDelegate = cityDelegate
+    }
+    
+    init(weatherDelegate: WeatherResultProtocol)
+    {
+        self.weatherDelegate = weatherDelegate
     }
     
     func searchGMapsFor(searchTerm: Int)
@@ -34,7 +40,7 @@ class APIController
                     {
                         if let cityInnerResultDictionary = resultArray[0] as? NSDictionary
                         {
-                            self.delegate.didReceiveAPIResults(cityInnerResultDictionary)
+                            self.cityDelegate!.didReceiveAPIResults(cityInnerResultDictionary)
                         }
                     }
 
@@ -58,7 +64,7 @@ class APIController
                 
                 if let weatherDictionary = self.parseJSON(data!)
                 {
-                    self.delegate.didReceiveAPIResults(weatherDictionary)
+                    self.weatherDelegate!.locationWeatherSearched(weatherDictionary)
                 }
             }
         })

@@ -29,14 +29,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="BTM-ZQ-Bz1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xFR-Hn-oz3">
                                             <rect key="frame" x="8" y="6" width="446" height="86"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -173,7 +173,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GMa-T5-8JY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="D3n-0S-nem"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="D3n-0S-nem">
+                            <connections>
+                                <segue destination="Op4-u3-Zml" kind="show" id="MUr-yz-wZj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33B-Dh-Y35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,4 +204,7 @@
             <point key="canvasLocation" x="2536" y="734"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MUr-yz-wZj"/>
+    </inferredMetricsTieBreakers>
 </document>

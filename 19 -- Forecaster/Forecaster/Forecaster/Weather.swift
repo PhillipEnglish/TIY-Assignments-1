@@ -10,7 +10,7 @@ import Foundation
 
 struct Weather
 {
-    let name: String
+//    let name: String
     let latitude: Double
     let longitude: Double
     let summary: String
@@ -28,9 +28,9 @@ struct Weather
 //    let pressure: Double
 
     
-    init(name: String, latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double)
+    init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double)
     {
-        self.name = name
+//        self.name = name
         self.latitude = latitude
         self.longitude = longitude
         self.summary = summary
@@ -45,14 +45,14 @@ struct Weather
         
         if currentWeatherDictionary!.count > 0
         {
-            let name = currentWeatherDictionary!.valueForKey("name") as? String ?? ""
-            let latitude = currentWeatherDictionary!.valueForKey("latitude") as? Double
-            let longitude = currentWeatherDictionary!.valueForKey("longitude") as? Double
+//            let name = currentWeatherDictionary!.valueForKey("name") as? String ?? ""
+            let latitude = weatherDictionaryResults.valueForKey("latitude") as? Double
+            let longitude = weatherDictionaryResults.valueForKey("longitude") as? Double
             let summary = currentWeatherDictionary!.valueForKey("summary") as? String ?? ""
             let icon = currentWeatherDictionary!.valueForKey("icon") as? String ?? ""
             let temperature = currentWeatherDictionary!.valueForKey("temperature") as? Double
             
-            weather = Weather(name: name, latitude: latitude!, longitude: longitude!, summary: summary, icon: icon, temperature: temperature!)
+            weather = Weather(latitude: latitude!, longitude: longitude!, summary: summary, icon: icon, temperature: temperature!)
         }
         return weather
     }

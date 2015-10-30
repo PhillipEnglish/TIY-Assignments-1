@@ -13,15 +13,20 @@ protocol APIControllerProtocol
     func didReceiveAPIResults(results: NSDictionary)
 }
 
+protocol WeatherResultProtocol
+{
+    func locationWeatherSearched(results: NSDictionary)
+}
+
 protocol LocationSearchViewControllerDelegate
 {
     func locationWasSelected(zipCode: Int)
 }
 
-class CityListTableViewController: UITableViewController, APIControllerProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate
+class CityListTableViewController: UITableViewController, APIControllerProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate, WeatherResultProtocol
 {
     var cities = Array<City>()
-    var weatherForCities = Array<Weather>()
+//    var weatherForCities = Array<Weather>()
 //    var highLowTemps = Array<String>()
 //    var icons = Array<String>()
 //    var currentTemps = Array<String>()
@@ -32,7 +37,6 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
 
     }
 
@@ -58,16 +62,16 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
-        let cityString = cities[indexPath.row]
-        let currentTemp = weatherForCities[indexPath.row]
+        let aCity = cities[indexPath.row]
+//        let currentTemp = weatherForCities[indexPath.row]
         
-        cell.cityLabel.text = cityString.name
-        cell.currentTempLabel.text = String(currentTemp.temperature)
+        cell.cityLabel.text = aCity.name
+//        cell.currentTempLabel.text = String(aCity.currentWeather!.temperature)
 
         return cell
     }
     
-    // MARK: - API Controller Protocol
+    // MARK: - API Controller Protocols
     
     func didReceiveAPIResults(results: NSDictionary)
     {
@@ -75,17 +79,33 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
             
             let aCity = City.cityWithJSON(results)
             self.cities.append(aCity)
-            
             self.api.searchForecastFor(aCity.lat!, lng: aCity.lng!)
-            
-            // FIXME: pull in new results from API Controller, split into separate protocols
-            let weather = Weather.weatherWithJSON(results)
-            self.weatherForCities.append(weather)
-            
             self.tableView.reloadData()
+        })
+        
+    }
+    
+    func locationWeatherSearched(results: NSDictionary)
+    {
+        dispatch_async(dispatch_get_main_queue(), {
+            let weather = Weather.weatherWithJSON(results)
             
+            for var aCity in self.cities
+            {
+                if weather.latitude == aCity.lat
+                {
+                    aCity.currentWeather = weather
+
+                }
+                else
+                {
+                    print("weather is nil")
+                }
+
+            }
 
         })
+
         
     }
 
@@ -116,9 +136,8 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        api = APIController(delegate: self)
+        api = APIController(cityDelegate: self)
         api.searchGMapsFor(zipCode)
-//        api.searchForecastFor(<#T##lat: Double##Double#>, lng: <#T##Double#>)
     
         tableView.reloadData()
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -142,31 +161,6 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 
