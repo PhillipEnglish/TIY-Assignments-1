@@ -10,7 +10,7 @@ import Foundation
 
 struct Weather
 {
-//    let name: String
+    let location: [String: Double]
     let latitude: Double
     let longitude: Double
     let summary: String
@@ -30,9 +30,10 @@ struct Weather
     
     init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double)
     {
-//        self.name = name
+        
         self.latitude = latitude
         self.longitude = longitude
+        self.location = ["lat": latitude, "lng": longitude]
         self.summary = summary
         self.icon = icon
         self.temperature = temperature

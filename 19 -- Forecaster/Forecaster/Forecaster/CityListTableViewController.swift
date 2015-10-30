@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol APIControllerProtocol
+protocol MapsAPIResultsProtocol
 {
-    func didReceiveAPIResults(results: NSDictionary)
+    func didReceiveMapsAPIResults(results: NSDictionary)
 }
 
-protocol WeatherResultProtocol
+protocol WeatherAPIResultsProtocol
 {
-    func locationWeatherSearched(results: NSDictionary)
+    func didReceiveWeatherAPIResults(results: NSDictionary)
 }
 
 protocol LocationSearchViewControllerDelegate
@@ -23,17 +23,13 @@ protocol LocationSearchViewControllerDelegate
     func locationWasSelected(zipCode: Int)
 }
 
-class CityListTableViewController: UITableViewController, APIControllerProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate, WeatherResultProtocol
+class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate, WeatherAPIResultsProtocol
 {
     var cities = Array<City>()
-//    var weatherForCities = Array<Weather>()
-//    var highLowTemps = Array<String>()
-//    var icons = Array<String>()
-//    var currentTemps = Array<String>()
     
-    var api: APIController!
+    var mapsAPI: MapsAPIController!
+    var weatherAPI: WeatherAPIController!
     
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -43,7 +39,6 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -63,38 +58,43 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
         let aCity = cities[indexPath.row]
-//        let currentTemp = weatherForCities[indexPath.row]
+        print("city's temp: \(aCity.currentWeather?.temperature)")
         
         cell.cityLabel.text = aCity.name
-//        cell.currentTempLabel.text = String(aCity.currentWeather!.temperature)
+        cell.currentTempLabel.text = String(aCity.currentWeather?.temperature)
 
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         return cell
     }
     
     // MARK: - API Controller Protocols
     
-    func didReceiveAPIResults(results: NSDictionary)
+    func didReceiveMapsAPIResults(results: NSDictionary)
     {
         dispatch_async(dispatch_get_main_queue(), {
             
             let aCity = City.cityWithJSON(results)
             self.cities.append(aCity)
-            self.api.searchForecastFor(aCity.lat!, lng: aCity.lng!)
+            
+            self.weatherAPI = WeatherAPIController(weatherDelegate: self)
+            self.weatherAPI.searchForecastFor(aCity.lat!, lng: aCity.lng!)
+            
             self.tableView.reloadData()
         })
         
     }
     
-    func locationWeatherSearched(results: NSDictionary)
+    func didReceiveWeatherAPIResults(results: NSDictionary)
     {
         dispatch_async(dispatch_get_main_queue(), {
             let weather = Weather.weatherWithJSON(results)
             
             for var aCity in self.cities
             {
-                if weather.latitude == aCity.lat
+                if weather.location == aCity.location
                 {
                     aCity.currentWeather = weather
+                    print("city's temp: \(aCity.currentWeather?.temperature)")
 
                 }
                 else
@@ -103,7 +103,7 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
                 }
 
             }
-
+            self.tableView.reloadData()
         })
 
         
@@ -136,13 +136,21 @@ class CityListTableViewController: UITableViewController, APIControllerProtocol,
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        api = APIController(cityDelegate: self)
-        api.searchGMapsFor(zipCode)
+        self.mapsAPI = MapsAPIController(cityDelegate: self)
+        
+        mapsAPI.searchGMapsFor(zipCode)
     
         tableView.reloadData()
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
 
     }
+    
+    // TODO: format CityCell with weather data
+    // TODO: create DetailVC, connect with delegate and segue
+    // TODO: format DetailVC
+    // TODO: add map to Detail VC, update with city data
+    // TODO: add 7 day forecast data detial view
+
     
     /*
     // Override to support conditional editing of the table view.

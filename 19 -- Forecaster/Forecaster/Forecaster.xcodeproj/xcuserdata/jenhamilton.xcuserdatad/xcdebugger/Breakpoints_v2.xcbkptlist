@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Forecaster/Weather.swift"
-            timestampString = "467854671.980154"
+            filePath = "Forecaster/CityListTableViewController.swift"
+            timestampString = "467924850.923581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "weatherWithJSON(_:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "didReceiveMapsAPIResults(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Forecaster/Weather.swift"
-            timestampString = "467855622.042896"
+            filePath = "Forecaster/CityListTableViewController.swift"
+            timestampString = "467924850.923581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "didReceiveWeatherAPIResults(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Forecaster/City.swift"
+            timestampString = "467918960.523136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "weatherWithJSON(_:)"
+            landmarkName = "cityWithJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Forecaster/CityListTableViewController.swift"
-            timestampString = "467914425.942929"
+            timestampString = "467925157.592663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "didReceiveAPIResults(_:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "didReceiveWeatherAPIResults(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,124 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Forecaster/CityListTableViewController.swift"
-            timestampString = "467914431.996531"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "didReceiveAPIResults(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.CityListTableViewController.didReceiveAPIResults (Forecaster.CityListTableViewController)(__ObjC.NSDictionary) -&gt; ()"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/CityListTableViewController.swift"
-                  timestampString = "467916752.40734"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.CityListTableViewController.(didReceiveAPIResults (Forecaster.CityListTableViewController) -&gt; (__ObjC.NSDictionary) -&gt; ()).(closure #1)"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/CityListTableViewController.swift"
-                  timestampString = "467916752.408012"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forecaster/CityListTableViewController.swift"
-            timestampString = "467914435.470673"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "locationWeatherSearched(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.CityListTableViewController.locationWeatherSearched (Forecaster.CityListTableViewController)(__ObjC.NSDictionary) -&gt; ()"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/CityListTableViewController.swift"
-                  timestampString = "467916752.411211"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Forecaster.CityListTableViewController.(locationWeatherSearched (Forecaster.CityListTableViewController) -&gt; (__ObjC.NSDictionary) -&gt; ()).(closure #1)"
-                  moduleName = "Forecaster"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jenhamilton/Development/TIY/TIY-Assignments/19%20--%20Forecaster/Forecaster/Forecaster/CityListTableViewController.swift"
-                  timestampString = "467916752.41177"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "34">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forecaster/APIController.swift"
-            timestampString = "467915692.976674"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "searchForecastFor(_:lng:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Forecaster/APIController.swift"
-            timestampString = "467915699.616111"
+            timestampString = "467924850.923581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "searchForecastFor(_:lng:)"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

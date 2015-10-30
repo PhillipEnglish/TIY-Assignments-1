@@ -24,7 +24,16 @@ struct City
         self.location = location
         self.lat = location.valueForKey("lat") as? Double
         self.lng = location.valueForKey("lng") as? Double
-        self.currentWeather = weather
+        
+        if weather != nil
+        {
+            self.currentWeather = weather!
+        }
+        else
+        {
+            self.currentWeather = nil
+        }
+ 
 
     }
         

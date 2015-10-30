@@ -8,19 +8,13 @@
 
 import Foundation
 
-class APIController
+class MapsAPIController
 {
-    var cityDelegate: APIControllerProtocol?
-    var weatherDelegate: WeatherResultProtocol?
+    var cityDelegate: MapsAPIResultsProtocol?
     
-    init(cityDelegate: APIControllerProtocol)
+    init(cityDelegate: MapsAPIResultsProtocol)
     {
         self.cityDelegate = cityDelegate
-    }
-    
-    init(weatherDelegate: WeatherResultProtocol)
-    {
-        self.weatherDelegate = weatherDelegate
     }
     
     func searchGMapsFor(searchTerm: Int)
@@ -40,7 +34,7 @@ class APIController
                     {
                         if let cityInnerResultDictionary = resultArray[0] as? NSDictionary
                         {
-                            self.cityDelegate!.didReceiveAPIResults(cityInnerResultDictionary)
+                            self.cityDelegate!.didReceiveMapsAPIResults(cityInnerResultDictionary)
                         }
                     }
 
@@ -49,29 +43,7 @@ class APIController
         })
         task.resume()
     }
-    
-    func searchForecastFor(lat: Double, lng: Double)
-    {
-        let url = NSURL(string: "https://api.forecast.io/forecast/0b170c5cb9388e89a3ebf29a8a3c10c9/\(lat),\(lng)")
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-            if error != nil
-            {
-                print(error!.localizedDescription)
-            }
-            else
-            {
-                
-                if let weatherDictionary = self.parseJSON(data!)
-                {
-                    self.weatherDelegate!.locationWeatherSearched(weatherDictionary)
-                }
-            }
-        })
-        task.resume()
-    }
-
-    
+ 
     
     func parseJSON(data: NSData) -> NSDictionary?
     {
