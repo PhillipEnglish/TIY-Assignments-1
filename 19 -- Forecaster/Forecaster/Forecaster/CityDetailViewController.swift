@@ -8,15 +8,26 @@
 
 import UIKit
 
-class CityDetailViewController: UIViewController {
+class CityDetailViewController: UIViewController
+{
+    var city = City?()
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func doneButton(sender: UIBarButtonItem)
+    {
+        navigationController?.popViewControllerAnimated(true)
 
-    override func didReceiveMemoryWarning() {
+    }
+    
+
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

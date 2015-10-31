@@ -23,33 +23,56 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="98"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-bZ-MOk">
-                                            <rect key="frame" x="514" y="1" width="45" height="92"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xFR-Hn-oz3">
+                                            <rect key="frame" x="8" y="8" width="352" height="42"/>
                                             <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="BTM-ZQ-Bz1"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xFR-Hn-oz3">
-                                            <rect key="frame" x="8" y="6" width="446" height="86"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="summaryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJw-vz-nm5">
+                                            <rect key="frame" x="8" y="58" width="299" height="27"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="RMn-Bz-jR6"/>
+                                                <constraint firstAttribute="width" constant="299" id="zXD-gq-P2e"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-gG-ls7">
+                                            <rect key="frame" x="433" y="0.0" width="92" height="73"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="92" id="dI3-8c-abn"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tempLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-21-Tr9">
+                                            <rect key="frame" x="477" y="16" width="81" height="74"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="dSI-hr-2WO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="28"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" constant="-2" id="4ko-oX-VXf"/>
-                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="leading" secondItem="xFR-Hn-oz3" secondAttribute="trailing" constant="60" id="B2P-rJ-UeR"/>
-                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" constant="-7" id="BGh-3J-PUS"/>
-                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="baseline" secondItem="AwZ-bZ-MOk" secondAttribute="baseline" id="Hav-5L-dHL"/>
-                                        <constraint firstItem="AwZ-bZ-MOk" firstAttribute="trailing" secondItem="4pb-La-74D" secondAttribute="trailingMargin" id="LGB-Fh-3ej"/>
-                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="leading" secondItem="4pb-La-74D" secondAttribute="leadingMargin" id="XNt-Te-kSk"/>
-                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="centerY" secondItem="4pb-La-74D" secondAttribute="centerY" id="wF2-dN-jyJ"/>
+                                        <constraint firstItem="e0h-21-Tr9" firstAttribute="bottom" secondItem="4pb-La-74D" secondAttribute="bottomMargin" id="423-At-8da"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="e0h-21-Tr9" secondAttribute="trailing" constant="1" id="7cC-W7-hmd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vJw-vz-nm5" secondAttribute="bottom" constant="5" id="JeY-bG-lYF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="T7K-gG-ls7" secondAttribute="trailing" constant="34" id="RKF-Go-8yY"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" id="T7s-re-qQf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="T7K-gG-ls7" secondAttribute="bottom" constant="17" id="URL-f8-6Bd"/>
+                                        <constraint firstItem="e0h-21-Tr9" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="topMargin" constant="8" id="XGP-Vm-FrZ"/>
+                                        <constraint firstItem="T7K-gG-ls7" firstAttribute="top" secondItem="4pb-La-74D" secondAttribute="top" id="ZwK-Ir-B7F"/>
+                                        <constraint firstItem="vJw-vz-nm5" firstAttribute="leading" secondItem="4pb-La-74D" secondAttribute="leadingMargin" id="aaY-QI-uNy"/>
+                                        <constraint firstItem="xFR-Hn-oz3" firstAttribute="leading" secondItem="vJw-vz-nm5" secondAttribute="leading" id="lU6-57-6NT"/>
+                                        <constraint firstItem="vJw-vz-nm5" firstAttribute="top" secondItem="xFR-Hn-oz3" secondAttribute="bottom" constant="8" symbolic="YES" id="mdA-HN-Vms"/>
+                                        <constraint firstItem="T7K-gG-ls7" firstAttribute="leading" secondItem="xFR-Hn-oz3" secondAttribute="trailing" constant="73" id="uu0-kh-O9J"/>
                                         <constraint firstItem="xFR-Hn-oz3" firstAttribute="leading" secondItem="4pb-La-74D" secondAttribute="leadingMargin" constant="7" id="xy5-ch-Il9"/>
                                     </constraints>
                                     <variation key="default">
@@ -61,8 +84,10 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="cityLabel" destination="xFR-Hn-oz3" id="k8i-nJ-rAh"/>
-                                    <outlet property="currentTempLabel" destination="AwZ-bZ-MOk" id="7HM-oa-B1f"/>
-                                    <segue destination="VZj-mJ-VfT" kind="showDetail" id="x6W-ff-zy0"/>
+                                    <outlet property="currentTempLabel" destination="e0h-21-Tr9" id="ldE-5w-ZoM"/>
+                                    <outlet property="iconImage" destination="T7K-gG-ls7" id="K2L-gB-gU0"/>
+                                    <outlet property="summaryLabel" destination="vJw-vz-nm5" id="eI0-cw-3X6"/>
+                                    <segue destination="VZj-mJ-VfT" kind="showDetail" trigger="accessoryAction" id="F8F-NN-ML4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,7 +119,7 @@
                         <viewControllerLayoutGuide type="top" id="RNb-jn-Jdy"/>
                         <viewControllerLayoutGuide type="bottom" id="YVF-Se-cZ2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2km-cx-mya">
+                    <view key="view" opaque="NO" alpha="0.5" contentMode="scaleToFill" id="2km-cx-mya">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -119,7 +144,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aMv-tH-7E7" firstAttribute="centerX" secondItem="jIi-dD-GbQ" secondAttribute="centerX" id="3DG-YJ-eca"/>
                             <constraint firstItem="aMv-tH-7E7" firstAttribute="width" secondItem="jIi-dD-GbQ" secondAttribute="width" id="A9g-IJ-0FI"/>
@@ -173,7 +198,7 @@
         <!--City Detail View Controller-->
         <scene sceneID="LpW-QJ-AdR">
             <objects>
-                <viewController id="Xu9-Xp-THc" customClass="CityDetailViewController" customModule="Forecaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityDetail" id="Xu9-Xp-THc" customClass="CityDetailViewController" customModule="Forecaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="clP-LR-ZdP"/>
                         <viewControllerLayoutGuide type="bottom" id="pwk-Go-4Ra"/>
@@ -187,9 +212,13 @@
                     <navigationItem key="navigationItem" id="GMa-T5-8JY">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="D3n-0S-nem">
                             <connections>
-                                <segue destination="Op4-u3-Zml" kind="show" id="MUr-yz-wZj"/>
+                                <action selector="doneButton:" destination="Xu9-Xp-THc" id="Mty-79-J8j"/>
                             </connections>
                         </barButtonItem>
+                        <connections>
+                            <outlet property="backBarButtonItem" destination="D3n-0S-nem" id="Jyu-nu-Aa6"/>
+                            <outlet property="leftBarButtonItem" destination="D3n-0S-nem" id="HoV-ct-Dvv"/>
+                        </connections>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33B-Dh-Y35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,7 +228,7 @@
         <!--Navigation Controller-->
         <scene sceneID="B1E-Ps-Fva">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VZj-mJ-VfT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="detailNavController" automaticallyAdjustsScrollViewInsets="NO" id="VZj-mJ-VfT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="he1-DD-yBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -216,7 +245,4 @@
             <point key="canvasLocation" x="2536" y="734"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="MUr-yz-wZj"/>
-    </inferredMetricsTieBreakers>
 </document>

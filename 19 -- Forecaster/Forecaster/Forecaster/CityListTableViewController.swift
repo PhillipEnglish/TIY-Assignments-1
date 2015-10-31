@@ -6,6 +6,13 @@
 //  Copyright © 2015 The Iron Yard. All rights reserved.
 //
 
+// TODO: format CityCell with weather data
+// TODO: create DetailVC, connect with delegate and segue
+// TODO: format DetailVC
+// TODO: add map to Detail VC, update with city data
+// TODO: add 7 day forecast data detial view
+// TODO: validate zipcode input
+
 import UIKit
 
 protocol MapsAPIResultsProtocol
@@ -31,6 +38,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         tableView.backgroundView = UIImageView(image: UIImage(named: "no-cities-background"))
         
     }
@@ -59,6 +67,8 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         let aCity = cities[indexPath.row]
         print("city's temp in cell: \(aCity.currentWeather?.temperature)")
         
+        let iconString: String = String(aCity.currentWeather?.icon)
+        
         cell.cityLabel.text = aCity.name
         if aCity.currentWeather != nil
         {
@@ -67,12 +77,22 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         else
         {
             cell.currentTempLabel.text = String(aCity.currentWeather?.temperature) + "°"
+            cell.summaryLabel.text = String(aCity.currentWeather?.summary)
+            cell.iconImage.image = UIImage(named: iconString)
         }
         
         
 
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let selectedCity = cities[indexPath.row]
+        let cityDetailVC = storyboard?.instantiateViewControllerWithIdentifier("CityDetail") as! CityDetailViewController
+        cityDetailVC.city = selectedCity
+        navigationController?.pushViewController(cityDetailVC, animated: true)
     }
     
 
@@ -82,10 +102,10 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     {
         if segue.identifier == "ShowLocationPopoverSegue"
         {
-            let destVC = segue.destinationViewController as! LocationSearchViewController
-            destVC.popoverPresentationController?.delegate = self
-            destVC.delegate = self
-            destVC.preferredContentSize = CGSizeMake(200.0, 100.0)
+            let locationPopoverVC = segue.destinationViewController as! LocationSearchViewController
+            locationPopoverVC.popoverPresentationController?.delegate = self
+            locationPopoverVC.delegate = self
+            locationPopoverVC.preferredContentSize = CGSizeMake(180.0, 80.0)
         }
     }
     
@@ -162,32 +182,19 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         
     }
     
-    // TODO: format CityCell with weather data
-    // TODO: create DetailVC, connect with delegate and segue
-    // TODO: format DetailVC
-    // TODO: add map to Detail VC, update with city data
-    // TODO: add 7 day forecast data detial view
-    // TODO: background screen when cities array is empty
 
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            cities.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadData()
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+
 
 }

@@ -15,12 +15,12 @@ struct Weather
     let longitude: Double
     let summary: String
     let icon: String
-//    let precipProbability: Double
-//    let precipIntensity: Double
+    let precipProbability: Double
+    let precipIntensity: Double
     let temperature: Double
-//    let apparentTemperature: Double
-//    let dewpoint: Double
-//    let humidity: Double
+    let apparentTemperature: Double
+    let dewpoint: Double
+    let humidity: Double
 //    let windSpeed: Double
 //    let windBearing: Double
 //    let visibility: Double
@@ -28,7 +28,7 @@ struct Weather
 //    let pressure: Double
 
     
-    init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double)
+    init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double, precipProb: Double, precipIntensity: Double, apparentTemp: Double, dewpoint: Double, humidity: Double)
     {
         
         self.latitude = latitude
@@ -36,7 +36,12 @@ struct Weather
         self.location = ["lat": latitude, "lng": longitude]
         self.summary = summary
         self.icon = icon
+        self.precipProbability = precipProb
+        self.precipIntensity = precipIntensity
         self.temperature = temperature
+        self.apparentTemperature = apparentTemp
+        self.dewpoint = dewpoint
+        self.humidity = humidity
     }
     
     static func weatherWithJSON(weatherDictionaryResults: NSDictionary) -> Weather
@@ -47,13 +52,18 @@ struct Weather
         if currentWeatherDictionary!.count > 0
         {
 //            let name = currentWeatherDictionary!.valueForKey("name") as? String ?? ""
-            let latitude = weatherDictionaryResults.valueForKey("latitude") as? Double
-            let longitude = weatherDictionaryResults.valueForKey("longitude") as? Double
-            let summary = currentWeatherDictionary!.valueForKey("summary") as? String ?? ""
-            let icon = currentWeatherDictionary!.valueForKey("icon") as? String ?? ""
-            let temperature = currentWeatherDictionary!.valueForKey("temperature") as? Double
+            let latitude = weatherDictionaryResults.valueForKey("latitude") as! Double
+            let longitude = weatherDictionaryResults.valueForKey("longitude") as! Double
+            let summary = currentWeatherDictionary!.valueForKey("summary") as! String
+            let icon = currentWeatherDictionary!.valueForKey("icon") as! String
+            let precipProbability = currentWeatherDictionary!.valueForKey("precipProbability") as! Double
+            let precipIntensity = currentWeatherDictionary!.valueForKey("precipIntensity") as! Double
+            let temperature = currentWeatherDictionary!.valueForKey("temperature") as! Double
+            let apparentTemperature = currentWeatherDictionary!.valueForKey("apparentTemperature") as! Double
+            let dewpoint = currentWeatherDictionary!.valueForKey("dewPoint") as! Double
+            let humidity = currentWeatherDictionary!.valueForKey("humidity") as! Double
             
-            weather = Weather(latitude: latitude!, longitude: longitude!, summary: summary, icon: icon, temperature: temperature!)
+            weather = Weather(latitude: latitude, longitude: longitude, summary: summary, icon: icon, temperature: temperature, precipProb: precipProbability, precipIntensity: precipIntensity, apparentTemp: apparentTemperature, dewpoint: dewpoint, humidity: humidity)
         }
         return weather
     }
