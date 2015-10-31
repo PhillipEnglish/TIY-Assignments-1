@@ -61,7 +61,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="cityLabel" destination="xFR-Hn-oz3" id="k8i-nJ-rAh"/>
-                                    <outlet property="currentTempLabel" destination="AwZ-bZ-MOk" id="DPA-lz-wxG"/>
+                                    <outlet property="currentTempLabel" destination="AwZ-bZ-MOk" id="7HM-oa-B1f"/>
                                     <segue destination="VZj-mJ-VfT" kind="showDetail" id="x6W-ff-zy0"/>
                                 </connections>
                             </tableViewCell>

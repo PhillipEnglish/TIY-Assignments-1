@@ -10,8 +10,7 @@ import Foundation
 
 class MapsAPIController
 {
-    var cityDelegate: MapsAPIResultsProtocol
-    var task: NSURLSessionDataTask!
+    var cityDelegate: MapsAPIResultsProtocol?
     
     init(cityDelegate: MapsAPIResultsProtocol)
     {
@@ -31,9 +30,12 @@ class MapsAPIController
             {
                 if let dictionary = self.parseJSON(data!)
                 {
-                    if let results: NSArray = dictionary["results"] as? NSArray
+                    if let resultArray: NSArray = dictionary["results"] as? NSArray
                     {
-                            self.cityDelegate.didReceiveMapsAPIResults(results)
+                        if let cityInnerResultDictionary = resultArray[0] as? NSDictionary
+                        {
+                            self.cityDelegate!.didReceiveMapsAPIResults(cityInnerResultDictionary)
+                        }
                     }
 
                 }
