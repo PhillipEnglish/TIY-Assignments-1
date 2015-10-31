@@ -10,7 +10,8 @@ import Foundation
 
 class WeatherAPIController
 {
-    var weatherDelegate: WeatherAPIResultsProtocol?
+    var weatherDelegate: WeatherAPIResultsProtocol
+    var task: NSURLSessionDataTask!
     
     init(weatherDelegate: WeatherAPIResultsProtocol)
     {
@@ -18,8 +19,10 @@ class WeatherAPIController
     }
     
        
-    func searchForecastFor(lat: Double, lng: Double)
+    func searchForecastFor(city: City)
     {
+        let lat = city.lat
+        let lng = city.lng
         let url = NSURL(string: "https://api.forecast.io/forecast/0b170c5cb9388e89a3ebf29a8a3c10c9/\(lat),\(lng)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -31,20 +34,22 @@ class WeatherAPIController
             {
                 if let weatherDictionary = self.parseJSON(data!)
                 {
-                    self.weatherDelegate!.didReceiveWeatherAPIResults(weatherDictionary)
+                    if let currently = weatherDictionary["currently"] as? NSDictionary
+                    {
+                        self.weatherDelegate.didReceiveWeatherAPIResults(currently, city: city)
+                    }
                 }
             }
         })
         task.resume()
     }
     
-    
-    
     func parseJSON(data: NSData) -> NSDictionary?
     {
         do
         {
             let dictionary: NSDictionary! = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
+            print("weather parseJSON")
             return dictionary
         }
         catch let error as NSError

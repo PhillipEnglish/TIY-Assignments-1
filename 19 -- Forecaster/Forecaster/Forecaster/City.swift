@@ -10,53 +10,51 @@ import Foundation
 
 struct City
 {
-    let name: String!
-    let location: NSDictionary
-    let lat: Double?
-    let lng: Double?
+    let name: String
+    let lat: Double
+    let lng: Double
+    let coordinates: [String: Double]
     var currentWeather: Weather?
     
-    // create weather object
-    
-    init(name: String, location: NSDictionary, weather: Weather?)
+    init(name: String, lat: Double, lng: Double, weatherObj: Weather?)
     {
         self.name = name
-        self.location = location
-        self.lat = location.valueForKey("lat") as? Double
-        self.lng = location.valueForKey("lng") as? Double
-        
-        if weather != nil
+        self.lat = lat
+        self.lng = lng
+        self.coordinates = ["lat": lat, "lng": lng]
+        if weatherObj != nil
         {
-            self.currentWeather = weather!
+            self.currentWeather = weatherObj!
         }
         else
         {
             self.currentWeather = nil
         }
- 
-
-    }
+     }
         
-    static func cityWithJSON(results: NSDictionary) -> City
+    static func cityWithJSON(results: NSArray) -> City
     {
-        var aCity: City!
+        var city: City
+        var name = ""
+        var lat = 0.0
+        var lng = 0.0
         
         if results.count > 0
         {
-           
-                let formattedAddress = results.valueForKey("formatted_address") as? String
+            for result in results
+            {
+                let formattedAddress = result["formatted_address"] as? String
                 let addressComponents = formattedAddress!.characters.split(",").map { String($0) }
-                let name =  addressComponents[0]
-                let geometry = results.valueForKey("geometry") as? NSDictionary
-                
-                let location = geometry!.valueForKey("location") as? NSDictionary
+                name =  addressComponents[0]
             
-                
-            aCity = (City(name: name, location: location!, weather: nil))
-            
+                let geometry = result["geometry"] as? NSDictionary
+                let location = geometry?.valueForKey("location") as? NSDictionary
+                lat = location?.valueForKey("lat") as! Double
+                lng = location?.valueForKey("lng") as! Double
+            }
         }
-        return aCity
+        city = City(name: name, lat: lat, lng: lng, weatherObj: nil)
+        return city
     }
-    
     
 }
