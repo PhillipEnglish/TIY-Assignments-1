@@ -25,15 +25,13 @@ protocol LocationSearchViewControllerDelegate
 
 class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate, WeatherAPIResultsProtocol
 {
-    var cities = Array<City>()
+    var cities = [City]()
     var mapsAPI: MapsAPIController!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
-
-
+        tableView.backgroundView = UIImageView(image: UIImage(named: "no-cities-background"))
         
     }
 
@@ -59,10 +57,17 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
         let aCity = cities[indexPath.row]
-        print("city's temp: \(aCity.currentWeather?.temperature)")
+        print("city's temp in cell: \(aCity.currentWeather?.temperature)")
         
         cell.cityLabel.text = aCity.name
-        cell.currentTempLabel.text = String(aCity.currentWeather?.temperature)
+        if aCity.currentWeather != nil
+        {
+            cell.currentTempLabel.text = String(aCity.currentWeather!.temperature)
+        }
+        else
+        {
+            cell.currentTempLabel.text = String(aCity.currentWeather?.temperature) + "°"
+        }
         
         
 
@@ -141,7 +146,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
                 if weather.latitude == aCity.lat
                 {
                     aCity.currentWeather = weather as Weather!
-                    print("city's temp: \(aCity.currentWeather?.temperature)")
+                    print("city's temp in API results: \(aCity.currentWeather!.temperature)°")
                     
                 }
                 else

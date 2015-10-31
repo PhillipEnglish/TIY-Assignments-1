@@ -110,15 +110,26 @@
                                     <outlet property="delegate" destination="qUo-2b-hVl" id="qeA-8t-bDT"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-tH-7E7">
+                                <rect key="frame" x="15" y="323" width="570" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aMv-tH-7E7" firstAttribute="centerX" secondItem="jIi-dD-GbQ" secondAttribute="centerX" id="3DG-YJ-eca"/>
+                            <constraint firstItem="aMv-tH-7E7" firstAttribute="width" secondItem="jIi-dD-GbQ" secondAttribute="width" id="A9g-IJ-0FI"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="leading" secondItem="2km-cx-mya" secondAttribute="leading" constant="15" id="DmF-Qh-4hB"/>
+                            <constraint firstItem="aMv-tH-7E7" firstAttribute="top" secondItem="jIi-dD-GbQ" secondAttribute="bottom" constant="8" id="OsO-nm-Qiw"/>
                             <constraint firstAttribute="trailing" secondItem="jIi-dD-GbQ" secondAttribute="trailing" constant="15" id="aXG-i1-7SW"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="top" secondItem="RNb-jn-Jdy" secondAttribute="bottom" constant="15" id="daM-Fc-ufT"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="centerY" secondItem="2km-cx-mya" secondAttribute="centerY" id="e5C-2Y-rJ6"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="centerX" secondItem="2km-cx-mya" secondAttribute="centerX" id="gQq-fO-j4f"/>
+                            <constraint firstItem="aMv-tH-7E7" firstAttribute="height" secondItem="jIi-dD-GbQ" secondAttribute="height" id="hzN-8z-Wvq"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="centerX" secondItem="2km-cx-mya" secondAttribute="centerX" id="kXP-j0-pCO"/>
                         </constraints>
                         <variation key="default">
@@ -132,6 +143,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6g1-L0-qBx"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="alertLabel" destination="aMv-tH-7E7" id="8b6-LS-2Wa"/>
                         <outlet property="zipTextField" destination="jIi-dD-GbQ" id="7Qe-ay-TI9"/>
                     </connections>
                 </viewController>

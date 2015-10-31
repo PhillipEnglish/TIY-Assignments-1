@@ -19,7 +19,7 @@
 		9AAD0EDD1BE26E2F000B8443 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0EDC1BE26E2F000B8443 /* Weather.swift */; };
 		9AAD0EDF1BE28B84000B8443 /* MapsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0EDE1BE28B84000B8443 /* MapsAPIController.swift */; };
 		9ACA13331BE3EF6600FD7F51 /* WeatherAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA13321BE3EF6600FD7F51 /* WeatherAPIController.swift */; };
-		9ADC599F1BE53922001161A7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC599E1BE53922001161A7 /* background.png */; };
+		9ADC599F1BE53922001161A7 /* no-cities-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC599E1BE53922001161A7 /* no-cities-background.png */; };
 		9ADC59A11BE53DED001161A7 /* blank-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC59A01BE53DED001161A7 /* blank-background.png */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		9AAD0EDC1BE26E2F000B8443 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		9AAD0EDE1BE28B84000B8443 /* MapsAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAPIController.swift; sourceTree = "<group>"; };
 		9ACA13321BE3EF6600FD7F51 /* WeatherAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPIController.swift; sourceTree = "<group>"; };
-		9ADC599E1BE53922001161A7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		9ADC599E1BE53922001161A7 /* no-cities-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-cities-background.png"; sourceTree = "<group>"; };
 		9ADC59A01BE53DED001161A7 /* blank-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank-background.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				9ADC59A01BE53DED001161A7 /* blank-background.png */,
-				9ADC599E1BE53922001161A7 /* background.png */,
+				9ADC599E1BE53922001161A7 /* no-cities-background.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AAD0ECD1BE268E7000B8443 /* LaunchScreen.storyboard in Resources */,
-				9ADC599F1BE53922001161A7 /* background.png in Resources */,
+				9ADC599F1BE53922001161A7 /* no-cities-background.png in Resources */,
 				9ADC59A11BE53DED001161A7 /* blank-background.png in Resources */,
 				9AAD0ECA1BE268E7000B8443 /* Assets.xcassets in Resources */,
 				9AAD0EC81BE268E7000B8443 /* Main.storyboard in Resources */,
