@@ -34,6 +34,7 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         var rc = false
+        // TODO: validate zipcode input
 
         if zipTextField.text != ""
         {

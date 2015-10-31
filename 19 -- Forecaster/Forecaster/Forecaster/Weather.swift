@@ -25,10 +25,10 @@ struct Weather
 //    let windBearing: Double
 //    let visibility: Double
 //    let cloudCover: Double
-//    let pressure: Double
+    let pressure: Double
 
     
-    init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double, precipProb: Double, precipIntensity: Double, apparentTemp: Double, dewpoint: Double, humidity: Double)
+    init(latitude: Double, longitude: Double, summary: String, icon: String, temperature: Double, precipProb: Double, precipIntensity: Double, apparentTemp: Double, dewpoint: Double, humidity: Double, pressure: Double)
     {
         
         self.latitude = latitude
@@ -42,6 +42,7 @@ struct Weather
         self.apparentTemperature = apparentTemp
         self.dewpoint = dewpoint
         self.humidity = humidity
+        self.pressure = pressure
     }
     
     static func weatherWithJSON(weatherDictionaryResults: NSDictionary) -> Weather
@@ -62,8 +63,9 @@ struct Weather
             let apparentTemperature = currentWeatherDictionary!.valueForKey("apparentTemperature") as! Double
             let dewpoint = currentWeatherDictionary!.valueForKey("dewPoint") as! Double
             let humidity = currentWeatherDictionary!.valueForKey("humidity") as! Double
+            let pressure = currentWeatherDictionary!.valueForKey("pressure") as! Double
             
-            weather = Weather(latitude: latitude, longitude: longitude, summary: summary, icon: icon, temperature: temperature, precipProb: precipProbability, precipIntensity: precipIntensity, apparentTemp: apparentTemperature, dewpoint: dewpoint, humidity: humidity)
+            weather = Weather(latitude: latitude, longitude: longitude, summary: summary, icon: icon, temperature: temperature, precipProb: precipProbability, precipIntensity: precipIntensity, apparentTemp: apparentTemperature, dewpoint: dewpoint, humidity: humidity, pressure: pressure)
         }
         return weather
     }

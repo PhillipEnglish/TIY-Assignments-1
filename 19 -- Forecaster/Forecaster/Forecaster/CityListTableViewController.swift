@@ -6,13 +6,6 @@
 //  Copyright © 2015 The Iron Yard. All rights reserved.
 //
 
-// TODO: format CityCell with weather data
-// TODO: create DetailVC, connect with delegate and segue
-// TODO: format DetailVC
-// TODO: add map to Detail VC, update with city data
-// TODO: add 7 day forecast data detial view
-// TODO: validate zipcode input
-
 import UIKit
 
 protocol MapsAPIResultsProtocol
@@ -70,6 +63,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         let iconString: String = String(aCity.currentWeather?.icon)
         
         cell.cityLabel.text = aCity.name
+        // FIXME: currentWeather data is set in function below, is lost by the time it gets back here
         if aCity.currentWeather != nil
         {
             cell.currentTempLabel.text = String(aCity.currentWeather!.temperature)
