@@ -26,14 +26,15 @@ protocol LocationSearchViewControllerDelegate
 class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol, LocationSearchViewControllerDelegate, UIPopoverPresentationControllerDelegate, WeatherAPIResultsProtocol
 {
     var cities = Array<City>()
-    
     var mapsAPI: MapsAPIController!
-    var weatherAPI: WeatherAPIController!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
 
+
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -62,52 +63,13 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         
         cell.cityLabel.text = aCity.name
         cell.currentTempLabel.text = String(aCity.currentWeather?.temperature)
+        
+        
 
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         return cell
     }
     
-    // MARK: - API Controller Protocols
-    
-    func didReceiveMapsAPIResults(results: NSDictionary)
-    {
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            let aCity = City.cityWithJSON(results)
-            self.cities.append(aCity)
-            
-            self.weatherAPI = WeatherAPIController(weatherDelegate: self)
-            self.weatherAPI.searchForecastFor(aCity.lat!, lng: aCity.lng!)
-            
-            self.tableView.reloadData()
-        })
-        
-    }
-    
-    func didReceiveWeatherAPIResults(results: NSDictionary)
-    {
-        dispatch_async(dispatch_get_main_queue(), {
-            let weather = Weather.weatherWithJSON(results)
-            
-            for var aCity in self.cities
-            {
-                if weather.location == aCity.location
-                {
-                    aCity.currentWeather = weather
-                    print("city's temp: \(aCity.currentWeather?.temperature)")
-
-                }
-                else
-                {
-                    print("weather is nil")
-                }
-
-            }
-            self.tableView.reloadData()
-        })
-
-        
-    }
 
     // MARK: - Navigation
     
@@ -133,16 +95,66 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     // MARK: - Location Delegate
     func locationWasSelected(zipCode: Int)
     {
+        tableView.backgroundView = UIImageView(image: UIImage(named: "blank-background"))
+
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         self.mapsAPI = MapsAPIController(cityDelegate: self)
         
-        mapsAPI.searchGMapsFor(zipCode)
+        let zipCodeArray = [zipCode]
+        for zipCode in zipCodeArray
+        {
+            mapsAPI.searchGMapsFor(zipCode)
+        }
+
     
-        tableView.reloadData()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
 
+    }
+    
+    
+    // MARK: - API Controller Protocols
+    
+    func didReceiveMapsAPIResults(results: NSDictionary)
+    {
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            let aCity = City.cityWithJSON(results)
+            self.cities.append(aCity)
+            
+            let weatherAPI = WeatherAPIController(weatherDelegate: self)
+            weatherAPI.searchForecastFor(aCity.lat!, lng: aCity.lng!)
+            
+            self.tableView.reloadData()
+        })
+        
+    }
+    
+    func didReceiveWeatherAPIResults(results: NSDictionary)
+    {
+        dispatch_async(dispatch_get_main_queue(), {
+            let weather = Weather.weatherWithJSON(results)
+            
+            for var aCity in self.cities
+            {
+                if weather.latitude == aCity.lat
+                {
+                    aCity.currentWeather = weather as Weather!
+                    print("city's temp: \(aCity.currentWeather?.temperature)")
+                    
+                }
+                else
+                {
+                    print("weather is nil")
+                }
+                
+            }
+            self.tableView.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+        
+        
     }
     
     // TODO: format CityCell with weather data
@@ -150,6 +162,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     // TODO: format DetailVC
     // TODO: add map to Detail VC, update with city data
     // TODO: add 7 day forecast data detial view
+    // TODO: background screen when cities array is empty
 
     
     /*
