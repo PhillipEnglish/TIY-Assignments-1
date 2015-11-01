@@ -28,6 +28,8 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     var cities = [City]()
     var mapsAPI: MapsAPIController!
     
+    // TODO: update constraints to display correctly in landscape
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
