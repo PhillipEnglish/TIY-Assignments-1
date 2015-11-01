@@ -159,8 +159,8 @@
 		9ADC59A21BE554B5001161A7 /* weather-icons */ = {
 			isa = PBXGroup;
 			children = (
-				9ADC59A31BE554B5001161A7 /* clear-day.png */,
 				9ADC59A41BE554B5001161A7 /* clear-night.png */,
+				9ADC59A31BE554B5001161A7 /* clear-day.png */,
 				9ADC59A51BE554B5001161A7 /* cloudy.png */,
 				9ADC59A61BE554B5001161A7 /* fog.png */,
 				9ADC59A71BE554B5001161A7 /* hail.png */,

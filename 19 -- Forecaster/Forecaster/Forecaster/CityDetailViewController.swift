@@ -48,10 +48,10 @@ class CityDetailViewController: UIViewController
         currentTempLabel.text = "\(Int(city.currentWeather!.temperature))°F"
         apparentTempLabel.text = "\(Int(city.currentWeather!.apparentTemperature))°F"
         dewpointLabel.text = "\(Int(city.currentWeather!.dewpoint))°F"
-        pressureLabel.text = "\(Int(city.currentWeather!.pressure)) millibars"
+//        pressureLabel.text = "\(Int(city.currentWeather!.pressure)) millibars"
         humidityLabel.text = "\(Int((city.currentWeather!.humidity) * 100))%"
         precipProbLabel.text = "\(Int((city.currentWeather!.precipProbability) * 100))%"
-        precipIntensityLabel.text = "\(city.currentWeather!.precipIntensity) inches"
+//        precipIntensityLabel.text = "\(city.currentWeather!.precipIntensity) inches"
     }
     
     func setImage(icon: String)
