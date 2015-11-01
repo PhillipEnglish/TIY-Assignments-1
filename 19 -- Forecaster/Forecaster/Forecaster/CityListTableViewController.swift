@@ -58,26 +58,20 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         let cell = tableView.dequeueReusableCellWithIdentifier("CityCell", forIndexPath: indexPath) as! CityCell        
 
         let aCity = cities[indexPath.row]
-        print("city's temp in cell: \(aCity.currentWeather?.temperature)")
         
+        // FIXME: icon not showing
         let iconString: String = String(aCity.currentWeather?.icon)
         
         cell.cityLabel.text = aCity.name
-        // FIXME: currentWeather data is set in function below, is lost by the time it gets back here
+        cell.currentTempLabel.text = "--°F"
+        cell.summaryLabel.text = ""
         if aCity.currentWeather != nil
         {
-            cell.currentTempLabel.text = String(aCity.currentWeather!.temperature)
-        }
-        else
-        {
-            cell.currentTempLabel.text = String(aCity.currentWeather?.temperature) + "°"
-            cell.summaryLabel.text = String(aCity.currentWeather?.summary)
+            cell.currentTempLabel.text = String(Int(aCity.currentWeather!.temperature)) + "°F"
+            cell.summaryLabel.text = String(aCity.currentWeather!.summary)
             cell.iconImage.image = UIImage(named: iconString)
         }
-        
-        
 
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         return cell
     }
     
@@ -126,10 +120,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             mapsAPI.searchGMapsFor(zipCode)
         }
 
-    
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-
-
     }
     
     
@@ -160,20 +151,14 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
                 if weather.latitude == aCity.lat
                 {
                     aCity.currentWeather = weather as Weather!
-                    print("city's temp in API results: \(aCity.currentWeather!.temperature)°")
-                    
+                    let cityCopy = aCity
+                    self.cities.popLast()
+                    self.cities.append(cityCopy)
                 }
-                else
-                {
-                    print("weather is nil")
-                }
-                
             }
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
-        
-        
     }
     
 

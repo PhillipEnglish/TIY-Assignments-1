@@ -12,8 +12,9 @@ import CoreLocation
 
 class CityDetailViewController: UIViewController
 {
-    var city = City?()
+    var city = City!()
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
@@ -28,6 +29,7 @@ class CityDetailViewController: UIViewController
     {
         super.viewDidLoad()
         setLabels()
+        setImage(city.currentWeather!.icon)
         mapLocation()
     }
     
@@ -36,24 +38,52 @@ class CityDetailViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
 
-    
-    // TODO: format DetailVC
-    
     // MARK: - Setup View
     
     func setLabels()
     {
-        let iconString: String = String(city!.currentWeather?.icon)
-        iconImage.image = UIImage(named: iconString)
-        currentTempLabel.text = String(city?.currentWeather?.temperature)
-        apparentTempLabel.text = String(city?.currentWeather?.apparentTemperature)
-        dewpointLabel.text = String(city?.currentWeather?.dewpoint)
-        pressureLabel.text = String(city?.currentWeather?.pressure)
-        humidityLabel.text = String(city?.currentWeather?.humidity)
-        precipProbLabel.text = String(city?.currentWeather?.precipProbability)
-        precipIntensityLabel.text = String(city?.currentWeather?.precipIntensity)
+        // FIXME: fix constraints
+        nameLabel.text = city!.name
+        // FIXME: icon not showing
+        currentTempLabel.text = "\(Int(city.currentWeather!.temperature))°F"
+        apparentTempLabel.text = "\(Int(city.currentWeather!.apparentTemperature))°F"
+        dewpointLabel.text = "\(Int(city.currentWeather!.dewpoint))°F"
+        pressureLabel.text = "\(Int(city.currentWeather!.pressure)) millibars"
+        humidityLabel.text = "\(Int((city.currentWeather!.humidity) * 100))%"
+        precipProbLabel.text = "\(Int((city.currentWeather!.precipProbability) * 100))%"
+        precipIntensityLabel.text = "\(city.currentWeather!.precipIntensity) inches"
     }
     
+    func setImage(icon: String)
+    {
+        switch icon
+        {
+            case "clear-day":
+                iconImage.image = UIImage(named: "clear-night")
+            case "cloudy":
+                iconImage.image = UIImage(named: "cloudy")
+            case "fog":
+                iconImage.image = UIImage(named: "fog")
+            case "hail":
+                iconImage.image = UIImage(named: "hail")
+            case "partly-cloudy-day":
+                iconImage.image = UIImage(named: "partly-cloudy-day")
+            case "partly-cloudy-night":
+                iconImage.image = UIImage(named: "partly-cloudy-night")
+            case "rain":
+                iconImage.image = UIImage(named: "rain")
+            case "sleet":
+                iconImage.image = UIImage(named: "sleet")
+            case "snow":
+                iconImage.image = UIImage(named: "snow")
+            case "thunderstorm":
+                iconImage.image = UIImage(named: "thunderstorm")
+            case "wind":
+                iconImage.image = UIImage(named: "wind")
+            default:
+                iconImage.image = UIImage(named: "background-blank")
+        }
+    }
     
     // MARK: - Map Display
     
