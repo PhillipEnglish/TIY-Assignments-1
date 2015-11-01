@@ -41,12 +41,26 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-gG-ls7">
+                                        <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-gG-ls7">
                                             <rect key="frame" x="433" y="0.0" width="92" height="73"/>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="73" id="80B-B4-cLU"/>
                                                 <constraint firstAttribute="width" constant="92" id="dI3-8c-abn"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="gtc-wF-ylV"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="80B-B4-cLU"/>
+                                                    <exclude reference="gtc-wF-ylV"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="80B-B4-cLU"/>
+                                                    <exclude reference="gtc-wF-ylV"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tempLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-21-Tr9">
                                             <rect key="frame" x="477" y="16" width="81" height="74"/>
@@ -54,7 +68,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="81" id="dSI-hr-2WO"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="28"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -369,18 +383,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXN-02-T9l">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="127" id="caI-qa-CcJ"/>
                                     <constraint firstAttribute="width" constant="140" id="h5B-gO-F6C"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="hRu-c6-iug"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="caI-qa-CcJ"/>
                                         <exclude reference="h5B-gO-F6C"/>
+                                        <exclude reference="hRu-c6-iug"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
+                                        <include reference="caI-qa-CcJ"/>
                                         <include reference="h5B-gO-F6C"/>
+                                        <exclude reference="hRu-c6-iug"/>
                                     </mask>
                                 </variation>
                             </imageView>

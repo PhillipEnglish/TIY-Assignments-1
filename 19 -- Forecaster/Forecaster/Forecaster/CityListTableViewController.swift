@@ -59,9 +59,6 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
 
         let aCity = cities[indexPath.row]
         
-        // FIXME: icon not showing
-        let iconString: String = String(aCity.currentWeather?.icon)
-        
         cell.cityLabel.text = aCity.name
         cell.currentTempLabel.text = "--°F"
         cell.summaryLabel.text = ""
@@ -69,7 +66,9 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         {
             cell.currentTempLabel.text = String(Int(aCity.currentWeather!.temperature)) + "°F"
             cell.summaryLabel.text = String(aCity.currentWeather!.summary)
-            cell.iconImage.image = UIImage(named: iconString)
+            // FIXME: icon not showing
+            cell.iconImage.image = UIImage(named: "\(aCity.currentWeather!.icon).png")
+            
         }
 
         return cell
@@ -160,6 +159,9 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
+    
+
+
     
 
     // Override to support editing the table view.
