@@ -165,7 +165,9 @@
                             <constraint firstItem="aMv-tH-7E7" firstAttribute="centerX" secondItem="jIi-dD-GbQ" secondAttribute="centerX" id="3DG-YJ-eca"/>
                             <constraint firstItem="aMv-tH-7E7" firstAttribute="width" secondItem="jIi-dD-GbQ" secondAttribute="width" id="A9g-IJ-0FI"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="leading" secondItem="2km-cx-mya" secondAttribute="leading" constant="15" id="DmF-Qh-4hB"/>
-                            <constraint firstItem="aMv-tH-7E7" firstAttribute="top" secondItem="jIi-dD-GbQ" secondAttribute="bottom" constant="8" id="OsO-nm-Qiw"/>
+                            <constraint firstItem="aMv-tH-7E7" firstAttribute="top" secondItem="jIi-dD-GbQ" secondAttribute="bottom" constant="8" id="OsO-nm-Qiw">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="jIi-dD-GbQ" secondAttribute="trailing" constant="15" id="aXG-i1-7SW"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="top" secondItem="RNb-jn-Jdy" secondAttribute="bottom" constant="15" id="daM-Fc-ufT"/>
                             <constraint firstItem="jIi-dD-GbQ" firstAttribute="centerY" secondItem="2km-cx-mya" secondAttribute="centerY" id="e5C-2Y-rJ6"/>

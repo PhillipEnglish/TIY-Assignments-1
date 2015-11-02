@@ -93,7 +93,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             let locationPopoverVC = segue.destinationViewController as! LocationSearchViewController
             locationPopoverVC.popoverPresentationController?.delegate = self
             locationPopoverVC.delegate = self
-            locationPopoverVC.preferredContentSize = CGSizeMake(180.0, 100.0)
+            locationPopoverVC.preferredContentSize = CGSizeMake(150.0, 80.0)
         }
     }
     
@@ -108,6 +108,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
     // MARK: - Location Delegate
     func locationWasSelected(zipCode: Int)
     {
+        // TODO: expand to accept city/state combo as well
         tableView.backgroundView = UIImageView(image: UIImage(named: "blank-background"))
 
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
