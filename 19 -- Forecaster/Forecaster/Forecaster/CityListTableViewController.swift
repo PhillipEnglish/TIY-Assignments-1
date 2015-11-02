@@ -68,7 +68,6 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         {
             cell.currentTempLabel.text = String(Int(aCity.currentWeather!.temperature)) + "°F"
             cell.summaryLabel.text = String(aCity.currentWeather!.summary)
-            // FIXME: icon not showing
             cell.iconImage.image = UIImage(named: "\(aCity.currentWeather!.icon).png")
             
         }
