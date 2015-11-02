@@ -38,30 +38,30 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
 
         if zipTextField.text != ""
         {
-//            if validateZipCode(textField.text!)
-//            {
-//                alertLabel.text = ""
+            if validateZipCode(textField.text!)
+            {
+                alertLabel.text = ""
                 zipCode = textField.text!
                 textField.resignFirstResponder()
                 rc = true
+                delegate?.locationWasSelected(Int(zipCode)!)
 
-//            }
-//            else
-//            {
-//                textField.text = ""
-//                textField.becomeFirstResponder()
-//                alertLabel.text = "Invalid Entry!"
-//            }
+            }
+            else
+            {
+                textField.text = ""
+                textField.becomeFirstResponder()
+                alertLabel.text = "Invalid Entry!"
+            }
         }
 
-        delegate?.locationWasSelected(Int(zipCode)!)
         return rc
     }
 
     func validateZipCode(zip: String) -> Bool
     {
         let characterSet = NSCharacterSet(charactersInString: "0123456789")
-        if zip.characters.count == 5 && zip.rangeOfCharacterFromSet(characterSet)?.count == 0
+        if zip.characters.count == 5  && zip.rangeOfCharacterFromSet(characterSet)?.count == 1
         {
             return true
         }

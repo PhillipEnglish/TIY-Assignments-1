@@ -93,7 +93,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             let locationPopoverVC = segue.destinationViewController as! LocationSearchViewController
             locationPopoverVC.popoverPresentationController?.delegate = self
             locationPopoverVC.delegate = self
-            locationPopoverVC.preferredContentSize = CGSizeMake(180.0, 80.0)
+            locationPopoverVC.preferredContentSize = CGSizeMake(180.0, 100.0)
         }
     }
     
