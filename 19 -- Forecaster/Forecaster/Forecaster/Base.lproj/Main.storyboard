@@ -490,21 +490,6 @@
                             </constraint>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="nM9-NX-IwD"/>
-                                <exclude reference="7oT-6T-cHc"/>
-                                <exclude reference="diq-oP-C4P"/>
-                                <exclude reference="nJn-SM-UTq"/>
-                                <exclude reference="gPp-ny-BCZ"/>
-                                <exclude reference="FYe-Bq-MwC"/>
-                                <exclude reference="DtH-8x-dtk"/>
-                                <exclude reference="a5s-cO-eCc"/>
-                                <exclude reference="aXN-02-T9l"/>
-                                <exclude reference="OE5-fb-eqO"/>
-                                <exclude reference="9vO-TQ-tHs"/>
-                                <exclude reference="Vc4-xP-6jA"/>
-                                <exclude reference="LeF-D7-utt"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="B7k-f2-a2h"/>
                                 <exclude reference="GDb-D2-KgJ"/>

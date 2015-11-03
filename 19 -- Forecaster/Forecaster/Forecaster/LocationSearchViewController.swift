@@ -14,7 +14,6 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var alertLabel: UILabel!
 
     var delegate: LocationSearchViewControllerDelegate?
-    var location: String = ""
     var zipCode: String = ""
 
     override func viewDidLoad()
@@ -34,7 +33,6 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         var rc = false
-        // TODO: validate zipcode input
 
         if zipTextField.text != ""
         {
@@ -45,7 +43,6 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
                 textField.resignFirstResponder()
                 rc = true
                 delegate?.locationWasSelected(Int(zipCode)!)
-
             }
             else
             {
@@ -54,7 +51,6 @@ class LocationSearchViewController: UIViewController, UITextFieldDelegate
                 alertLabel.text = "Invalid Entry!"
             }
         }
-
         return rc
     }
 

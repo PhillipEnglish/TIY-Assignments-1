@@ -162,10 +162,6 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         })
     }
     
-
-
-    
-
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
