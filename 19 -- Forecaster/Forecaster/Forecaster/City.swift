@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct City
+// NSCoding Constants
+let kNameKey = "name"
+let kZipCodeKey = "zipCode"
+let kLatitudeKey = "latitude"
+let kLongitudeKey = "longitude"
+
+class City: NSObject, NSCoding
 {
     let name: String!
     let location: NSDictionary
@@ -33,9 +39,29 @@ struct City
         {
             self.currentWeather = nil
         }
- 
-
     }
+    
+    // MARK: - NSCoding (serialization)
+    
+    required convenience init?(coder aDecoder: NSCoder)
+    {
+        // guard = if the 2 statements after guard are true, continue to self.init code. otherwise move to else statment and break
+        guard let name = aDecoder.decodeObjectForKey(kNameKey) as? String, let zipCode = aDecoder.decodeObjectForKey(kZipCodeKey) as? String
+            else { return nil }
+        
+        self.init(name: name, zip: zipCode, lat: aDecoder.decodeDoubleForKey(kLatitudeKey), lng: aDecoder.decodeDoubleForKey(kLongitudeKey))
+        
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder)
+    {
+        aCoder.encodeObject(self.name, forKey: kNameKey)
+        aCoder.encodeObject(self.zipCode, forKey: kZipCodeKey)
+        aCoder.encodeDouble(self.lat!, forKey: kLatitudeKey)
+        aCoder.encodeDouble(self.lng!, forKey: kLongitudeKey)
+    }
+    
+    // MARK: - Parse JSON
         
     static func cityWithJSON(results: NSDictionary) -> City
     {

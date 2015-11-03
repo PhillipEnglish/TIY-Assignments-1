@@ -8,6 +8,9 @@
 
 import UIKit
 
+// NSCoding Constants
+let kCitiesKey = "cities"
+
 protocol MapsAPIResultsProtocol
 {
     func didReceiveMapsAPIResults(results: NSDictionary)
@@ -69,7 +72,6 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             cell.currentTempLabel.text = String(Int(aCity.currentWeather!.temperature)) + "°F"
             cell.summaryLabel.text = String(aCity.currentWeather!.summary)
             cell.iconImage.image = UIImage(named: "\(aCity.currentWeather!.icon).png")
-            
         }
 
         return cell
@@ -83,6 +85,18 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         navigationController?.pushViewController(cityDetailVC, animated: true)
     }
     
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            cities.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadData()
+            
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
 
     // MARK: - Navigation
     
@@ -93,7 +107,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
             let locationPopoverVC = segue.destinationViewController as! LocationSearchViewController
             locationPopoverVC.popoverPresentationController?.delegate = self
             locationPopoverVC.delegate = self
-            locationPopoverVC.preferredContentSize = CGSizeMake(150.0, 80.0)
+            locationPopoverVC.preferredContentSize = CGSizeMake(250.0, 150.0)
         }
     }
     
@@ -147,7 +161,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         dispatch_async(dispatch_get_main_queue(), {
             let weather = Weather.weatherWithJSON(results)
             
-            for var aCity in self.cities
+            for aCity in self.cities
             {
                 if weather.latitude == aCity.lat
                 {
@@ -162,18 +176,23 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         })
     }
     
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            cities.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            tableView.reloadData()
-            
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    // MARK: - Misc
+    
+    func loadCityData()
+    {
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey(kCitiesKey) as? NSData
+        {
+            if let savedCities = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [City]
+            {
+                cities = savedCities
+                tableView.reloadData()
+            }
         }
     }
 
-
+    func saveCityData()
+    {
+        let cityData = NSKeyedArchiver.archivedDataWithRootObject(cities)
+        NSUserDefaults.standardUserDefaults().setObject(cityData, forKey: kCitiesKey)
+    }
 }
