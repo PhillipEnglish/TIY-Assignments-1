@@ -43,6 +43,8 @@ class PopupViewController: UIViewController, CLLocationManagerDelegate, UITextFi
         {
             locationString = textField.text!
             textField.resignFirstResponder()
+            locationManager.startUpdatingLocation()
+
             rc = true
         }
         return rc
