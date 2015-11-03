@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v84-Sv-FYS">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="DudeCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3ag-Ki-7un">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3ag-Ki-7un" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="C72-xb-UTL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3ag-Ki-7un" secondAttribute="bottom" id="YWK-HY-YF4"/>
+                            <constraint firstAttribute="trailing" secondItem="3ag-Ki-7un" secondAttribute="trailing" id="jif-wy-cJx"/>
+                            <constraint firstItem="3ag-Ki-7un" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v14-MT-p4j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="osi-2T-46h">
+                        <barButtonItem key="rightBarButtonItem" title="Pin Drop" id="6Eq-ON-EBx">
+                            <connections>
+                                <segue destination="NJh-P1-ZOE" kind="popoverPresentation" identifier="ShowPopoverSegue" popoverAnchorBarButtonItem="6Eq-ON-EBx" id="7yN-Ik-qUW">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addPinBarButton" destination="6Eq-ON-EBx" id="S1e-v1-FIi"/>
+                        <outlet property="mapView" destination="3ag-Ki-7un" id="kQo-7K-2JA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1195" y="-470"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="RxD-oe-NBD">
+            <objects>
+                <viewController id="NJh-P1-ZOE" customClass="PopupViewController" customModule="DudeCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pG6-E7-agA"/>
+                        <viewControllerLayoutGuide type="bottom" id="lqs-ZJ-elv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vfw-tp-LoF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Current Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akr-0g-CjE">
+                                <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TAN-zO-LdT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOm-mU-jTv">
+                                <rect key="frame" x="247" y="46" width="107" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="N1k-21-ybp"/>
+                                    <constraint firstAttribute="width" constant="107" id="u7V-cs-0F3"/>
+                                </constraints>
+                                <state key="normal" title="Add to Map"/>
+                                <connections>
+                                    <action selector="addLocationButtonTapped:" destination="NJh-P1-ZOE" eventType="touchUpInside" id="yb5-qS-OLb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wOm-mU-jTv" firstAttribute="top" secondItem="Akr-0g-CjE" secondAttribute="bottom" constant="8" id="2r9-Jj-3ba"/>
+                            <constraint firstAttribute="trailing" secondItem="Akr-0g-CjE" secondAttribute="trailing" constant="8" id="AoP-DR-RYv"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="wOm-mU-jTv" secondAttribute="bottom" constant="524" id="VOJ-qc-myg"/>
+                            <constraint firstItem="Akr-0g-CjE" firstAttribute="top" secondItem="vfw-tp-LoF" secondAttribute="top" constant="8" id="pdf-DC-FAr"/>
+                            <constraint firstItem="wOm-mU-jTv" firstAttribute="centerX" secondItem="vfw-tp-LoF" secondAttribute="centerX" id="rlK-2s-vlU"/>
+                            <constraint firstItem="Akr-0g-CjE" firstAttribute="leading" secondItem="vfw-tp-LoF" secondAttribute="leading" constant="8" id="wDU-hI-POC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VOJ-qc-myg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="addLocationButton" destination="wOm-mU-jTv" id="m17-mq-h1T"/>
+                        <outlet property="locationTextField" destination="Akr-0g-CjE" id="E6C-XM-j2g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kt2-1u-5Ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="-470"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TqA-H6-hMm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v84-Sv-FYS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tTQ-tr-Slv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gQc-gF-yWc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y61-JZ-xq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="361" y="-437"/>
+        </scene>
+    </scenes>
+</document>
