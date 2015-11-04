@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DudeCar/MapViewController.swift"
-            timestampString = "468278595.340022"
+            timestampString = "468291205.11178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "locationWasAdded(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DudeCar/MapViewController.swift"
-            timestampString = "468278505.160974"
+            timestampString = "468291205.11178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "loadMapData()"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "mapLocations(_:location2:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DudeCar/MapViewController.swift"
-            timestampString = "468278506.990512"
+            timestampString = "468291205.11178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "saveMapData()"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "pinLocations(_:location2:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

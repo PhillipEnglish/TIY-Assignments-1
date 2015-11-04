@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 // NSCoding Constants
 let kNameKey = "name"
@@ -18,12 +19,14 @@ class Location: NSObject, NSCoding
     let name: String
     let lat: Double
     let lng: Double
+    let coordinate: CLLocationCoordinate2D
     
     init(name: String, lat: Double, lng: Double)
     {
         self.name = name
         self.lat = lat
         self.lng = lng
+        self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
     
     // MARK: - NSCoding (serialization)
