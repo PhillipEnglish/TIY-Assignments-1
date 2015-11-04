@@ -79,6 +79,8 @@ class MapViewController: UIViewController, PopupViewControllerDelegate, UIPopove
         if locations.count == 1
         {
             location1 = location
+            let viewRegion = MKCoordinateRegionMakeWithDistance(location1!.coordinate, 2000, 2000)
+            mapView.setRegion(viewRegion, animated: true)
         }
         else if locations.count == 2
         {
@@ -90,6 +92,7 @@ class MapViewController: UIViewController, PopupViewControllerDelegate, UIPopove
         {
             locations.removeAll()
             location1 = location
+            locations.append(location)
         }
         
     }
@@ -115,8 +118,7 @@ class MapViewController: UIViewController, PopupViewControllerDelegate, UIPopove
         // zoom out enough to show the annotations
         mapView.camera.altitude *= 2
         
-        let viewRegion = MKCoordinateRegionMakeWithDistance(location1.coordinate, 2000, 2000)
-        mapView.setRegion(viewRegion, animated: true)
+
     }
     
     func pinLocations(location1: Location, location2: Location)
