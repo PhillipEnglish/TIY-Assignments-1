@@ -43,7 +43,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell", forIndexPath: indexPath) as! ToDoCell
-
+        cell.todoTextField.text = ""
         // get the counter at the relevant row
         let anItem = toDos[indexPath.row]
         if let itemDescription = anItem["itemDescription"] as? String
@@ -168,7 +168,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     {
         // FIXME: when item deleted from TVC and + pressed, new item is a copy of deleted item, causing errors
         let anItem = PFObject(className: "ToDoItem")
-        anItem["itemDescription"] = ""
+//        anItem["itemDescription"] = ""
         anItem["isComplete"] = false
         toDos.insert(anItem, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
