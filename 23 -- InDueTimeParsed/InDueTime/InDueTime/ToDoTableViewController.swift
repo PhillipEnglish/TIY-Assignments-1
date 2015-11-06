@@ -14,13 +14,16 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
+        // FIXME: throwing error
+        navigationItem.leftBarButtonItem = editButtonItem()
         refreshList()
+
+        
         
     }
 
@@ -80,13 +83,18 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
         // Return false if you do not want the specified item to be editable.
+
+
         return true
     }
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+
         if editingStyle == .Delete
         {
             // Delete the row from the data source
@@ -100,6 +108,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
                 }
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            refreshList()
         }
     }
     
@@ -168,6 +177,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBAction func checkboxTapped(sender: UIButton)
     {
+        // TODO: displaying correctly, but not sending to Parse correctly
         let contentView = sender.superview
         let cell = contentView?.superview as! ToDoCell
         let indexPath = tableView.indexPathForCell(cell)
