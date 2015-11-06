@@ -10,25 +10,18 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 {
-    var toDos = Array<ToDoItem>()
+    var toDos = [PFObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        refreshList()
         
-        title = "ToDo It"
-        
-//        let fetchRequest = NSFetchRequest(entityName: "ToDoItem")
-//        do {
-//
-//            let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [ToDoItem]
-//
-//            toDos = fetchResults!
-//        }
-//        catch {
-//            let nserror = error as NSError
-//            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-//            abort()
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,25 +47,35 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 
         // get the counter at the relevant row
         let anItem = toDos[indexPath.row]
-        if anItem.itemDescription == ""
+        if let itemDescription = anItem["itemDescription"] as? String
+        {
+            if itemDescription == ""
+            {
+                cell.todoTextField.becomeFirstResponder()
+            }
+            else
+            {
+                cell.todoTextField.text = itemDescription
+            }
+        }
+        else
         {
             cell.todoTextField.becomeFirstResponder()
         }
-        else
+        
+        if let isComplete = anItem["isComplete"] as? Bool
         {
-            cell.todoTextField.text = anItem.itemDescription
-        }
+            if isComplete == false
+            {
+                cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
 
-        if anItem.isComplete == false
-        {
-            cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
-
+            }
+            else
+            {
+                cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
+            }
         }
-        else
-        {
-            cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
-        }
-
+        
         return cell
     }
     
@@ -88,15 +91,38 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         {
             // Delete the row from the data source
             let anItem = toDos[indexPath.row]
-            if anItem.isComplete
+            if let isComplete = anItem["isComplete"] as? Bool
             {
-                toDos.removeAtIndex(indexPath.row)
-//                managedObjectContext.deleteObject(anItem)
+                if isComplete == true
+                {
+                    toDos.removeAtIndex(indexPath.row)
+                    anItem.deleteInBackground()
+                }
             }
-            saveContext()
-            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+    
+    // MARK: - Parse Queries
+    
+    func refreshList()
+    {
+        
+        let query = PFQuery(className: "ToDoItem")
+        query.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                if error == nil
+                {
+                    self.toDos = objects!.reverse()
+                    self.tableView.reloadData()
+                }
+                else
+                {
+                    print(error?.localizedDescription)
+                }
+        }
+        
     }
     
     // MARK: - Text Field Delegate
@@ -111,9 +137,21 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             let cell = contentView?.superview as! ToDoCell
             let indexPath = tableView.indexPathForCell(cell)
             let anItem = toDos[indexPath!.row]
-            anItem.itemDescription = textField.text!
+            anItem["itemDescription"] = textField.text!
+            anItem.saveInBackgroundWithBlock
+                {
+                    (succeeded: Bool, error: NSError?) -> Void in
+                    if succeeded
+                    {
+                        // object was saved to Parse
+                    }
+                    else
+                    {
+                        print(error?.localizedDescription)
+                    }
+            }
+
             textField.resignFirstResponder()
-            saveContext()
         }
         return rc
     }
@@ -122,12 +160,10 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBAction func addToDoItem(sender: UIBarButtonItem)
     {
-//        let aToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: managedObjectContext) as! ToDoItem
-        // add to array
-        
-        toDos.append(aToDoItem)
-        // reload the view
-        tableView.reloadData()
+        let anItem = PFObject(className: "ToDoItem")
+        toDos.insert(anItem, atIndex: 0)
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     @IBAction func checkboxTapped(sender: UIButton)
@@ -136,37 +172,17 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         let cell = contentView?.superview as! ToDoCell
         let indexPath = tableView.indexPathForCell(cell)
         let anItem = toDos[indexPath!.row]
-        // if enabled, item is true, item is complete and can be deleted
-        // send it to db
         
         if sender.currentImage == UIImage(named: "unchecked.png")
         {
             cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
-            anItem.isComplete = true
+            anItem["isComplete"] = true
         }
         else
         {
             cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
-            anItem.isComplete = false
+            anItem["isComplete"] = false
         }
-        
-        saveContext()
+        anItem.saveInBackground()
     }
-
-    // MARK: - Private Functions
-    
-    private func saveContext()
-    {
-//        do
-//        {
-//            try managedObjectContext.save()
-//        }
-//        catch
-//        {
-//            let nserror = error as NSError
-//            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-//            abort()
-//        }
-    }
-    
 }
