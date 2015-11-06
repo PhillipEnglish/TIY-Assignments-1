@@ -168,6 +168,8 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     {
         // FIXME: when item deleted from TVC and + pressed, new item is a copy of deleted item, causing errors
         let anItem = PFObject(className: "ToDoItem")
+        anItem["itemDescription"] = ""
+        anItem["isComplete"] = false
         toDos.insert(anItem, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
