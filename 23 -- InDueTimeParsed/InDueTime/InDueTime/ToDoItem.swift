@@ -7,10 +7,19 @@
 //
 
 import Foundation
-import CoreData
 
-class ToDoItem: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+class ToDoItem
+{
+    var itemDescription: String
+    var isComplete: Bool
+    let objectId: String
+    
+    init(itemDescription: String, isComplete: Bool, objectId: String)
+    {
+        self.itemDescription = itemDescription
+        self.isComplete = isComplete
+        self.objectId = objectId
+    }
+    
 }

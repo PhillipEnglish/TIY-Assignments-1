@@ -7,30 +7,28 @@
 //
 
 import UIKit
-import CoreData
 
 class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 {
     var toDos = Array<ToDoItem>()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "ToDo It"
         
-        let fetchRequest = NSFetchRequest(entityName: "ToDoItem")
-        do {
-
-            let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [ToDoItem]
-
-            toDos = fetchResults!
-        }
-        catch {
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
+//        let fetchRequest = NSFetchRequest(entityName: "ToDoItem")
+//        do {
+//
+//            let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [ToDoItem]
+//
+//            toDos = fetchResults!
+//        }
+//        catch {
+//            let nserror = error as NSError
+//            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+//            abort()
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +54,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
 
         // get the counter at the relevant row
         let anItem = toDos[indexPath.row]
-        if anItem.itemDescription == nil
+        if anItem.itemDescription == ""
         {
             cell.todoTextField.becomeFirstResponder()
         }
@@ -65,7 +63,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             cell.todoTextField.text = anItem.itemDescription
         }
 
-        if anItem.isCompleted == false
+        if anItem.isComplete == false
         {
             cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
 
@@ -90,10 +88,10 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         {
             // Delete the row from the data source
             let anItem = toDos[indexPath.row]
-            if anItem.isCompleted
+            if anItem.isComplete
             {
                 toDos.removeAtIndex(indexPath.row)
-                managedObjectContext.deleteObject(anItem)
+//                managedObjectContext.deleteObject(anItem)
             }
             saveContext()
             
@@ -113,7 +111,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
             let cell = contentView?.superview as! ToDoCell
             let indexPath = tableView.indexPathForCell(cell)
             let anItem = toDos[indexPath!.row]
-            anItem.itemDescription = textField.text
+            anItem.itemDescription = textField.text!
             textField.resignFirstResponder()
             saveContext()
         }
@@ -124,7 +122,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBAction func addToDoItem(sender: UIBarButtonItem)
     {
-        let aToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: managedObjectContext) as! ToDoItem
+//        let aToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: managedObjectContext) as! ToDoItem
         // add to array
         
         toDos.append(aToDoItem)
@@ -144,12 +142,12 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
         if sender.currentImage == UIImage(named: "unchecked.png")
         {
             cell.checkbox.setImage(UIImage(named: "checked.png"), forState: UIControlState.Normal)
-            anItem.isCompleted = true
+            anItem.isComplete = true
         }
         else
         {
             cell.checkbox.setImage(UIImage(named: "unchecked.png"), forState: UIControlState.Normal)
-            anItem.isCompleted = false
+            anItem.isComplete = false
         }
         
         saveContext()
@@ -159,16 +157,16 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     private func saveContext()
     {
-        do
-        {
-            try managedObjectContext.save()
-        }
-        catch
-        {
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
+//        do
+//        {
+//            try managedObjectContext.save()
+//        }
+//        catch
+//        {
+//            let nserror = error as NSError
+//            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+//            abort()
+//        }
     }
     
 }
