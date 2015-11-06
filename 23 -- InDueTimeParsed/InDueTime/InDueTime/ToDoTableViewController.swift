@@ -19,12 +19,8 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-        // FIXME: throwing error
         navigationItem.leftBarButtonItem = editButtonItem()
         refreshList()
-
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,10 +101,11 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
                 {
                     toDos.removeAtIndex(indexPath.row)
                     anItem.deleteInBackground()
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    refreshList()
+
                 }
             }
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            refreshList()
         }
     }
     
@@ -169,6 +166,7 @@ class ToDoTableViewController: UITableViewController, UITextFieldDelegate
     
     @IBAction func addToDoItem(sender: UIBarButtonItem)
     {
+        // FIXME: when item deleted from TVC and + pressed, new item is a copy of deleted item, causing errors
         let anItem = PFObject(className: "ToDoItem")
         toDos.insert(anItem, atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
