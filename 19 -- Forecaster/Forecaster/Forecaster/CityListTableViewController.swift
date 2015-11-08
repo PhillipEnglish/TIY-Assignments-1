@@ -38,7 +38,6 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         tableView.backgroundView = UIImageView(image: UIImage(named: "no-cities-background"))
-        
     }
 
     override func didReceiveMemoryWarning()
@@ -48,7 +47,8 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1
     }
 
@@ -96,6 +96,7 @@ class CityListTableViewController: UITableViewController, MapsAPIResultsProtocol
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        saveCityData()
     }
 
     // MARK: - Navigation

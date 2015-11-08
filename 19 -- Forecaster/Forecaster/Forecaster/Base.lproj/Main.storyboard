@@ -192,11 +192,11 @@
                                 <exclude reference="KOD-0r-rvE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="daM-Fc-ufT"/>
-                                <exclude reference="gQq-fO-j4f"/>
                                 <exclude reference="7l3-vw-uSt"/>
                                 <exclude reference="de7-b3-shB"/>
                                 <exclude reference="raQ-oY-rrG"/>
+                                <exclude reference="daM-Fc-ufT"/>
+                                <exclude reference="gQq-fO-j4f"/>
                                 <exclude reference="XaZ-nd-aGa"/>
                             </mask>
                         </variation>
