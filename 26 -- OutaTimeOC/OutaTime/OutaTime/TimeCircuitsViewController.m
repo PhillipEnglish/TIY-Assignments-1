@@ -45,6 +45,8 @@ NSTimer *timer;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     currentSpeed = 0;
+    [self setPresentTimeLabel];
+    [self updateUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +57,19 @@ NSTimer *timer;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([[segue identifier] isEqualToString:@"ShowDatePickerSegue"])
+    {
+        TimeCircuitsViewController *timeVC = (DatePickerViewController *)[segue destinationViewController];
+//  SWIFTY     datePickerVC.delegate = self
+//        [self [delegate datePickerVC]];
+        timeVC.delegate = self;
+
+    }
 }
 
 - (void)dateWasPicked:(NSDate*)dateSelected;
 {
-    
+    self.destinationTimeLabel.text = [self formatDate: dateSelected];
 }
 
 - (NSString*)formatDate:(NSDate*)rawDate;
@@ -70,7 +79,6 @@ NSTimer *timer;
     
     NSString *dateString = [dateFormatter stringFromDate:rawDate];
     return [dateString uppercaseString];
-    
 }
 
 - (IBAction)setTimeButton:(id)sender
@@ -83,7 +91,10 @@ NSTimer *timer;
     [self startTimer];
 }
 
-
+- (void)setPresentTimeLabel
+{
+    self.presentTimeLabel.text = [self formatDate: [NSDate date]];
+}
 
 - (void)startTimer
 {
@@ -108,14 +119,6 @@ NSTimer *timer;
     self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
 }
 
-- (void)setPresentTimeLabel
-{
-// SWIFTY:
-// presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
-
-//    presentTimeLabel.text =
-}
-
 - (void)setLastTimeLabel
 {
     self.lastTimeLabel.text = self.destinationTimeLabel.text;
@@ -128,7 +131,7 @@ NSTimer *timer;
     currentSpeed = newCount + 1;
     self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
     
-    if (newCount == 88)
+    if (*newCount == 88)
     {
         [self stopTimer];
         [self setLastTimeLabel];
