@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DatePickerViewController.h
 //  OutaTime
 //
 //  Created by Jennifer Hamilton on 11/9/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DatePickerViewController : UIViewController
 
 @end
-
