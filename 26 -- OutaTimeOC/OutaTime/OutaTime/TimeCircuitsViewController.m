@@ -36,14 +36,15 @@
  
  */
 
-
-
+NSInteger *currentSpeed;
+NSTimer *timer;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    currentSpeed = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +80,63 @@
 
 - (IBAction)travelBackButton:(UIButton *)sender
 {
+    [self startTimer];
+}
+
+
+
+- (void)startTimer
+{
+    if (timer != nil)
+    {
+        [NSTimer scheduledTimerWithTimeInterval: 0.1
+                                          target: self
+                                        selector: @selector(updateUI)
+                                        userInfo: nil
+                                         repeats: NO];
+    }
+    else
+    {
+        [self stopTimer];
+    }
+}
+
+- (void)stopTimer
+{
+    [timer invalidate];
+    timer = nil;
+    self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
+}
+
+- (void)setPresentTimeLabel
+{
+// SWIFTY:
+// presentTimeLabel.text = dateFormatter.stringFromDate(NSDate())
+
+//    presentTimeLabel.text =
+}
+
+- (void)setLastTimeLabel
+{
+    self.lastTimeLabel.text = self.destinationTimeLabel.text;
     
 }
+
+- (void)updateUI
+{
+    NSInteger *newCount = currentSpeed;
+    currentSpeed = newCount + 1;
+    self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
+    
+    if (newCount == 88)
+    {
+        [self stopTimer];
+        [self setLastTimeLabel];
+        currentSpeed = 0;
+        self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
+    }
+
+}
+
 @end
+
