@@ -8,7 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeCircuitsViewController : UIViewController
+@protocol ProtocolDelegate <NSObject>
+
+- (void)dateWasPicked:(NSDate*)dateSelected;
+
+@end
+
+@interface TimeCircuitsViewController : UIViewController <ProtocolDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *destinationTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *presentTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+
+- (IBAction)setTimeButton:(UIButton *)sender;
+
+- (IBAction)travelBackButton:(UIButton *)sender;
 
 
 @end

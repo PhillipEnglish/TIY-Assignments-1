@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimeCircuitsViewController.h"
 
 @interface DatePickerViewController : UIViewController
+
+- (IBAction)datePicker:(UIDatePicker *)sender;
+
+// create delegate instance
+
+@property (strong, nonatomic) id <ProtocolDelegate> delegate;
 
 @end

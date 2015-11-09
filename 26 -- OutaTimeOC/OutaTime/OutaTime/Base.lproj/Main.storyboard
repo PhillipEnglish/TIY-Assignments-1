@@ -118,6 +118,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="SET DESTINATION TIME"/>
+                                <connections>
+                                    <action selector="setTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2y-eX-Ovj"/>
+                                    <segue destination="oxh-rU-aTp" kind="show" identifier="ShowDatePickerSegue" id="oHc-MT-3iT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isq-2H-5Q2">
                                 <rect key="frame" x="15" y="555" width="570" height="30"/>
@@ -127,6 +131,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="TRAVEL BACK"/>
+                                <connections>
+                                    <action selector="travelBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7N-g5-zI6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -186,6 +193,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="uRa-pK-cX0"/>
+                    <connections>
+                        <outlet property="destinationTimeLabel" destination="EZI-fF-BuD" id="Lga-Yh-hEa"/>
+                        <outlet property="lastTimeLabel" destination="eHl-iK-43H" id="pUw-X8-Pj6"/>
+                        <outlet property="presentTimeLabel" destination="cal-UY-Qoy" id="H3U-WR-HIv"/>
+                        <outlet property="setTimeButton" destination="q7J-WO-TSK" id="NHQ-oF-6qY"/>
+                        <outlet property="speedLabel" destination="GTF-en-3iz" id="eN1-5j-wUX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,6 +223,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="468789074.39100999">
                                     <!--2015-11-09 19:11:14 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePicker:" destination="oxh-rU-aTp" eventType="valueChanged" id="bMZ-P9-aNF"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <animations/>

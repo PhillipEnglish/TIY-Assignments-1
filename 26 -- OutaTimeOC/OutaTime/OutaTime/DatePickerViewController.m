@@ -34,4 +34,9 @@
 }
 */
 
+- (IBAction)datePicker:(UIDatePicker *)sender
+{
+//    delegate?.destinationDateWasChosen(picker.date)    
+    [self.delegate dateWasPicked: sender.date];
+}
 @end
