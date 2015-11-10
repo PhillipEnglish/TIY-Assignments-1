@@ -61,7 +61,7 @@ NSTimer *timer;
 
 - (void)startTimer
 {
-    if (timer != nil)
+    if (timer == nil)
     {
         [NSTimer scheduledTimerWithTimeInterval: 0.1
                                           target: self
@@ -113,8 +113,7 @@ NSTimer *timer;
     NSInteger *newCount = currentSpeed;
     currentSpeed = newCount + 1;
     self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
-    // TODO: this is weird
-    if (*newCount == 88)
+    if ((long)newCount == 88)
     {
         [self stopTimer];
         [self setLastTimeLabel];
