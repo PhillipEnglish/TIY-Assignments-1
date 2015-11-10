@@ -10,8 +10,7 @@
 #import "TimeCircuitsViewController.h"
 
 @interface DatePickerViewController : UIViewController
-
-- (IBAction)datePicker:(UIDatePicker *)sender;
+@property (weak, nonatomic) IBOutlet UIDatePicker *picker;
 
 // create delegate instance
 

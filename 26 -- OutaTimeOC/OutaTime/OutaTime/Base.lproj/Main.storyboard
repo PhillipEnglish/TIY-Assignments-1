@@ -196,9 +196,8 @@
                     <connections>
                         <outlet property="destinationTimeLabel" destination="EZI-fF-BuD" id="Lga-Yh-hEa"/>
                         <outlet property="lastTimeLabel" destination="eHl-iK-43H" id="pUw-X8-Pj6"/>
-                        <outlet property="presentTimeLabel" destination="cal-UY-Qoy" id="H3U-WR-HIv"/>
-                        <outlet property="setTimeButton" destination="q7J-WO-TSK" id="NHQ-oF-6qY"/>
-                        <outlet property="speedLabel" destination="GTF-en-3iz" id="eN1-5j-wUX"/>
+                        <outlet property="presentTimeLabel" destination="cal-UY-Qoy" id="I4d-dw-GnL"/>
+                        <outlet property="speedLabel" destination="GTF-en-3iz" id="pld-p6-Ro1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -223,9 +222,6 @@
                                 <date key="date" timeIntervalSinceReferenceDate="468789074.39100999">
                                     <!--2015-11-09 19:11:14 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="datePicker:" destination="oxh-rU-aTp" eventType="valueChanged" id="bMZ-P9-aNF"/>
-                                </connections>
                             </datePicker>
                         </subviews>
                         <animations/>
@@ -236,6 +232,9 @@
                             <constraint firstItem="ZKo-yg-Db9" firstAttribute="centerY" secondItem="VFM-H5-p8f" secondAttribute="centerY" id="Un1-Bq-f7d"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="ZKo-yg-Db9" id="999-av-O1b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n13-yt-4UK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,14 +15,13 @@
 
 @implementation TimeCircuitsViewController
 
-NSInteger *currentSpeed;
+NSInteger *currentSpeed = 0;
 NSTimer *timer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    currentSpeed = 0;
     [self setPresentTimeLabel];
     [self updateUI];
 }
@@ -39,24 +38,22 @@ NSTimer *timer;
 {
     if ([[segue identifier] isEqualToString:@"ShowDatePickerSegue"])
     {
-        TimeCircuitsViewController *timeVC = (DatePickerViewController *)[segue destinationViewController];
-//FIXME: delegate call wrong
-//  SWIFTY     datePickerVC.delegate = self
-//        [self [delegate datePickerVC]];
-//        timeVC.delegate = self;
+        DatePickerViewController *timeVC = (DatePickerViewController *)[segue destinationViewController];
+        timeVC.delegate = self;
 
     }
 }
 
 #pragma mark - Action Handlers
 
-- (IBAction)setTimeButton:(id)sender
+- (IBAction)setTimeButton:(UIButton *)sender
 {
     
 }
 
 - (IBAction)travelBackButton:(UIButton *)sender
 {
+    // TODO: not working
     [self startTimer];
 }
 
@@ -116,7 +113,7 @@ NSTimer *timer;
     NSInteger *newCount = currentSpeed;
     currentSpeed = newCount + 1;
     self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
-    
+    // TODO: this is weird
     if (*newCount == 88)
     {
         [self stopTimer];
@@ -124,7 +121,6 @@ NSTimer *timer;
         currentSpeed = 0;
         self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
     }
-
 }
 
 @end

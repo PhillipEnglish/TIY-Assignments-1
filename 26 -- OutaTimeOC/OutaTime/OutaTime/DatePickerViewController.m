@@ -36,9 +36,9 @@
 }
 */
 
-- (IBAction)datePicker:(UIDatePicker *)sender
+- (void)viewWillDisappear:(BOOL)animated
 {
-//    delegate?.destinationDateWasChosen(picker.date)    
-    [self.delegate dateWasPicked: sender.date];
+    [super viewWillDisappear:animated];
+    [self.delegate dateWasPicked: self.picker.date];
 }
 @end
